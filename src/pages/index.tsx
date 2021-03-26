@@ -11,21 +11,21 @@ const Index = ({newsList}: {newsList: NewsType[]}) => {
       <Head>
         <title>TsKulis - Haber, Son Dakika Haberler, Güncel Gazete Haberleri</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link rel="canonical" href="https://www.haberibul.com"></link>
-        <meta name="title" content="Haberibul.com" />
+        <link rel="canonical" href="https://www.tskulis.com"></link>
+        <meta name="title" content="Ts Kulis" />
         <meta name="description" content="Ulusal Spor Magazin Ekonomi Futbol Canlı Son Dakika haberlerini bulabileceğiniz haber sayfası." />
         <meta property="og:image" content="/logo512.png" />
-        <meta property="og:url" content="https://haberibul.com" />
+        <meta property="og:url" content="https://tskulis.com" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://haberibul.com" />
-        <meta property="og:title" content="Haberibul.com" />
+        <meta property="og:url" content="https://tskulis.com" />
+        <meta property="og:title" content="tskulis.com" />
         <meta property="og:description" content="Ulusal Spor Magazin Ekonomi Futbol Canlı Son Dakika haberlerini bulabileceğiniz haberi bul sayfası." />
-        <meta name="twitter:url" content="https://haberibul.com" />
-        <meta name="twitter:title" content="Haberibul.com" />
+        <meta name="twitter:url" content="https://tskulis.com" />
+        <meta name="twitter:title" content="tskulis.com" />
         <meta name="twitter:description" content="Ulusal Spor Magazin Ekonomi Futbol Canlı Son Dakika haberlerini bulabileceğiniz haberi bul sayfası." />
-        <meta name="twitter:site" content="@HaberibulCom" />
-        <meta name="twitter:creator" content="@HaberibulCom" />
-        <meta name="keywords" content="haberi bul, haber bul, haberibul, haberbul, haber, güncel haberler, son dakika haberleri, en son haber, Türkiye, siyaset, güncel, spor, ekonomi, gazete manşetleri"></meta>
+        <meta name="twitter:site" content="@tskulis" />
+        <meta name="twitter:creator" content="@tskulis" />
+        <meta name="keywords" content="Trabzonspor son dakika haberleri, en son haber, Trabzonspor, futbol, güncel, spor manşetleri"></meta>
       </Head>
       <div className="containerDesktop">
         <Content newsList={newsList} />

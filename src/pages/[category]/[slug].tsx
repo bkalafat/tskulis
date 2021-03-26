@@ -30,7 +30,7 @@ const NewsDetail = ({ news }: { news: NewsType }) => {
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:url" content={url} />
           <meta property="twitter:title" content={news.caption} />
-          <meta property="twitter:description" content={news.summary + " #haberibul"} />
+          <meta property="twitter:description" content={news.summary + " #tskulis"} />
           <meta name="keywords" content={news.keywords ? news.keywords : news.caption.split(' ').join(', ')} />
         </Head>
         <div className="newsDetail">

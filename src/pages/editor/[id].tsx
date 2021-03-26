@@ -20,7 +20,7 @@ const NewsEditor = () => {
   const [newNews, setNews] = useState(Const.DEFAULT_NEWS)
 
   const handleImage = async (imageUri: any) => {
-    const image = await Helper.convertFile(imageUri, "haberibul-" + selectedImg.name + '.webp')
+    const image = await Helper.convertFile(imageUri, "tskulis-" + selectedImg.name + '.webp')
     setNews({ ...newNews, imgPath: await API.uploadFile(image) })
     setSubmitting(true)
   }
@@ -88,7 +88,7 @@ const NewsEditor = () => {
   }
   const putWatermark = async (image: File): Promise<Blob> => {
     return await watermark([image])
-      .blob(watermark.text.upperRight('Haberibul.com', '34px serif', '#FF0000', 0.7))
+      .blob(watermark.text.upperRight('TsKulis.com', '34px serif', '#FF0000', 0.7))
   }
   const resizeImage = (imgBlob: Blob) => {
     Resizer.imageFileResizer(imgBlob, 1280, 800, "JPEG", 90, 0,
