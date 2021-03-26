@@ -39,7 +39,7 @@ const Footer = () => {
         </div>
         <div className="center">
           <Link href="/">
-            <a><Image layout="intrinsic" width="557" height="75" className="logo" src="/haberibul.png" alt="haberibul" /></a>
+            <a>TS KULİS</a>
           </Link>
         </div>
       </footer>
