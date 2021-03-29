@@ -4,12 +4,7 @@ export enum TYPE {
   SUB_NEWS = "subNews"
 }
 export enum CATEGORY {
-  GENERAL= "General",
-  ECONOMY= "Economy",
-  SPORT= "Sport",
-  MAGAZINE= "magazine",
-  TECH= "Tech",
-  HEALTH= "Health",
-  RECIPE= "Recipe",
-  LOCAL= "Local"
+  TRABZONSPOR= "Trabzonspor",
+  TRANSFER= "Transfer",
+  GENERAL= "General"
 }

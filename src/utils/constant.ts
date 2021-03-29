@@ -53,12 +53,7 @@ export const TEST_NEWS: NewsType = {
 }
 
 export const Categories = Object.freeze({
-  GENERAL: { key: CATEGORY.GENERAL, value: "Gündem", to: "gundem" },
-  ECONOMY: { key: CATEGORY.ECONOMY, value: "Ekonomi", to: "ekonomi" },
-  SPORT: { key: CATEGORY.SPORT, value: "Spor", to: "spor" },
-  MAGAZINE: { key: CATEGORY.MAGAZINE, value: "Magazin", to: "magazin" },
-  TECH: { key: CATEGORY.TECH, value: "Teknoloji", to: "teknoloji" },
-  HEALTH: { key: CATEGORY.HEALTH, value: "Sağlık", to: "saglik" },
-  RECIPE: { key: CATEGORY.RECIPE, value: "Tarif", to: "tarif" },
-  LOCAL: { key: CATEGORY.LOCAL, value: "Yerel", to: "yerel" }
+  TRABZONSPOR: { key: CATEGORY.TRABZONSPOR, value: "Trabzonspor", to: "trabzonspor" },
+  ECONOMY: { key: CATEGORY.TRANSFER, value: "Transfer", to: "transfer" },
+  SPORT: { key: CATEGORY.GENERAL, value: "Trabzon Gündemi", to: "gundem" }
 })

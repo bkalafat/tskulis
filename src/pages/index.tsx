@@ -13,16 +13,16 @@ const Index = ({newsList}: {newsList: NewsType[]}) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="canonical" href="https://www.tskulis.com"></link>
         <meta name="title" content="Ts Kulis" />
-        <meta name="description" content="Ulusal Spor Magazin Ekonomi Futbol Canlı Son Dakika haberlerini bulabileceğiniz haber sayfası." />
+        <meta name="description" content="Trabzonspor haberlerini bulabileceğiniz haber sayfası." />
         <meta property="og:image" content="/logo512.png" />
         <meta property="og:url" content="https://tskulis.com" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://tskulis.com" />
         <meta property="og:title" content="tskulis.com" />
-        <meta property="og:description" content="Ulusal Spor Magazin Ekonomi Futbol Canlı Son Dakika haberlerini bulabileceğiniz haberi bul sayfası." />
+        <meta property="og:description" content="Trabzonspor haberlerini bulabileceğiniz haberi bul sayfası." />
         <meta name="twitter:url" content="https://tskulis.com" />
         <meta name="twitter:title" content="tskulis.com" />
-        <meta name="twitter:description" content="Ulusal Spor Magazin Ekonomi Futbol Canlı Son Dakika haberlerini bulabileceğiniz haberi bul sayfası." />
+        <meta name="twitter:description" content="Trabzonspor haberlerini bulabileceğiniz haberi bul sayfası." />
         <meta name="twitter:site" content="@tskulis" />
         <meta name="twitter:creator" content="@tskulis" />
         <meta name="keywords" content="Trabzonspor son dakika haberleri, en son haber, Trabzonspor, futbol, güncel, spor manşetleri"></meta>
