@@ -37,7 +37,7 @@ export const getCategoryToByKey = (key: string) => {
 }
 
 export const getUrlWithId = (news: NewsType) => {
-  return "https://haberibul.com/" + getCategoryToByKey(news.category) + "/" + getSlug(news) + "/" + news.id
+  return "https://tskulis.com/" + getCategoryToByKey(news.category) + "/" + getSlug(news) + "/" + news.id
 }
 
 export const getFullUrl = (news: NewsType) => {
@@ -57,7 +57,7 @@ export const getFullSlug = (news: NewsType) => {
 }
 
 export const generateUrlWithoutId = (news: NewsType) => {
-  return "https://haberibul.com/" + getCategoryToByKey(news.category) + "/" + getSlug(news)
+  return "https://tskulis.com/" + getCategoryToByKey(news.category) + "/" + getSlug(news)
 }
 
 export const sortCreateDateDesc = () => {
