@@ -9,7 +9,7 @@ const Index = ({newsList}: {newsList: NewsType[]}) => {
   return (
     <Layout>
       <Head>
-        <title>TsKulis - Haber, Son Dakika Haberler, Güncel Gazete Haberleri</title>
+        <title>TS Kulis - Haber, Son Dakika Haberler, Güncel Gazete Haberleri</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="canonical" href="https://www.tskulis.com"></link>
         <meta name="title" content="Ts Kulis" />
@@ -18,10 +18,10 @@ const Index = ({newsList}: {newsList: NewsType[]}) => {
         <meta property="og:url" content="https://tskulis.com" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://tskulis.com" />
-        <meta property="og:title" content="tskulis.com" />
+        <meta property="og:title" content="TS Kulis" />
         <meta property="og:description" content="Trabzonspor haberlerini bulabileceğiniz haberi bul sayfası." />
         <meta name="twitter:url" content="https://tskulis.com" />
-        <meta name="twitter:title" content="tskulis.com" />
+        <meta name="twitter:title" content="TS Kulis" />
         <meta name="twitter:description" content="Trabzonspor haberlerini bulabileceğiniz haberi bul sayfası." />
         <meta name="twitter:site" content="@tskulis" />
         <meta name="twitter:creator" content="@tskulis" />
