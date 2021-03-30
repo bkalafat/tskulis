@@ -41,6 +41,7 @@ const Footer = () => {
           <Link href="/">
             <a>TS KULİS</a>
           </Link>
+          <Link href="/privacypolicy" as={"/privacypolicy"}><a>Privacy Policy</a></Link>
         </div>
       </footer>
     </article>
