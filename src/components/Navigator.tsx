@@ -6,7 +6,7 @@ import Image from "next/image"
 const Navigator = () => {
   return (
     <div style={{ marginBottom: 8 }}>
-      <Navbar style={{ paddingTop: 0, paddingBottom: 0, marginTop: 7 }} collapseOnSelect={true} bg="dark" variant="dark" expand="lg">
+      <Navbar className="color-nav" style={{ paddingTop: 0, paddingBottom: 0, marginTop: 7 }} collapseOnSelect={true} variant="dark" expand="lg">
         <Link href="/"><Navbar.Brand style={{ paddingTop: 0, paddingBottom: 0, width: 57, height: 57 }}>
 
           <Image
