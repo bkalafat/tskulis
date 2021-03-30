@@ -253,8 +253,9 @@ article {
 
 footer {
   padding: 5px;
-  background-color: #001f3f;
-  color: #fff;
+  background: rgb(164, 29, 52);
+  background: linear-gradient(90deg, rgba(164, 29, 52, 1) 35%, rgba(20, 192, 241, 1) 100%);
+  /* bordo:a41d34 ve mavi: #14c0f1 */
 }
 
 .App {
