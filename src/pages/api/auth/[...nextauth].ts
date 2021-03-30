@@ -15,14 +15,12 @@ const options = {
 
   callbacks: {
     /**
-     * @param  {string} url      URL provided as callback URL by the client
+     * @param  {string} _url      URL provided as callback URL by the client
      * @param  {string} baseUrl  Default base URL of site (can be used as fallback)
      * @return {string}          URL the client will be redirect to
      */
-    redirect: async (url, baseUrl) => {
-      return url.startsWith(baseUrl)
-        ? Promise.resolve(url + "/adminpanel")
-        : Promise.resolve(baseUrl + "/adminpanel")
+    redirect: async (_url, baseUrl) => {
+      return Promise.resolve(baseUrl + "/adminpanel")
     }
   }
 }
