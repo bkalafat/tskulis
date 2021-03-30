@@ -37,11 +37,15 @@ const Footer = () => {
             />
           </div>
         </div>
-        <div className="center">
-          <Link href="/">
-            <a>TS KULİS</a>
-          </Link>
-          <Link href="/privacypolicy" as={"/privacypolicy"}><a>Privacy Policy</a></Link>
+        <div className="centerFlex" >
+          <div className="spaceAround">
+            <Link href="/">
+              <a>TS KULİS</a>
+            </Link>
+          </div>
+          <div className="spaceAround">
+            <Link href="/privacypolicy" as={"/privacypolicy"}><a>Privacy Policy</a></Link>
+          </div>
         </div>
       </footer>
     </article>
