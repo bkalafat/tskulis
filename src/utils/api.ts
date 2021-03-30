@@ -33,7 +33,7 @@ export const insertNews = (news: NewsType) => {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(news)
-  }).then(()=> "ok", error => console.log(error))
+  }).then(() => "ok", error => console.log(error))
 }
 
 export const updateNews = (news: NewsType) => {
@@ -59,4 +59,13 @@ export const uploadFile = async (file: File) => {
   formData.append("image", file, file.name)
   const res = await axios.post(Const.UPLOAD_FILE_PATH, formData)
   return res.data.fileUrl
+}
+
+export async function createFile(url: string, fileName: string, type: string) {
+  let response = await fetch(url);
+  let blobData = await response.blob();
+  let metadata = {
+    type
+  };
+  return new File([blobData], fileName, metadata);
 }

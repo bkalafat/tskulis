@@ -57,3 +57,5 @@ export const Categories = Object.freeze({
   ECONOMY: { key: CATEGORY.TRANSFER, value: "Transfer", to: "transfer" },
   SPORT: { key: CATEGORY.GENERAL, value: "Trabzon Gündemi", to: "gundem" }
 })
+
+export const BreakingNewsImgPath = "https://firebasestorage.googleapis.com/v0/b/news-26417.appspot.com/o/tskulis-EQp1k2OW4AALwQt.jfif.webp?alt=media&token=db4a1bab-06a6-48c0-9743-3046d16fc7a4"

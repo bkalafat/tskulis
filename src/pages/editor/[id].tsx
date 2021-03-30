@@ -18,6 +18,7 @@ const NewsEditor = () => {
   const urlId = Array.isArray(id) ? id[0] : id
   const isUpdate = urlId && urlId != 'new';
   const [newNews, setNews] = useState(Const.DEFAULT_NEWS)
+  let tempImgPath;
 
   const handleImage = async (imageUri: any) => {
     const image = await Helper.convertFile(imageUri, "tskulis-" + selectedImg.name + '.webp')
@@ -72,13 +73,16 @@ const NewsEditor = () => {
     if (form.checkValidity() === false) {
       e.stopPropagation();
     }
-    setValidated(true);
+    else {
+      setValidated(true);
+    }
+
     if (!newNews.authors.includes(session.user.email.toLowerCase()))
       setNews({ ...newNews, authors: [...newNews.authors, session.user.email.toLowerCase()] })
     if (validateInputs())
-      if (selectedImg && selectedImg.name) {
+      if (selectedImg && selectedImg.name && newNews.imgPath !== Const.BreakingNewsImgPath) {
         upsertImage(selectedImg)
-      } else if (isUpdate) {
+      } else if (isUpdate || newNews.imgPath === Const.BreakingNewsImgPath) {
         setSubmitting(true)
       }
   }
@@ -88,7 +92,7 @@ const NewsEditor = () => {
   }
   const putWatermark = async (image: File): Promise<Blob> => {
     return await watermark([image])
-      .blob(watermark.text.upperRight('TsKulis.com', '34px serif', '#FF0000', 0.7))
+      .blob(watermark.text.upperRight('TsKulis.com', '24px serif', '#a3a3a3', 0.3))
   }
   const resizeImage = (imgBlob: Blob) => {
     Resizer.imageFileResizer(imgBlob, 1280, 800, "JPEG", 90, 0,
@@ -98,7 +102,7 @@ const NewsEditor = () => {
   }
   const validateInputs = (): boolean => {
     const validationMessages: string[] = []
-    if (!isUpdate && (!selectedImg || !selectedImg.name)) {
+    if (!isUpdate && (!selectedImg || !selectedImg.name) && newNews.imgPath !== Const.BreakingNewsImgPath) {
       validationMessages.push("Lütfen fotoğraf ekleyiniz!")
     }
     if (newNews.content.length <= 45) {
@@ -115,6 +119,15 @@ const NewsEditor = () => {
   const fileSelectorHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedImg(event.target.files[0])
   }
+  const toggleLastMinuteImg = async () => {
+    if (newNews.imgPath === Const.BreakingNewsImgPath) {
+      setNews({ ...newNews, imgPath: tempImgPath })
+    }
+    else {
+      tempImgPath = newNews.imgPath;
+      setNews({ ...newNews, imgPath: Const.BreakingNewsImgPath, imgAlt: "Son Dakika Resmi" })
+    }
+  }
   const admins = getAdmins();
   return (
     <div>
@@ -129,10 +142,17 @@ const NewsEditor = () => {
           <Button
             variant={selectedImg ? "info" : "primary"}
             onClick={() => fileInput.current.click()}
+            disabled={newNews.imgPath === Const.BreakingNewsImgPath}
           >
             {isUpdate ? "Fotoğrafı Güncelle" : "Fotoğraf Ekle"}
           </Button>
           <p>{selectedImg ? selectedImg.name : "Fotoğraf Seç"}</p>
+          <Button
+            variant={newNews.imgPath === Const.BreakingNewsImgPath ? "info" : "primary"}
+            onClick={() => toggleLastMinuteImg()}
+          >
+            Son Dakika Foto
+          </Button>
         </div>
         <input
           ref={fileInput}
@@ -257,7 +277,7 @@ const NewsEditor = () => {
             </Button>
             <Button style={{ marginRight: 7 }} variant="warning" onClick={() => Router.push('/adminpanel')}>
               Geri
-          </Button>
+            </Button>
             {isUpdate && (
               <Button
                 variant="danger"
