@@ -76,9 +76,11 @@ const NewsEditor = () => {
     else {
       setValidated(true);
     }
+    const currentAuthor = session.user.email.toLowerCase()
 
-    if (!newNews.authors.includes(session.user.email.toLowerCase()))
-      setNews({ ...newNews, authors: [...newNews.authors, session.user.email.toLowerCase()] })
+    if (!newNews.authors.includes(currentAuthor) && currentAuthor !== "") {
+      setNews({ ...newNews, authors: [...newNews.authors.filter(x => x !== ""), currentAuthor] })
+    }
     if (validateInputs())
       if (selectedImg && selectedImg.name && newNews.imgPath !== Const.BreakingNewsImgPath) {
         upsertImage(selectedImg)

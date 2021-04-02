@@ -36,6 +36,10 @@ const AdminPanel = ({ newsListParam }: { newsListParam: NewsType[] }) => {
       sort: true
     },
     {
+      dataField: "authors",
+      text: "Yazarlar"
+    },
+    {
       dataField: "type",
       text: "Tip",
       formatter: typeFormatter
