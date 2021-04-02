@@ -4,7 +4,7 @@ import Head from "next/head"
 import SquareAd from "../../components/SquareAd"
 import { NewsType } from "../../types/NewsType"
 import Image from "next/image";
-import { generateUrlWithoutId, getCategoryToByKey } from "../../utils/helper"
+import { generateUrlWithoutId, getCategoryToByKey, ShowMedias } from "../../utils/helper"
 import { getNewsBySlug, getNewsList } from "../../utils/api"
 import { MIN_SLUG_LENGTH } from "../../utils/constant"
 
@@ -52,7 +52,7 @@ const NewsDetail = ({ news }: { news: NewsType }) => {
           dangerouslySetInnerHTML={{
             __html:
               "<div class='container content'" +
-              news.content +
+              ShowMedias(news.content) +
               "</div>"
           }}
         />

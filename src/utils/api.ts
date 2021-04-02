@@ -17,9 +17,6 @@ export const getNewsBySlug = (slug: string): Promise<NewsType> => {
 }
 
 export const upsertNews = (newNews: NewsType) => {
-
-  newNews.content = ShowMedias(newNews.content)
-
   if ("id" in newNews && newNews.id && newNews.id.length > 0) {
     return updateNews(newNews)
   } else {
