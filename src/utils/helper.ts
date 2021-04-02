@@ -69,3 +69,33 @@ export const sortCreateDateDesc = () => {
 export const getAdmins = () => {
   return ["kalafatburak@gmail.com", "mircolakoglu@gmail.com", "burakkalafat@hotmail.com", "barisatmaca061@gmail.com"];
 }
+
+export const ShowMedias = (content: string) => {
+  if (typeof window !== 'undefined') {
+    const parentEmbed = document.createElement("span")
+    parentEmbed.innerHTML = content
+    const something = parentEmbed;
+
+    let oembeds = something.querySelectorAll("oembed")
+    let embedArray = Array.from(oembeds)
+
+    for (const embed in embedArray) {
+      let url = embedArray[embed].getAttribute("url")
+      url = url.replace("watch?v=", "embed/")
+      const newIframe = document.createElement("iframe")
+      newIframe.setAttribute("width", "auto")
+      newIframe.setAttribute("height", "auto")
+      newIframe.setAttribute("allowFullScreen", "")
+      newIframe.setAttribute("frameBorder", "0")
+      if (url) {
+        newIframe.setAttribute("src", url)
+      }
+
+      embedArray[embed].parentNode.replaceChild(newIframe, embedArray[embed])
+    }
+
+    return parentEmbed.outerHTML
+  }
+
+  return content;
+}

@@ -1,4 +1,4 @@
-import { getEnvironmentUrl, setDefaultValues } from "./helper"
+import { getEnvironmentUrl, setDefaultValues, ShowMedias } from "./helper"
 import axios from "axios"
 import fetch from 'isomorphic-unfetch'
 import * as Const from "./constant"
@@ -17,6 +17,9 @@ export const getNewsBySlug = (slug: string): Promise<NewsType> => {
 }
 
 export const upsertNews = (newNews: NewsType) => {
+
+  newNews.content = ShowMedias(newNews.content)
+
   if ("id" in newNews && newNews.id && newNews.id.length > 0) {
     return updateNews(newNews)
   } else {
