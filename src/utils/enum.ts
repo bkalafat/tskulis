@@ -6,5 +6,6 @@ export enum TYPE {
 export enum CATEGORY {
   TRABZONSPOR= "Trabzonspor",
   TRANSFER= "Transfer",
-  GENERAL= "General"
+  GENERAL= "General",
+  FOOTBALL = "Football"
 }

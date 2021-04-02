@@ -6,7 +6,7 @@ export const UPLOAD_FILE_PATH =
   "https://us-central1-news-26417.cloudfunctions.net/uploadFile"
 export const DEFAULT_NEWS: NewsType = {
   type: TYPE.NEWS,
-  category: CATEGORY.GENERAL,
+  category: CATEGORY.TRABZONSPOR,
   caption: "",
   summary: "",
   content:
@@ -30,7 +30,7 @@ export const DEFAULT_NEWS: NewsType = {
 
 export const TEST_NEWS: NewsType = {
   type: TYPE.NEWS,
-  category: CATEGORY.GENERAL,
+  category: CATEGORY.TRABZONSPOR,
   caption: "Test Caption About " + Date.now.toString(),
   summary: "Test Summary About " + Date.now.toString(),
   content:
@@ -54,8 +54,9 @@ export const TEST_NEWS: NewsType = {
 
 export const Categories = Object.freeze({
   TRABZONSPOR: { key: CATEGORY.TRABZONSPOR, value: "Trabzonspor", to: "trabzonspor" },
-  ECONOMY: { key: CATEGORY.TRANSFER, value: "Transfer", to: "transfer" },
-  SPORT: { key: CATEGORY.GENERAL, value: "Trabzon Gündemi", to: "gundem" }
+  FOOTBALL: { key: CATEGORY.FOOTBALL, value: "Futbol", to: "futbol" },
+  TRANSFER: { key: CATEGORY.TRANSFER, value: "Transfer", to: "transfer" },
+  GENERAL: { key: CATEGORY.GENERAL, value: "Trabzon Gündemi", to: "gundem" }
 })
 
 export const BreakingNewsImgPath = "https://firebasestorage.googleapis.com/v0/b/news-26417.appspot.com/o/tskulis-EQp1k2OW4AALwQt.jfif.webp?alt=media&token=db4a1bab-06a6-48c0-9743-3046d16fc7a4"
