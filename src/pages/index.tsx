@@ -9,7 +9,7 @@ const Index = ({newsList}: {newsList: NewsType[]}) => {
   return (
     <Layout>
       <Head>
-        <title>TS Kulis - Haber, Son Dakika Haberler, Güncel Gazete Haberleri</title>
+        <title>TS Kulis - Trabzonspor, Futbol, Son Dakika Trabzonspor Haberler, Güncel Futbol Transferleri</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="canonical" href="https://www.tskulis.com"></link>
         <meta name="title" content="Ts Kulis" />
