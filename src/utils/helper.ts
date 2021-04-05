@@ -67,7 +67,7 @@ export const sortCreateDateDesc = () => {
 }
 
 export const getAdmins = () => {
-  return ["kalafatburak@gmail.com","Ktuna17@outlook.com", "mircolakoglu@gmail.com", "burakkalafat@hotmail.com", "barisatmaca061@gmail.com"];
+  return ["kalafatburak@gmail.com","ktuna17@outlook.com", "mircolakoglu@gmail.com", "burakkalafat@hotmail.com", "barisatmaca061@gmail.com"];
 }
 
 export const ShowMedias = (content: string) => {
