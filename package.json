@@ -44,7 +44,8 @@
     "styled-components": "^5.2.3",
     "swr": "^0.5.5",
     "typeorm": "^0.2.32",
-    "watermarkjs": "^2.1.1"
+    "watermarkjs": "^2.1.1",
+    "workbox-webpack-plugin": "^6.1.5"
   },
   "scripts": {
     "debug": "cross-env NODE_OPTIONS='--inspect' next dev",
