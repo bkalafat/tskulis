@@ -35,4 +35,7 @@ module.exports = withOffline({
       },
     ]
   },
+  future: {
+    webpack5: true,
+  },
 })
