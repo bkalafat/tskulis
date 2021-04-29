@@ -1,9 +1,11 @@
 import Layout from "../components/Layout"
+import Head from "next/head"
 
 const PrivacyPolicy = () => {
   return (<>
 
     <Layout>
+      <Head><title>Privacy Policy</title></Head>
 
       <h1 className="text-center">Privacy Policy</h1>
 

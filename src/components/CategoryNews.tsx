@@ -16,12 +16,12 @@ const CategoryNews = () => {
 
   if (error || !data || categoryUrl == undefined) {
     return (
-      <div><Head>{categoryUrl}</Head><div>Yükleniyor...</div></div>
+      <><Head><title>{categoryUrl}</title></Head><div>Yükleniyor...</div></>
     )
   }
   else {
     if (!data && data.length === 0)
-      return (<div><Head>{categoryUrl}</Head><div>Haber bulunamadı</div></div>)
+      return (<><Head><title>{categoryUrl}</title></Head><div>Haber bulunamadı</div></>)
 
     const categoryObj = getCategoryByTo(categoryUrl)
     const newsList = data.filter(news => news.category === categoryObj.key)
@@ -45,7 +45,7 @@ const CategoryNews = () => {
     upperCaseCategory = `${upperCaseCategory[0].toUpperCase()}${upperCaseCategory.substring(1)}`;
 
     return (
-      <div>
+      <>
         <Head>
           <title>{upperCaseCategory + " haberi bul, son dakika " + upperCaseCategory + " gelişmeleri"}</title>
           <link rel="shortcut icon" href="/favicon.ico" />
@@ -73,7 +73,7 @@ const CategoryNews = () => {
           <SquareAd />
           <SubNews newsList={subNewsList.slice(0, 32)}></SubNews>
         </div>
-      </div>
+      </>
     )
   }
 }
