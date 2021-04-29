@@ -23,7 +23,6 @@
     "mongodb": "^3.6.6",
     "next": "^10.2.0",
     "next-auth": "^3.19.2",
-    "next-offline": "^5.0.5",
     "next-sitemap": "^1.6.25",
     "node-sass": "^5.0.0",
     "npm": "^7.11.1",
