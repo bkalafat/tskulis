@@ -3087,9 +3087,9 @@
       }
     },
     "@testing-library/user-event": {
-      "version": "13.1.5",
-      "resolved": "https://registry.npmjs.org/@testing-library/user-event/-/user-event-13.1.5.tgz",
-      "integrity": "sha512-dD1FRHuWhfdcnb6H9/oaIIZHx9LQKGxbTtYV3i5Zru8I3GWWJoG2WtlAlXZ/56djO+6TvfsWPj5cXQvoTFQATQ==",
+      "version": "13.1.6",
+      "resolved": "https://registry.npmjs.org/@testing-library/user-event/-/user-event-13.1.6.tgz",
+      "integrity": "sha512-mykGPKQn0QO5faqJ47I6Wp3yererB3nNH9OEELVLyDZ4b6QTnix1OFbR0/th1bEYHaWiiymm2hJ5czOyWP2WUg==",
       "requires": {
         "@babel/runtime": "^7.12.5"
       }
@@ -13619,9 +13619,9 @@
       }
     },
     "next-auth": {
-      "version": "3.18.2",
-      "resolved": "https://registry.npmjs.org/next-auth/-/next-auth-3.18.2.tgz",
-      "integrity": "sha512-6K7y7Hwat9CJkmNx5FPECIsn3I0+uLlzPlRdZiBddXMu1xb9nAcsD/DRu0tEdp/7c2jJ2OZpmvG1gyBxsBt3Nw==",
+      "version": "3.19.2",
+      "resolved": "https://registry.npmjs.org/next-auth/-/next-auth-3.19.2.tgz",
+      "integrity": "sha512-v6o0Gyxpw8rtfXXLWImLtoTClO/e9PL1F/CNW/BkCfyteWtnTNDSiQcRPi7pQWQUw3Fk7nQlJFXL6he547snJA==",
       "requires": {
         "@next-auth/prisma-legacy-adapter": "^0.0.1-canary.115",
         "@next-auth/typeorm-legacy-adapter": "^0.0.2-canary.117",
