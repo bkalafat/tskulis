@@ -11,28 +11,19 @@ const Footer = () => {
         <div className="centerFlex">
           <div className="spaceAround">
             <SocialIcon
-              rel="noopener noreferrer nofollow"
               url="https://www.facebook.com/tskulis"
-              target="_blank"
-              style={{ height: size, width: size }}
               network="facebook"
             />
           </div>
           <div className="spaceAround">
             <SocialIcon
               url="https://twitter.com/tskulis61"
-              rel="noopener noreferrer nofollow"
-              target="_blank"
-              style={{ height: size, width: size }}
               network="twitter"
             />
           </div>
           <div className="spaceAround">
             <SocialIcon
               url="https://www.instagram.com/tskuliss"
-              rel="noopener noreferrer nofollow"
-              target="_blank"
-              style={{ height: size, width: size }}
               network="instagram"
             />
           </div>
