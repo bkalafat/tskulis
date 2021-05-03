@@ -37,6 +37,9 @@ const Footer = () => {
           <div className="spaceAround">
             <Link href="/privacypolicy" as={"/privacypolicy"}><a>Privacy Policy</a></Link>
           </div>
+          <div className="spaceAround">
+            <Link href="/kunye" as={"/kunye"}><a>Künye</a></Link>
+          </div>
         </div>
       </footer>
     </article>
