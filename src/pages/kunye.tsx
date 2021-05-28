@@ -98,6 +98,17 @@ const PrivacyPolicy = () => {
 
         <div className="hbrmItem">
           <div className="hbrmTitle">
+            <span>Köşe Yazarı</span>
+          </div>
+          <div className="hbrmText">
+            <span>Berker Küçük
+              <br /><a href="mailto:aberker61@gmail.com" title="aberker61@gmail.com adresine mail gönderin">omer.ozarslan@tskulis.com</a>
+            </span>
+          </div>
+        </div>
+
+        <div className="hbrmItem">
+          <div className="hbrmTitle">
             <span>Yazılım</span>
           </div>
           <div className="hbrmText">
