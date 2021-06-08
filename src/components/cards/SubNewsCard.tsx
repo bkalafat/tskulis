@@ -11,8 +11,7 @@ const SubNewsCard = (news: NewsType) => {
     key={news.id}
   >
     <Link
-      href={Helper.getHrefModel(news.url.length)}
-      as={Helper.getFullSlug(news)}
+      href={"../" + Helper.getFullSlug(news)}
     >
       <a>
         <Image

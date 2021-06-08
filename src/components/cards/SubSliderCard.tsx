@@ -8,8 +8,7 @@ import { NewsType } from "../../types/NewsType";
 const SubSliderCard = (news: NewsType) => {
   return <div key={news.id} >
     <Link
-      href={Helper.getHrefModel(news.url.length)}
-      as={Helper.getFullSlug(news)}
+      href={"../" + Helper.getFullSlug(news)}
       key={news.id}
     >
 
