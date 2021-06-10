@@ -34598,8 +34598,7 @@
     "@next/react-refresh-utils": {
       "version": "10.2.3",
       "resolved": "https://registry.npmjs.org/@next/react-refresh-utils/-/react-refresh-utils-10.2.3.tgz",
-      "integrity": "sha512-qtBF56vPC6d6a8p7LYd0iRjW89fhY80kAIzmj+VonvIGjK/nymBjcFUhbKiMFqlhsarCksnhwX+Zmn95Dw9qvA==",
-      "requires": {}
+      "integrity": "sha512-qtBF56vPC6d6a8p7LYd0iRjW89fhY80kAIzmj+VonvIGjK/nymBjcFUhbKiMFqlhsarCksnhwX+Zmn95Dw9qvA=="
     },
     "@nodelib/fs.scandir": {
       "version": "2.1.4",
@@ -52791,6 +52790,7 @@
       "resolved": "https://registry.npmjs.org/react-bootstrap-table-next/-/react-bootstrap-table-next-4.0.3.tgz",
       "integrity": "sha512-uKxC73qUdUfusRf2uzDfMiF9LvTG5vuhTZa0lbAgHWSLLLaKTsI0iHf1e4+c7gP71q8dFsp7StvkP65SxC1JRg==",
       "requires": {
+        "classnames": "^2.2.5",
         "react-transition-group": "^4.2.0",
         "underscore": "1.9.1"
       }
@@ -57696,8 +57696,7 @@
     "ws": {
       "version": "7.4.6",
       "resolved": "https://registry.npmjs.org/ws/-/ws-7.4.6.tgz",
-      "integrity": "sha512-YmhHDO4MzaDLB+M9ym/mDA5z0naX8j7SIlT8f8z+I0VtzsRbekxEutHSme7NPS2qE8StCYQNUnfWdXta/Yu85A==",
-      "requires": {}
+      "integrity": "sha512-YmhHDO4MzaDLB+M9ym/mDA5z0naX8j7SIlT8f8z+I0VtzsRbekxEutHSme7NPS2qE8StCYQNUnfWdXta/Yu85A=="
     },
     "xml-name-validator": {
       "version": "3.0.0",
