@@ -8,6 +8,10 @@ export const getNewsList = (): Promise<NewsType[]> => {
   return fetch(getEnvironmentUrl() + "news/get").then(res => res.json())
 }
 
+export const getLastNewsList = (): Promise<NewsType[]> => {
+  return fetch(getEnvironmentUrl() + "news/GetLastNews").then(res => res.json())
+}
+
 export const getNews = (id: string): Promise<NewsType> => {
   return fetch(getEnvironmentUrl() + "news/get/" + id).then(res => res.json(), error => console.log(error))
 }
