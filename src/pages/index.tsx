@@ -37,7 +37,7 @@ const Index = ({newsList}: {newsList: NewsType[]}) => {
 export const getStaticProps = async () => {
   const newsList = await API.getNewsList()
   return {
-    revalidate: 60,
+    revalidate: 120,
     props: {
       newsList
     }
