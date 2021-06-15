@@ -135,7 +135,7 @@ const PrivacyPolicy = () => {
 
         <div className="hbrmItem">
           <div className="hbrmText">
-            <span>TSKulis.com web sitesinde yayınlanan haber, resim, bilgi, belge, metin, video niteliğindeki tüm yazılı ve görsel eserler Türkiye Cumhuriyeti Yasalarına tamamen uygun olarak yayınlanmaktadır. TC 5846 sayılı Fikir ve Sanat Eserleri Kanunu'nun telif haklarına ilişkin hükümlerine ve AB Fikri Mülkiyet Hukukuna göre TSKulis.com'un yazılı izni olmadıkça hiçbir kimse, yayıncı ve kuruluş, herhangi bir eserin tamamını veya bir kısmını yayınlayamaz, çoğaltamaz, alıntı yapamaz.</span>
+            <span>TSKulis.com web sitesinde yayınlanan haber, resim, bilgi, belge, metin, video niteliğindeki tüm yazılı ve görsel eserler Türkiye Cumhuriyeti Yasalarına tamamen uygun olarak yayınlanmaktadır. TC 5846 sayılı Fikir ve Sanat Eserleri Kanunu&apos;nun telif haklarına ilişkin hükümlerine ve AB Fikri Mülkiyet Hukukuna göre TSKulis.com&apos;un yazılı izni olmadıkça hiçbir kimse, yayıncı ve kuruluş, herhangi bir eserin tamamını veya bir kısmını yayınlayamaz, çoğaltamaz, alıntı yapamaz.</span>
           </div>
         </div>
       </div>

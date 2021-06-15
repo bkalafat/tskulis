@@ -18,7 +18,7 @@ const Share: FC<{ news: NewsType }> = ({ news }: { news: NewsType }) => {
   if (news) {
     return (
       <div className="share">
-        <Link href="https://news.google.com/publications/CAAqBwgKMJy7mgswtsWyAw?hl=tr&gl=TR&ceid=TR%3Atr" >
+        <Link passHref href="https://news.google.com/publications/CAAqBwgKMJy7mgswtsWyAw?hl=tr&gl=TR&ceid=TR%3Atr" >
           <div className="google-news">
             <span className="google-news-subscribe" >Abone Ol</span>
             <a className="google-news-button" rel="noopener noreferrer nofollow"
