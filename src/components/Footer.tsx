@@ -1,10 +1,8 @@
-import React from "react"
+import React, { FC } from "react"
 import { SocialIcon } from "react-social-icons"
 import Link from "next/link"
-import Image from "next/image"
 
-const size = 33
-const Footer = () => {
+const Footer: FC = () => {
   return (
     <article>
       <footer>

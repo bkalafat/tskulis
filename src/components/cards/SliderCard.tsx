@@ -3,9 +3,9 @@ import { BrowserView, MobileView } from "react-device-detect";
 import * as Helper from '../../utils/helper';
 import { NewsType } from "../../types/NewsType";
 import Image from 'next/image'
+import { FC } from "react";
 
-const SliderCard = (news: NewsType) => {
-
+const SliderCard : FC<NewsType> = (news: NewsType) => {
   return <div key={news.id} className="ratio">
     <Link
       href={"../" + Helper.getFullSlug(news)}

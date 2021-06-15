@@ -52,9 +52,9 @@ const NewsDetail = ({ lastNewsList, news }: { lastNewsList: NewsType[], news: Ne
           onContextMenu={e => e.preventDefault()}
           dangerouslySetInnerHTML={{
             __html:
-              "<div class='container content'" +
+              "<div class='container content'> " +
               ShowMedias(news.content) +
-              "</div>"
+              " </div>"
           }}
         />
         <div className='container content center-item  text-center'>

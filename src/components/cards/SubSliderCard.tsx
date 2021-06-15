@@ -1,11 +1,11 @@
-import React from "react";
+import React, { FC } from "react";
 import Link from "next/link";
 import { isMobile } from "react-device-detect";
 import * as Helper from '../../utils/helper';
 import Image from "next/image";
 import { NewsType } from "../../types/NewsType";
 
-const SubSliderCard = (news: NewsType) => {
+const SubSliderCard : FC<NewsType> = (news: NewsType) => {
   return <div key={news.id} >
     <Link
       href={"../" + Helper.getFullSlug(news)}

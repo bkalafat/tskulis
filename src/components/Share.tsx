@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC } from "react"
 import * as Helper from '../utils/helper'
 import Link from 'next/link'
 import {
@@ -14,7 +14,7 @@ import {
 import { NewsType } from "../types/NewsType"
 import Image from "next/image"
 
-const Share = ({ news }: { news: NewsType }) => {
+const Share: FC<{ news: NewsType }> = ({ news }: { news: NewsType }) => {
   if (news) {
     return (
       <div className="share">

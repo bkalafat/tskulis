@@ -1,4 +1,4 @@
-import { getEnvironmentUrl, setDefaultValues, ShowMedias } from "./helper"
+import { getEnvironmentUrl, setDefaultValues } from "./helper"
 import axios from "axios"
 import fetch from 'isomorphic-unfetch'
 import * as Const from "./constant"

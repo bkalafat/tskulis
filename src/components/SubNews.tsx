@@ -1,8 +1,8 @@
-import React from "react"
+import React, { FC } from "react"
 import { NewsType } from "../types/NewsType"
 import SubNewsCard from "./cards/SubNewsCard"
 
-const SubNews = ({ newsList }: { newsList: NewsType[] }) => {
+const SubNews : FC<{ newsList: NewsType[] }> = ({ newsList }: { newsList: NewsType[] }) => {
 
   return (
     <div className="subNews clickable">

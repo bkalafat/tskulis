@@ -1,11 +1,11 @@
-import React from "react";
+import React, { FC } from "react";
 import Link from "next/link";
 import { BrowserView, MobileView, isMobile } from "react-device-detect";
 import Image from "next/image";
 import * as Helper from '../../utils/helper';
 import { NewsType } from "../../types/NewsType";
 
-const SubNewsCard = (news: NewsType) => {
+const SubNewsCard: FC<NewsType> = (news: NewsType) => {
   return <div
     className="col-xs-12 col-sm-12 col-md-4 subNews-child relativeDiv"
     key={news.id}
