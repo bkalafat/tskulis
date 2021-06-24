@@ -1,4 +1,4 @@
-import { getEnvironmentUrl, setDefaultCommentValues, setDefaultValues } from "./helper"
+import { getEnvironmentUrl, setDefaultValues } from "./helper"
 import axios from "axios"
 import fetch from 'isomorphic-unfetch'
 import * as Const from "./constant"
@@ -79,19 +79,6 @@ export const deleteNews = (id: string) => {
     method: "DELETE"
   }).then(() => "ok", error => console.log(error))
 }
-
-export const insertComment = (comment: CommentType) => {
-  setDefaultCommentValues(comment)
-  return fetch(getEnvironmentUrl() + "comment/post", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(comment)
-  }).then(() => "ok", error => console.log(error))
-}
-
 
 export const uploadFile = async (file: File) => {
   const formData = new FormData()

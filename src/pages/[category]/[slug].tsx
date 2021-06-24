@@ -1,6 +1,7 @@
 import Share from "../../components/Share"
 import Layout from "../../components/Layout"
 import Head from "next/head"
+import SquareAd from "../../components/SquareAd"
 import SubNews from "../../components/SubNews"
 import CommentArea from "../../components/CommentArea"
 import { NewsType } from "../../types/NewsType"
@@ -46,6 +47,7 @@ const NewsDetail = ({ lastNewsList, news, comments: comments }: { lastNewsList: 
               alt={news.imgAlt}
             /></div>
           <Share news={news}></Share>
+          <SquareAd />
         </div>
         <div
           className="container"
@@ -59,7 +61,8 @@ const NewsDetail = ({ lastNewsList, news, comments: comments }: { lastNewsList: 
         />
 
         <div className='container content center-item text-center'>
-          <CommentArea newsId={news.id} comments={comments} />
+          <CommentArea comments={comments} />
+          <SquareAd />
           <time className="time" dateTime={news.createDate}>Haber Giriş: {formatted}</time>
           <SubNews newsList={lastNewsList.filter(
             n =>

@@ -1,7 +1,6 @@
 import * as Const from "./constant"
 import slugify from "slugify"
 import { NewsType } from "../types/NewsType"
-import { CommentType } from "../types/CommentType"
 
 export function getEnvironmentUrl() {
   return process.env.NEXT_PUBLIC_API_PATH
@@ -25,13 +24,6 @@ export function setDefaultValues(news: NewsType) {
   delete news['id']
 
   return news
-}
-
-export function setDefaultCommentValues(comment: CommentType) {
-  comment.createDate = new Date().toISOString()
-  comment.updateDate = new Date().toISOString()
-  delete comment['id']
-  return comment
 }
 
 export const getCategoryByTo = (to: string) => {
@@ -75,7 +67,7 @@ export const sortCreateDateDesc = () => {
 }
 
 export const getAdmins = () => {
-  return ["kalafatburak@gmail.com", "fatalarr@gmail.com", "ktuna17@outlook.com", "mircolakoglu@gmail.com", "burakkalafat@hotmail.com", "barisatmaca061@gmail.com", "aberker61@gmail.com", "berkerkucuk1@gmail.com", "zaferhalatci@gmail.com"];
+  return ["kalafatburak@gmail.com","fatalarr@gmail.com","ktuna17@outlook.com", "mircolakoglu@gmail.com", "burakkalafat@hotmail.com", "barisatmaca061@gmail.com","aberker61@gmail.com","berkerkucuk1@gmail.com","zaferhalatci@gmail.com"];
 }
 
 export const ShowMedias = (content: string) => {
