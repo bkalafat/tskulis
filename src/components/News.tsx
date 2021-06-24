@@ -2,7 +2,6 @@ import React, { FC } from "react"
 import CustomSlider from "./CustomSlider"
 import SubSlider from "./SubSlider"
 import SubNews from "./SubNews"
-import SquareAd from "./SquareAd"
 import { NewsType } from "../types/NewsType"
 import { TYPE } from "../utils/enum"
 import { sortCreateDateDesc } from "../utils/helper"
@@ -46,7 +45,6 @@ const News: FC<{ newsList: NewsType[] }> = ({ newsList }: { newsList: NewsType[]
         <SubSlider newsList={subSliderNews} />
       </div>
       <div>
-        <SquareAd />
         <SubNews newsList={subNewsList} />
       </div>
     </div>
