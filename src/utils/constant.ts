@@ -1,3 +1,4 @@
+import { CommentType } from "../types/CommentType"
 import { NewsType } from "../types/NewsType"
 import { CATEGORY, TYPE } from "./enum"
 
@@ -60,3 +61,23 @@ export const Categories = Object.freeze({
 })
 
 export const BreakingNewsImgPath = "https://firebasestorage.googleapis.com/v0/b/news-26417.appspot.com/o/tskulis-EQp1k2OW4AALwQt.jfif.webp?alt=media&token=db4a1bab-06a6-48c0-9743-3046d16fc7a4"
+
+export const COMMENT_ONE_EMNIYET: CommentType = {
+  text: "Güzel bir haber olmuş",
+  isActive: true,
+  createDate: "2021-06-23T10:21:32.786Z",
+  updateDate: "2021-06-23T10:21:32.786Z",
+  id: "1",
+  newsId: "726ce751-40c4-44fb-a998-77369333ad28",
+  userName: "mehmet@gmail.com"
+}
+
+export const COMMENT_TWO_EMNIYET: CommentType = {
+  text: "Katılıyorum",
+  isActive: true,
+  createDate: "2021-06-24T10:21:32.786Z",
+  updateDate: "2021-06-24T10:21:32.786Z",
+  id: "1",
+  newsId: "726ce751-40c4-44fb-a998-77369333ad28",
+  userName: "ayse@gmail.com"
+}

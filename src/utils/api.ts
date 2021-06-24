@@ -3,9 +3,31 @@ import axios from "axios"
 import fetch from 'isomorphic-unfetch'
 import * as Const from "./constant"
 import { NewsType } from "../types/NewsType"
+import { CommentType } from "../types/CommentType"
 
 export const getNewsList = (): Promise<NewsType[]> => {
   return fetch(getEnvironmentUrl() + "news/get").then(res => res.json())
+}
+
+export const getAllComments = (): Promise<CommentType[]> => {
+  return new Promise<CommentType[]>((resolve) => {
+    resolve([Const.COMMENT_ONE_EMNIYET, Const.COMMENT_TWO_EMNIYET])
+  })
+}
+
+export const getCommentsBySlug = (slug: string): Promise<CommentType[]> => {
+  return new Promise<CommentType[]>((resolve) => {
+    if (slug === "Trabzon-Emniyetinde-Ugurcan-ve-Senol-Gunes-Operasyonu!")
+      resolve([Const.COMMENT_ONE_EMNIYET, Const.COMMENT_TWO_EMNIYET])
+    else
+      resolve([])
+  })
+}
+
+export const getCommentsByNewsId = (newsId: string): Promise<CommentType[]> => {
+  return new Promise<CommentType[]>((resolve) => {
+    resolve([Const.COMMENT_ONE_EMNIYET, Const.COMMENT_TWO_EMNIYET])
+  })
 }
 
 export const getLastNewsList = (): Promise<NewsType[]> => {

@@ -228,7 +228,6 @@ code {
 
 .text-justify {
   text-align: left;
-
 }
 
 .beyaz-manset {
@@ -324,7 +323,7 @@ footer {
 }
 
 .hbrmTitle {
-  font-family: Poppins,sans-serif;
+  font-family: Poppins, sans-serif;
   font-size: 20px;
   line-height: 160%;
   font-weight: 700;
@@ -336,4 +335,8 @@ footer {
   line-height: 160%;
   font-weight: 400;
   color: #333;
+}
+
+.maxWidth {
+  max-width: 1200px !important;
 }
