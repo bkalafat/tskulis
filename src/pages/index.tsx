@@ -33,7 +33,7 @@ const Index = ({newsList}: {newsList: NewsType[]}) => {
     </Layout>
   )
 }
-
+  
 export const getStaticProps = async () => {
   const newsList = await API.getNewsList()
   return {
