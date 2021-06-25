@@ -9,25 +9,16 @@ export const getNewsList = (): Promise<NewsType[]> => {
   return fetch(getEnvironmentUrl() + "news/get").then(res => res.json())
 }
 
-export const getAllComments = (): Promise<CommentType[]> => {
-  return new Promise<CommentType[]>((resolve) => {
-    resolve([Const.COMMENT_ONE_EMNIYET, Const.COMMENT_TWO_EMNIYET])
-  })
+export const getCommentList = (): Promise<CommentType[]> => {
+  return fetch(getEnvironmentUrl() + "comment/get").then(res => res.json())
 }
 
 export const getCommentsBySlug = (slug: string): Promise<CommentType[]> => {
-  return new Promise<CommentType[]>((resolve) => {
-    if (slug === "Trabzon-Emniyetinde-Ugurcan-ve-Senol-Gunes-Operasyonu!")
-      resolve([Const.COMMENT_ONE_EMNIYET, Const.COMMENT_TWO_EMNIYET])
-    else
-      resolve([])
-  })
+  return fetch(getEnvironmentUrl() + "comment/GetBySlug/" + slug).then(res => res.json(), error => console.log(error))
 }
 
 export const getCommentsByNewsId = (newsId: string): Promise<CommentType[]> => {
-  return new Promise<CommentType[]>((resolve) => {
-    resolve([Const.COMMENT_ONE_EMNIYET, Const.COMMENT_TWO_EMNIYET])
-  })
+  return fetch(getEnvironmentUrl() + "comment/GetByNewsId/" + newsId).then(res => res.json(), error => console.log(error))
 }
 
 export const getLastNewsList = (): Promise<NewsType[]> => {

@@ -11,16 +11,16 @@ const CommentArea: FC<{ newsId: string, comments: CommentType[] }> = ({ newsId, 
     text: "",
     id: '',
     newsId: newsId,
-    userName: 'Anonim',
+    userName: '',
     createDate: new Date().toISOString(),
     updateDate: new Date().toISOString(),
     isActive: true
   })
   const onSubmit = () => {
     setComment({ ...comment, text: "" })
-    // API.insertComment(comment).then(() => {
-    //   setComment({ ...comment, text: "" })
-    // })
+    API.insertComment(comment).then(() => {
+      setComment({ ...comment, text: "" })
+    })
     setComment({ ...comment, text: "" })
   }
 
@@ -44,9 +44,10 @@ const CommentArea: FC<{ newsId: string, comments: CommentType[] }> = ({ newsId, 
         </Comment>
       })}
       <Form onSubmit={onSubmit} reply>
-        <Form.TextArea onChange={e => setComment({ ...comment, text: e.target.value })} value={comment.text} />
-        { comment.text.length < minCommentLength && <div>{minCommentLength - comment.text.length} karakter kaldı.</div>}
-        { comment.text.length >= minCommentLength && <PopUpButton buttonName="Yorum Yap" content='Onaya gönderildi.' header="Başarılı" />}
+        <Form.Input placeholder="Kullanıcı Adı (en az 4 karakter)" onChange={e => setComment({ ...comment, userName: e.target.value })} value={comment.userName} />
+        <Form.TextArea placeholder="Yorum (en az 30 karakter)" onChange={e => setComment({ ...comment, text: e.target.value })} value={comment.text} />
+        { comment.text.length < minCommentLength ? <div>{minCommentLength - comment.text.length} karakter kaldı.</div> : <div>Uygun</div> }
+        { comment.text.length >= minCommentLength && <PopUpButton buttonName="Yorum Yap" content='Onaya gönderildi.' header="Başarılı" isActive={comment.text.length >= minCommentLength && comment.userName.length > 3} />}
       </Form>
     </Comment.Group>
   )
