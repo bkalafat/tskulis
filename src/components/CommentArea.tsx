@@ -1,8 +1,9 @@
 import React, { FC, useState } from 'react'
-import { Button, Comment, Form, Header } from 'semantic-ui-react'
+import { Comment, Form, Header } from 'semantic-ui-react'
 import { CommentType } from '../types/CommentType'
 import * as API from "../utils/api"
 import PopUpButton from './PopUpButton'
+import 'semantic-ui-css/semantic.min.css'
 
 const minCommentLength = 30
 const CommentArea: FC<{ newsId: string, comments: CommentType[] }> = ({ newsId, comments }: { newsId: string, comments: CommentType[] }) => {
