@@ -18,6 +18,7 @@ const CommentArea: FC<{ newsId: string, comments: CommentType[] }> = ({ newsId, 
     isActive: true
   })
   const onSubmit = () => {
+    debugger
     setComment({ ...comment, text: "" })
     API.insertComment(comment).then(() => {
       setComment({ ...comment, text: "" })
