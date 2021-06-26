@@ -1,11 +1,10 @@
-import React, { FC } from "react"
 import { isMobile } from "react-device-detect"
 import Slider from "react-slick"
 import { NewsType } from "../types/NewsType"
 import { Arrow } from "../utils/sliderItem"
 import SubSliderCard from "./cards/SubSliderCard"
 
-const SubSlider : FC<{ newsList: NewsType[] }> = ({ newsList }: { newsList: NewsType[] }) => {
+const SubSlider = ({ newsList }: { newsList: NewsType[] }) => {
   var settings = {
     dots: true,
     arrows: !isMobile,

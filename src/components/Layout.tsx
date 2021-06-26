@@ -4,7 +4,7 @@ import { SWRConfig } from "swr"
 import axios from "axios"
 import Head from 'next/head'
 
-function Layout({ children }) {
+const Layout = ({ children }) => {
   return <div>
     <Head>
       <link rel="shortcut icon" href="/favicon.ico" />

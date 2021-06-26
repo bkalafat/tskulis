@@ -1,11 +1,11 @@
-import React, { FC, useState } from "react"
+import { useState } from "react"
 import { isMobile } from "react-device-detect"
 import Slider from "react-slick"
 import { NewsType } from "../types/NewsType"
 import { Arrow, Dots, Paging } from "../utils/sliderItem"
 import SliderCard from "./cards/SliderCard"
 
-const CustomSlider: FC<{ newsList: NewsType[] }> = ({ newsList }: { newsList: NewsType[] }) => {
+const CustomSlider = ({ newsList }: { newsList: NewsType[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   var settings = {

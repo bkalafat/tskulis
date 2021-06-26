@@ -1,8 +1,7 @@
-import React, { FC } from "react"
 import { SocialIcon } from "react-social-icons"
 import Link from "next/link"
 
-const Footer: FC = () => {
+const Footer = () => {
   return (
     <article>
       <footer>

@@ -1,4 +1,5 @@
 import NextAuth from 'next-auth'
+import { NextApiRequest, NextApiResponse } from 'next-auth/internals/utils'
 import Providers from 'next-auth/providers'
 
 const options = {
@@ -15,15 +16,14 @@ const options = {
 
   callbacks: {
     /**
-     * @param  {string} _url      URL provided as callback URL by the client
+     * @param  {string} _url     URL provided as callback URL by the client
      * @param  {string} baseUrl  Default base URL of site (can be used as fallback)
-     * @return {string}          URL the client will be redirect to
      */
-    redirect: async (_url, baseUrl) => {
+    redirect: async (_url: string, baseUrl: string) => {
       return Promise.resolve(baseUrl + "/adminpanel")
     }
   }
 }
 
-const auth = (req, res) => NextAuth(req, res, options)
+const auth = (req: NextApiRequest, res: NextApiResponse<any>) => NextAuth(req, res, options)
 export default auth

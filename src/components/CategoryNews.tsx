@@ -6,9 +6,8 @@ import Head from "next/head"
 import { useRouter } from 'next/router'
 import { NewsType } from "../types/NewsType"
 import { TYPE } from "../utils/enum"
-import { FC } from "react"
 
-const CategoryNews: FC = () => {
+const CategoryNews = () => {
   const { data, error } = useSWR<NewsType[], any>(getEnvironmentUrl() + "news/get")
   const router = useRouter()
   const { category } = router.query

@@ -1,4 +1,3 @@
-import React, { FC } from "react"
 import CustomSlider from "./CustomSlider"
 import SubSlider from "./SubSlider"
 import SubNews from "./SubNews"
@@ -7,7 +6,7 @@ import { NewsType } from "../types/NewsType"
 import { TYPE } from "../utils/enum"
 import { sortCreateDateDesc } from "../utils/helper"
 
-const News: FC<{ newsList: NewsType[] }> = ({ newsList }: { newsList: NewsType[] }) => {
+const News = ({ newsList }: { newsList: NewsType[] }) => {
   if (!newsList && newsList.length === 0) return <div />
 
   const mainNews = newsList

@@ -3,7 +3,6 @@ import Head from "next/head"
 
 const PrivacyPolicy = () => {
   return (<>
-
     <Layout>
       <Head><title>Künye</title></Head>
       <div className="center-item">

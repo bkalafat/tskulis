@@ -2,9 +2,8 @@ import Link from "next/link"
 import { Categories } from "../utils/constant"
 import Navbar from "react-bootstrap/Navbar";
 import Image from "next/image"
-import { FC } from "react";
 
-const Navigator : FC = () => {
+const Navigator = () => {
   return (
     <div style={{ marginBottom: 8 }}>
       <Navbar className="color-nav" style={{ paddingTop: 0, paddingBottom: 0, marginTop: 7 }} collapseOnSelect={true} variant="dark" expand="lg">

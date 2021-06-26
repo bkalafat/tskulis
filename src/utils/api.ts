@@ -83,7 +83,6 @@ export const insertComment = (comment: CommentType) => {
   }).then(() => "ok", error => console.log(error))
 }
 
-
 export const uploadFile = async (file: File) => {
   const formData = new FormData()
   formData.append("image", file, file.name)
