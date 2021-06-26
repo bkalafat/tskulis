@@ -66,7 +66,7 @@ const NewsEditor = () => {
       })
     }
     if (isSubmitting) setSubmitting(false)
-  }, [isSubmitting, newNews, urlId])
+  }, [isSubmitting, isUpdate, newNews, urlId])
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
