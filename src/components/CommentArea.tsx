@@ -47,7 +47,7 @@ const CommentArea = ({ newsId, comments }: { newsId: string, comments: CommentTy
       <Form onSubmit={onSubmit} reply>
         <Form.Input placeholder="Kullanıcı Adı (en az 4 karakter)" onChange={e => setComment({ ...comment, userName: e.target.value })} value={comment.userName} />
         <Form.TextArea style={{ height: 60 }} placeholder="Yorum (en az 30 karakter)" onChange={e => setComment({ ...comment, text: e.target.value })} value={comment.text} />
-        {comment.text.length < minCommentLength ? <div>{minCommentLength - comment.text.length} karakter kaldı.</div> : <div>Uygun</div>}
+        {comment.text.length < minCommentLength ? <div>{minCommentLength - comment.text.length} karakter kaldı.</div> : comment.userName.length > 3 ? <div>Uygun</div> : <div>Kullanıcı Adı giriniz.</div>}
         <PopUpButton buttonName="Yorum Yap" content='Onaya gönderildi.' header="Başarılı" active={comment.text.length >= minCommentLength && comment.userName.length > 3} />
       </Form>
     </Comment.Group>
