@@ -8,6 +8,7 @@ export const Arrow = ({ className, style, onClick, direction }: {
   direction: string
 }) => {
   return (
+    // eslint-disable-next-line @next/next/no-img-element
     <img
       className={className}
       style={{ ...style }}
@@ -19,6 +20,7 @@ export const Arrow = ({ className, style, onClick, direction }: {
 }
 
 export const Dots = () => {
+  // eslint-disable-next-line react/display-name
   return dots => {
     return (
       <Pagination className="centerFlex" size="sm">
