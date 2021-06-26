@@ -8,7 +8,7 @@ import 'semantic-ui-css/semantic.min.css'
 
 const CommentArea = ({ newsId, comments }: { newsId: string, comments: CommentType[] }) => {
 
-  const  minCommentLength = 30
+  const minCommentLength = 30
 
   const [comment, setComment] = useState<CommentType>({
     text: "",
@@ -49,9 +49,9 @@ const CommentArea = ({ newsId, comments }: { newsId: string, comments: CommentTy
       })}
       <Form onSubmit={onSubmit} reply>
         <Form.Input placeholder="Kullanıcı Adı (en az 4 karakter)" onChange={e => setComment({ ...comment, userName: e.target.value })} value={comment.userName} />
-        <Form.TextArea placeholder="Yorum (en az 30 karakter)" onChange={e => setComment({ ...comment, text: e.target.value })} value={comment.text} />
-        { comment.text.length < minCommentLength ? <div>{minCommentLength - comment.text.length} karakter kaldı.</div> : <div>Uygun</div> }
-        { comment.text.length >= minCommentLength && <PopUpButton buttonName="Yorum Yap" content='Onaya gönderildi.' header="Başarılı" isActive={comment.text.length >= minCommentLength && comment.userName.length > 3} />}
+        <Form.TextArea rows={3} placeholder="Yorum (en az 30 karakter)" onChange={e => setComment({ ...comment, text: e.target.value })} value={comment.text} />
+        {comment.text.length < minCommentLength ? <div>{minCommentLength - comment.text.length} karakter kaldı.</div> : <div>Uygun</div>}
+        {<PopUpButton buttonName="Yorum Yap" content='Onaya gönderildi.' header="Başarılı" isActive={comment.text.length >= minCommentLength && comment.userName.length > 3} />}
       </Form>
     </Comment.Group>
   )
