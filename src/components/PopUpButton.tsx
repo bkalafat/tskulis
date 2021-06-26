@@ -1,9 +1,9 @@
 import { Button, Modal } from 'semantic-ui-react'
 
-const PopUpButton = ({ buttonName, header, content, isActive }: { buttonName: string, header: string, content: string, isActive: boolean }) => {
+const PopUpButton = ({ buttonName, header, content, active }: { buttonName: string, header: string, content: string, active: boolean }) => {
   return (
     <Modal
-      trigger={<Button active={isActive} >{buttonName}</Button>}
+      trigger={<Button active={active} disabled={!active} >{buttonName}</Button>}
       header={header}
       content={content}
       actions={[{ key: 'done', content: 'Tamam', positive: true }]}
