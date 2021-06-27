@@ -69,7 +69,7 @@ const CategoryNews = () => {
           <div className="col-md-10 col-xl-10 noPadding">
             <SubSlider newsList={sliderNewsList.slice(0, 13)} />
           </div>
-          <SubNews newsList={subNewsList.slice(0, 32)}></SubNews>
+          <SubNews newsList={subNewsList.slice(0, 32)} />
         </div>
       </>
     )

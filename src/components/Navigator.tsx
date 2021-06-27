@@ -8,7 +8,6 @@ const Navigator = () => {
     <div style={{ marginBottom: 8 }}>
       <Navbar className="color-nav" style={{ paddingTop: 0, paddingBottom: 0, marginTop: 7 }} collapseOnSelect={true} variant="dark" expand="lg">
         <Link href="/" passHref><Navbar.Brand style={{ paddingTop: 0, paddingBottom: 0, width: 57, height: 57 }}>
-
           <Image
             height="57"
             width="57"

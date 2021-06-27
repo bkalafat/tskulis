@@ -11,7 +11,7 @@ const CommentArea = ({ newsId, comments }: { newsId: string, comments: CommentTy
   const minCommentLength = 30
 
   const [comment, setComment] = useState<CommentType>({
-    text: "",
+    text: '',
     id: '',
     newsId: newsId,
     userName: '',
@@ -21,7 +21,7 @@ const CommentArea = ({ newsId, comments }: { newsId: string, comments: CommentTy
   })
   const onSubmit = () => {
     API.insertComment(comment).then(() => {
-      setComment({ ...comment, text: "", userName: "" })
+      setComment({ ...comment, text: '', userName: '' })
     })
   }
 

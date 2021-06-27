@@ -28,4 +28,3 @@ const SubSlider = ({ newsList }: { newsList: NewsType[] }) => {
 }
 
 export default SubSlider
-
