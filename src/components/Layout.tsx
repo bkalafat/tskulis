@@ -3,6 +3,9 @@ import Footer from "./Footer"
 import { SWRConfig } from "swr"
 import axios from "axios"
 import Head from 'next/head'
+import Script from 'next/script'
+
+
 
 const Layout = ({ children }) => {
   return <div>
@@ -27,18 +30,8 @@ const Layout = ({ children }) => {
       <meta name="msapplication-TileColor" content="#ffffff" />
       <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
       <meta name="theme-color" content="#ffffff" />
-      <script async src='https://www.googletagmanager.com/gtag/js?id=G-M9FK14GYVR'></script>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-M9FK14GYVR');
-          `
-        }}>
-      </script>
-      <script data-ad-client="ca-pub-9881133041867885" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
     </Head>
     <Navigator />
     <SWRConfig
@@ -47,6 +40,23 @@ const Layout = ({ children }) => {
         fetcher: url => axios(url).then(r => r.data)
       }}
     >
+
+      <Script
+        src='https://www.googletagmanager.com/gtag/js?id=G-M9FK14GYVR'
+        strategy="lazyOnload">
+      </Script>
+      <Script strategy="lazyOnload"
+        dangerouslySetInnerHTML={{
+          __html: `
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'G-M9FK14GYVR');
+   `
+        }}>
+      </Script>
+      <Script data-ad-client="ca-pub-9881133041867885" strategy="lazyOnload" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></Script>
+
       {children}
     </SWRConfig>
     <Footer />

@@ -1,5 +1,6 @@
 import { NewsType } from "../types/NewsType"
 import SubNewsCard from "./cards/SubNewsCard"
+import Script from 'next/script'
 
 const SubNews = ({ newsList }: { newsList: NewsType[] }) => {
 
@@ -8,17 +9,17 @@ const SubNews = ({ newsList }: { newsList: NewsType[] }) => {
       {newsList.map((news) => (
         SubNewsCard(news)
       ))}
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <Script strategy="lazyOnload" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></Script>
 
       <ins className="adsbygoogle"
-        style={{display:"block"}}
+        style={{ display: "block" }}
         data-ad-client="ca-pub-9881133041867885"
         data-ad-slot="5239195021"
         data-ad-format="auto"
         data-full-width-responsive="true"></ins>
-      <script>
+      <Script strategy="lazyOnload">
         (adsbygoogle = window.adsbygoogle || []).push({ });
-      </script>
+      </Script>
     </div>
   )
 }
