@@ -45,7 +45,7 @@ const CommentArea = ({ newsId, comments }: { newsId: string, comments: CommentTy
               <br />
               <div className="d-flex flex-row align-items-start"><textarea placeholder="Yorum (30+ karakter)" onChange={e => setComment({ ...comment, text: e.target.value })} value={comment.text} className="form-control ml-1 shadow-none textarea"></textarea></div>
               {comment.text.length < minCommentLength ? <div>{minCommentLength - comment.text.length} karakter kaldı.</div> : comment.userName.length > 3 ? <div>Uygun</div> : <div>Kullanıcı Adı giriniz.</div>}
-              <div className="mt-2 text-right"><button onSubmit={onSubmit} disabled={comment.text.length <= minCommentLength || comment.userName.length < 4} className="btn btn-primary btn-sm shadow-none" type="button">Yorum yap</button></div>
+              <div className="mt-2 text-right"><button onClick={onSubmit} disabled={comment.text.length <= minCommentLength || comment.userName.length < 4} className="btn btn-primary btn-sm shadow-none" type="button">Yorum yap</button></div>
             </div>
           </div>
         </div>
