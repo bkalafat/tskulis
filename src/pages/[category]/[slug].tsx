@@ -59,9 +59,7 @@ const NewsDetail = ({ lastNewsList, news, comments: comments }: { lastNewsList: 
               " </div>"
           }}
         />
-
         <div className='container content center-item text-center'>
-          <CommentArea newsId={news.id} comments={comments} />
           <SquareAd />
           <time className="time" dateTime={news.createDate}>Haber Giriş: {formatted}</time>
           <SubNews newsList={lastNewsList.filter(
@@ -69,6 +67,7 @@ const NewsDetail = ({ lastNewsList, news, comments: comments }: { lastNewsList: 
               n.id != news.id &&
               n.isActive
           )} />
+          <CommentArea newsId={news.id} comments={comments} />
         </div>
       </Layout>
     )
