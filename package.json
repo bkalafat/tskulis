@@ -70,6 +70,8 @@
   },
   "devDependencies": {
     "@types/node": "^16.0.0",
+    "@types/react-bootstrap-table-next": "^4.0.14",
+    "@types/react-slick": "^0.23.4",
     "babel-jest": "^27.0.6",
     "eslint-config-next": "^11.0.1",
     "jest": "^27.0.6",

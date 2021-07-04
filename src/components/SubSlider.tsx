@@ -1,14 +1,14 @@
 import { isMobile } from "react-device-detect"
-import Slider from "react-slick"
+import Slider, { Settings } from "react-slick"
 import { NewsType } from "../types/NewsType"
 import { Arrow } from "../utils/sliderItem"
 import SubSliderCard from "./cards/SubSliderCard"
 
 const SubSlider = ({ newsList }: { newsList: NewsType[] }) => {
-  var settings = {
+  var settings: Settings = {
     dots: true,
     arrows: !isMobile,
-    lazyLoad: true,
+    lazyLoad: 'ondemand',
     infinite: true,
     slidesToShow: isMobile ? 2 : 3,
     slidesToScroll: 1,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import BootstrapTable from "react-bootstrap-table-next"
+import BootstrapTable, { SortOrder } from "react-bootstrap-table-next"
 import { MIN_SLUG_LENGTH } from "../utils/constant"
 import * as API from "../utils/api"
 import Router from 'next/router'
@@ -59,7 +59,7 @@ const AdminPanel = ({ newsListParam }: { newsListParam: NewsType[] }) => {
     }
   ]
 
-  const defaultSorted = [
+  const defaultSorted : [{ dataField: any; order: SortOrder }] = [
     {
       dataField: "createDate",
       order: "desc"
@@ -67,7 +67,7 @@ const AdminPanel = ({ newsListParam }: { newsListParam: NewsType[] }) => {
   ]
 
   const rowEvents = {
-    onClick: (_e, row : NewsType) => {
+    onClick: (_e: any, row : NewsType) => {
       navigateForUpdate(row)
     }
   }

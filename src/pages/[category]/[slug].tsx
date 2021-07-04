@@ -6,7 +6,7 @@ import SubNews from "../../components/SubNews"
 import CommentArea from "../../components/CommentArea"
 import { NewsType } from "../../types/NewsType"
 import Image from "next/image";
-import { generateUrlWithoutId, getCategoryToByKey, ShowMedias, sortCreateDateDesc } from "../../utils/helper"
+import { generateUrlWithoutId, getCategoryToByKey, ShowMedias } from "../../utils/helper"
 import { getCommentsBySlug, getLastNewsList, getNewsBySlug, getNewsList } from "../../utils/api"
 import { MIN_SLUG_LENGTH } from "../../utils/constant"
 import { CommentType } from "../../types/CommentType"

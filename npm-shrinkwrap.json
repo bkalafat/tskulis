@@ -51,6 +51,8 @@
       },
       "devDependencies": {
         "@types/node": "^16.0.0",
+        "@types/react-bootstrap-table-next": "^4.0.14",
+        "@types/react-slick": "^0.23.4",
         "babel-jest": "^27.0.6",
         "eslint-config-next": "^11.0.1",
         "jest": "^27.0.6",
@@ -3969,10 +3971,28 @@
         "csstype": "^3.0.2"
       }
     },
+    "node_modules/@types/react-bootstrap-table-next": {
+      "version": "4.0.14",
+      "resolved": "https://registry.npmjs.org/@types/react-bootstrap-table-next/-/react-bootstrap-table-next-4.0.14.tgz",
+      "integrity": "sha512-Sdv+fFSeUZenEQU1bdlGfN1exKmrl/EJ49GL5d9i130xmvPjYRnEIb9NQLZE/WyJmkLs38oZUEb81efBhJuRlg==",
+      "dev": true,
+      "dependencies": {
+        "@types/react": "*"
+      }
+    },
     "node_modules/@types/react-dom": {
       "version": "17.0.8",
       "resolved": "https://registry.npmjs.org/@types/react-dom/-/react-dom-17.0.8.tgz",
       "integrity": "sha512-0ohAiJAx1DAUEcY9UopnfwCE9sSMDGnY/oXjWMax6g3RpzmTt2GMyMVAXcbn0mo8XAff0SbQJl2/SBU+hjSZ1A==",
+      "dependencies": {
+        "@types/react": "*"
+      }
+    },
+    "node_modules/@types/react-slick": {
+      "version": "0.23.4",
+      "resolved": "https://registry.npmjs.org/@types/react-slick/-/react-slick-0.23.4.tgz",
+      "integrity": "sha512-vXoIy4GUfB7/YgqubR4H7RALo+pRdMYCeLgWwV3MPwl5pggTlEkFBTF19R7u+LJc85uMqC7RfsbkqPLMQ4ab+A==",
+      "dev": true,
       "dependencies": {
         "@types/react": "*"
       }
@@ -35521,10 +35541,28 @@
         }
       }
     },
+    "@types/react-bootstrap-table-next": {
+      "version": "4.0.14",
+      "resolved": "https://registry.npmjs.org/@types/react-bootstrap-table-next/-/react-bootstrap-table-next-4.0.14.tgz",
+      "integrity": "sha512-Sdv+fFSeUZenEQU1bdlGfN1exKmrl/EJ49GL5d9i130xmvPjYRnEIb9NQLZE/WyJmkLs38oZUEb81efBhJuRlg==",
+      "dev": true,
+      "requires": {
+        "@types/react": "*"
+      }
+    },
     "@types/react-dom": {
       "version": "17.0.8",
       "resolved": "https://registry.npmjs.org/@types/react-dom/-/react-dom-17.0.8.tgz",
       "integrity": "sha512-0ohAiJAx1DAUEcY9UopnfwCE9sSMDGnY/oXjWMax6g3RpzmTt2GMyMVAXcbn0mo8XAff0SbQJl2/SBU+hjSZ1A==",
+      "requires": {
+        "@types/react": "*"
+      }
+    },
+    "@types/react-slick": {
+      "version": "0.23.4",
+      "resolved": "https://registry.npmjs.org/@types/react-slick/-/react-slick-0.23.4.tgz",
+      "integrity": "sha512-vXoIy4GUfB7/YgqubR4H7RALo+pRdMYCeLgWwV3MPwl5pggTlEkFBTF19R7u+LJc85uMqC7RfsbkqPLMQ4ab+A==",
+      "dev": true,
       "requires": {
         "@types/react": "*"
       }

@@ -1,18 +1,19 @@
 import { useState } from "react"
 import { isMobile } from "react-device-detect"
-import Slider from "react-slick"
+import Slider, { Settings } from "react-slick"
 import { NewsType } from "../types/NewsType"
 import { Arrow, Dots, Paging } from "../utils/sliderItem"
 import SliderCard from "./cards/SliderCard"
+import SquareAd from "./SquareAd"
 
 const CustomSlider = ({ newsList }: { newsList: NewsType[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  var settings = {
+  var settings : Settings = {
     dots: true,
     dotsClass: "dotsClass",
     arrows: !isMobile,
-    lazyLoad: true,
+    lazyLoad: 'progressive',
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -33,8 +34,8 @@ const CustomSlider = ({ newsList }: { newsList: NewsType[] }) => {
   return (
     <div style={{ marginBottom: 5 }}>
       <Slider {...settings}>
-        {newsList.map(news => (
-          SliderCard(news)
+        {newsList.map((news, index) => (
+          index % 8 == 0 ? SquareAd : SliderCard(news)
         ))}
       </Slider>
     </div>
