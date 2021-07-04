@@ -61,3 +61,4 @@ packages
 **/*.firebaserc
 backend/newsApi/newsApi/appsettings.json
 backend/newsApi/newsApi/appsettings.Development.json
+public/sw.js.map
