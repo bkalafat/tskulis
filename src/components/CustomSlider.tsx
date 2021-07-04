@@ -9,7 +9,7 @@ import SquareAd from "./SquareAd"
 const CustomSlider = ({ newsList }: { newsList: NewsType[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  var settings : Settings = {
+  var settings: Settings = {
     dots: true,
     dotsClass: "dotsClass",
     arrows: !isMobile,
@@ -34,8 +34,8 @@ const CustomSlider = ({ newsList }: { newsList: NewsType[] }) => {
   return (
     <div style={{ marginBottom: 5 }}>
       <Slider {...settings}>
-        {newsList.map((news, index) => (
-          index % 8 == 0 ? SquareAd : SliderCard(news)
+        {newsList.map((news) => (
+          SliderCard(news)
         ))}
       </Slider>
     </div>
