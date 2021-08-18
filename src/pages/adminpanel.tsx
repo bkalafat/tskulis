@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import BootstrapTable, { SortOrder } from "react-bootstrap-table-next"
-import { MIN_SLUG_LENGTH } from "../utils/constant"
+import { MIN_SLUG_LENGTH, TIMEOUT } from "../utils/constant"
 import * as API from "../utils/api"
 import Router from 'next/router'
 import { signIn, signOut, useSession } from 'next-auth/client'
@@ -107,7 +107,7 @@ const AdminPanel = ({ newsListParam }: { newsListParam: NewsType[] }) => {
 export const getStaticProps = async () => {
   const newsList = await API.getNewsList()
   return {
-    revalidate: 10,
+    revalidate: TIMEOUT,
     props: {
       newsList
     }

@@ -8,7 +8,7 @@ import { NewsType } from "../../types/NewsType"
 import Image from "next/image";
 import { generateUrlWithoutId, getCategoryToByKey, ShowMedias } from "../../utils/helper"
 import { getCommentsBySlug, getLastNewsList, getNewsBySlug, getNewsList } from "../../utils/api"
-import { MIN_SLUG_LENGTH } from "../../utils/constant"
+import { MIN_SLUG_LENGTH, TIMEOUT } from "../../utils/constant"
 import { CommentType } from "../../types/CommentType"
 
 const NewsDetail = ({ lastNewsList, news, comments: comments }: { lastNewsList: NewsType[], news: NewsType, comments: CommentType[] }) => {
@@ -91,7 +91,7 @@ export const getStaticProps = async ({ params }) => {
   const news = await getNewsBySlug(params.slug)
   const comments = await getCommentsBySlug(params.slug)
   return {
-    revalidate: 10,
+    revalidate: TIMEOUT,
     props: {
       lastNewsList,
       news,
