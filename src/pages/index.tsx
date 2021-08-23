@@ -4,6 +4,7 @@ import Layout from "../components/Layout"
 import Head from 'next/head'
 import * as API from "../utils/api"
 import { NewsType } from "../types/NewsType"
+import { TIMEOUT } from "../utils/constant"
 
 const Index = ({newsList}: {newsList: NewsType[]}) => {
   return (
@@ -37,7 +38,7 @@ const Index = ({newsList}: {newsList: NewsType[]}) => {
 export const getStaticProps = async () => {
   const newsList = await API.getNewsList()
   return {
-    revalidate: 10,
+    revalidate: TIMEOUT,
     props: {
       newsList
     }

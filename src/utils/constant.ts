@@ -3,6 +3,7 @@ import { NewsType } from "../types/NewsType"
 import { CATEGORY, TYPE } from "./enum"
 
 export const MIN_SLUG_LENGTH = 8
+export const TIMEOUT = 300
 export const UPLOAD_FILE_PATH =
   "https://us-central1-news-26417.cloudfunctions.net/uploadFile"
 export const DEFAULT_NEWS: NewsType = {
