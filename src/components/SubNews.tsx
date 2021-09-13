@@ -17,7 +17,7 @@ const SubNews = ({ newsList }: { newsList: NewsType[] }) => {
         data-ad-slot="5239195021"
         data-ad-format="auto"
         data-full-width-responsive="true"></ins>
-      <Script strategy="lazyOnload">
+      <Script id="subNewsScript" strategy="lazyOnload">
         (adsbygoogle = window.adsbygoogle || []).push({ });
       </Script>
     </div>

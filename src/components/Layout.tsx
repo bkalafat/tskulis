@@ -41,11 +41,11 @@ const Layout = ({ children }) => {
       }}
     >
 
-      <Script
+      <Script id="tagManagerScript"
         src='https://www.googletagmanager.com/gtag/js?id=G-M9FK14GYVR'
         strategy="lazyOnload">
       </Script>
-      <Script strategy="lazyOnload"
+      <Script id="gtagScript" strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `
    window.dataLayer = window.dataLayer || [];
@@ -55,7 +55,7 @@ const Layout = ({ children }) => {
    `
         }}>
       </Script>
-      <Script data-ad-client="ca-pub-9881133041867885" strategy="lazyOnload" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></Script>
+      <Script id="adsScript" data-ad-client="ca-pub-9881133041867885" strategy="lazyOnload" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></Script>
 
       {children}
     </SWRConfig>
