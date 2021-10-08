@@ -1,7 +1,7 @@
 import Layout from "../components/Layout"
 import Head from "next/head"
 
-const PrivacyPolicy = () => {
+const Kunye = () => {
   return (<>
     <Layout>
       <Head><title>Künye</title></Head>
@@ -43,9 +43,9 @@ const PrivacyPolicy = () => {
           </div>
           <div className="hbrmText">
             <span>
-              Tüm hukuki sorumluluk Teymur Hukuk üzerindedir.<br />
-              Hukuk Danışmanı 			: 	Av. Bedia Teymur<br />
-              <a href="mailto:iletisim@teymurhukuk.com" title="iletisim@teymurhukuk.com adresine mail gönderin">iletisim@teymurhukuk.com</a>
+              Tüm hukuki sorumluluk karamba Hukuk üzerindedir.<br />
+              Hukuk Danışmanı 			: 	Av. Nurseli Karamba<br />
+              <a href="mailto:iletisim@Karambahukuk.com" title="iletisim@Karambahukuk.com adresine mail gönderin">iletisim@Karambahukuk.com</a>
             </span>
           </div>
         </div>
@@ -56,8 +56,8 @@ const PrivacyPolicy = () => {
             <span>Haber Müdürü</span>
           </div>
           <div className="hbrmText">
-            <span>Ayça Kurtuluş Elal
-              <br /><a href="mailto:ayca.elal@tskulis.com" title="ayca.elal@tskulis.com adresine mail gönderin">ayca.elal@tskulis.com</a>
+          <span>Elif Yılmaz
+              <br /><a href="mailto:elif.yilmaz@tskulis.com" title="elif.yilmaz@tskulis.com adresine mail gönderin">elif.yilmaz@tskulis.com</a>
             </span>
           </div>
         </div>
@@ -67,8 +67,8 @@ const PrivacyPolicy = () => {
             <span>Haber Müdür Yardımcısı</span>
           </div>
           <div className="hbrmText">
-            <span>Olgun Kızıltepe
-              <br /><a href="mailto:olgun.kiziltepe@tskulis.com" title="olgun.kiziltepe@tskulis.com adresine mail gönderin">olgun.kiziltepe@tskulis.com</a>
+            <span>Olgun Yeşiltepe
+              <br /><a href="mailto:olgun.yesiltepe@tskulis.com" title="olgun.yesiltepe@tskulis.com adresine mail gönderin">olgun.yesiltepe@tskulis.com</a>
             </span>
           </div>
         </div>
@@ -78,8 +78,8 @@ const PrivacyPolicy = () => {
             <span>Ekonomi Müdürü</span>
           </div>
           <div className="hbrmText">
-            <span>Mesut Şahin
-              <br /><a href="mailto:mesut.sahin@tskulis.com" title="mesut.sahin@tskulis.com adresine mail gönderin">mesut.sahin@tskulis.com</a>
+            <span>Murat Şahin
+              <br /><a href="mailto:Murat.sahin@tskulis.com" title="Murat.sahin@tskulis.com adresine mail gönderin">Murat.sahin@tskulis.com</a>
             </span>
           </div>
         </div>
@@ -89,8 +89,8 @@ const PrivacyPolicy = () => {
             <span>Spor Müdürü</span>
           </div>
           <div className="hbrmText">
-            <span>Ömer Özarslan
-              <br /><a href="mailto:omer.ozarslan@tskulis.com" title="omer.ozarslan@tskulis.com adresine mail gönderin">omer.ozarslan@tskulis.com</a>
+          <span>Murat Şahin
+              <br /><a href="mailto:Murat.sahin@tskulis.com" title="Murat.sahin@tskulis.com adresine mail gönderin">Murat.sahin@tskulis.com</a>
             </span>
           </div>
         </div>
@@ -123,9 +123,8 @@ const PrivacyPolicy = () => {
             <span>Reklam Direktörü</span>
           </div>
           <div className="hbrmText">
-            <span>Esra Şimşek
-              <br />+90 216 339 09 98
-              <br /><a href="mailto:esra.simsek@tskulis.com" title="esra.simsek@tskulis.com adresine mail gönderin">esra.simsek@tskulis.com</a>
+            <span>Elif Yılmaz
+              <br /><a href="mailto:elif.yilmaz@tskulis.com" title="elif.yilmaz@tskulis.com adresine mail gönderin">elif.yilmaz@tskulis.com</a>
             </span>
           </div>
         </div>
@@ -143,4 +142,4 @@ const PrivacyPolicy = () => {
 }
 
 
-export default PrivacyPolicy
+export default Kunye
