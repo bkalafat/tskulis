@@ -38,7 +38,7 @@ export default class UploadAdapter {
     const formData = new FormData()
     formData.append("image", file, file.name)
     return axios
-      .post(Const.UPLOAD_FILE_PATH, formData, {
+      .post<{fileUrl: string}>(Const.UPLOAD_FILE_PATH, formData, {
         onUploadProgress: progressEvent => {
           this.loader.uploadTotal = progressEvent.total
           this.loader.uploaded = progressEvent.loaded
@@ -60,7 +60,7 @@ export default class UploadAdapter {
       .then(file => {
         return this.uploadFile(file)
       })
-      .then(res => {
+      .then(res  => {
         resolve({
           default: res.data.fileUrl
         })

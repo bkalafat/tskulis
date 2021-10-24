@@ -86,7 +86,8 @@ export const insertComment = (comment: CommentType) => {
 export const uploadFile = async (file: File) => {
   const formData = new FormData()
   formData.append("image", file, file.name)
-  const res = await axios.post(Const.UPLOAD_FILE_PATH, formData)
+  const res = await axios.post<{fileUrl: string}>(Const.UPLOAD_FILE_PATH, formData)
+  console.log(res.data)
   return res.data.fileUrl
 }
 
