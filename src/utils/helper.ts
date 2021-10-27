@@ -79,31 +79,20 @@ export const getAdmins = () => {
 }
 
 export const ShowMedias = (content: string) => {
-  if (typeof window !== 'undefined') {
-    const parentEmbed = document.createElement("span")
-    parentEmbed.innerHTML = content
-    const something = parentEmbed;
-
-    let oembeds = something.querySelectorAll("oembed")
-    let embedArray = Array.from(oembeds)
-
-    for (const embed in embedArray) {
-      let url = embedArray[embed].getAttribute("url")
-      url = url.replace("watch?v=", "embed/")
-      const newIframe = document.createElement("iframe")
-      newIframe.setAttribute("width", "auto")
-      newIframe.setAttribute("height", "auto")
-      newIframe.setAttribute("allowFullScreen", "")
-      newIframe.setAttribute("frameBorder", "0")
-      if (url) {
-        newIframe.setAttribute("src", url)
+  const oembed = content.split('</oembed>');
+  let body = '';
+  oembed.forEach((item, index) => {
+    body += oembed[index] + '</oembed>';
+    const oembed1 = item.split('url="')[1];
+    if (oembed1) {
+      const oembed2 = oembed1.split('">')[0];
+      if (oembed2) {
+        const youtube = oembed2.split('https://www.youtube.com/watch?v=')[1];
+        if (youtube) {
+          body += '<div class="iframe-container"><iframe src="https://youtube.com/embed/' + youtube + '" frameborder="0"; scrolling="no"; allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+        }
       }
-
-      embedArray[embed].parentNode.replaceChild(newIframe, embedArray[embed])
     }
-
-    return parentEmbed.outerHTML
-  }
-
-  return content;
+  });
+  return body;
 }

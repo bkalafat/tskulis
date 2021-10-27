@@ -54,8 +54,7 @@ const NewsDetail = ({ lastNewsList, news, comments: comments }: { lastNewsList: 
           onContextMenu={e => e.preventDefault()}
           dangerouslySetInnerHTML={{
             __html:
-              "<div class='container content'> " +
-              ShowMedias(news.content) +
+              "<div class='ck-content'> " + ShowMedias(news.content) +
               " </div>"
           }}
         />
