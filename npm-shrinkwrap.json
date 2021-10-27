@@ -5,6 +5,7 @@
   "requires": true,
   "packages": {
     "": {
+      "name": "tskulis",
       "version": "1.0.0",
       "dependencies": {
         "@ckeditor/ckeditor5-build-classic": "^31.0.0",
@@ -6904,9 +6905,9 @@
       }
     },
     "node_modules/caniuse-lite": {
-      "version": "1.0.30001230",
-      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001230.tgz",
-      "integrity": "sha512-5yBd5nWCBS+jWKTcHOzXwo5xzcj4ePE/yjtkZyUV1BTUmrBaA9MRGC+e7mxnqXSA90CmCA8L3eKLaSUkt099IQ==",
+      "version": "1.0.30001271",
+      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001271.tgz",
+      "integrity": "sha512-BBruZFWmt3HFdVPS8kceTBIguKxu4f99n5JNp06OlPD/luoAMIaIK5ieV5YjnBLH3Nysai9sxj9rpJj4ZisXOA==",
       "funding": {
         "type": "opencollective",
         "url": "https://opencollective.com/browserslist"
@@ -38513,9 +38514,9 @@
       }
     },
     "caniuse-lite": {
-      "version": "1.0.30001230",
-      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001230.tgz",
-      "integrity": "sha512-5yBd5nWCBS+jWKTcHOzXwo5xzcj4ePE/yjtkZyUV1BTUmrBaA9MRGC+e7mxnqXSA90CmCA8L3eKLaSUkt099IQ=="
+      "version": "1.0.30001271",
+      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001271.tgz",
+      "integrity": "sha512-BBruZFWmt3HFdVPS8kceTBIguKxu4f99n5JNp06OlPD/luoAMIaIK5ieV5YjnBLH3Nysai9sxj9rpJj4ZisXOA=="
     },
     "capture-exit": {
       "version": "2.0.0",
@@ -53824,6 +53825,7 @@
       "resolved": "https://registry.npmjs.org/react-bootstrap-table-next/-/react-bootstrap-table-next-4.0.3.tgz",
       "integrity": "sha512-uKxC73qUdUfusRf2uzDfMiF9LvTG5vuhTZa0lbAgHWSLLLaKTsI0iHf1e4+c7gP71q8dFsp7StvkP65SxC1JRg==",
       "requires": {
+        "classnames": "^2.2.5",
         "react-transition-group": "^4.2.0",
         "underscore": "1.9.1"
       }
