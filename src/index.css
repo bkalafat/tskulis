@@ -373,14 +373,3 @@ footer {
   resize: none
 }
 
-.iframe-container {
-  background: #f00;
-  height: 30px;
-}
-iframe {
-  display: block;
-  background: #000;
-  border: none;
-  height: calc(100vh - 30px);
-  width: 100%;
-}
