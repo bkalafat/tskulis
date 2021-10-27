@@ -89,7 +89,7 @@ export const ShowMedias = (content: string) => {
       if (oembed2) {
         const youtube = oembed2.split('https://www.youtube.com/watch?v=')[1];
         if (youtube) {
-          body += '<div class="iframe-container"><iframe src="https://youtube.com/embed/' + youtube + '" style="position: relative; height: 100%; width: 100%;" frameborder="0"; scrolling="no"; allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+          body += '<div class="iframe-container"><iframe src="https://youtube.com/embed/' + youtube + '" style="position: relative; height: 100vh; width: 100%;" frameborder="0"; scrolling="no"; allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
         }
       }
     }
