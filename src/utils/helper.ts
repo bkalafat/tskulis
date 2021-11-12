@@ -18,7 +18,7 @@ export function setDefaultValues(news: NewsType) {
   news.createDate = new Date().toISOString()
   news.updateDate = new Date().toISOString()
   news.expressDate = new Date().toISOString()
-  news.slug = slugify(news.caption)
+  news.slug = slugifyMarkless(news.caption)
   news.url = generateUrlWithoutId(news)
   news.priority = 300
   news.imgAlt = news.caption;
@@ -57,7 +57,7 @@ export const getHrefModel = (urlLength: number) => {
 }
 
 export const getSlug = (news: NewsType) => {
-  return news.slug?.length > Const.MIN_SLUG_LENGTH ? news.slug : slugify(news.caption);
+  return news.slug?.length > Const.MIN_SLUG_LENGTH ? news.slug : slugifyMarkless(news.caption);
 }
 
 export const getFullSlug = (news: NewsType) => {
@@ -95,4 +95,10 @@ export const ShowMedias = (content: string) => {
     }
   });
   return body;
+}
+
+const slugifyMarkless = (text: string) => {
+  if (text.endsWith('!') || text.endsWith('?') )
+    return slugifyMarkless(text.substring(0, text.length - 1))
+  return slugify(text)
 }
