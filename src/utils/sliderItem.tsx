@@ -33,7 +33,7 @@ export const Dots = () => {
 export const Paging = (index: number, currentSlide: number) => {
   return (
     <ul style={{ listStyle: "none" }} >
-      <Pagination.Item key={index} active={index === currentSlide}>
+      <Pagination.Item activeLabel="" key={index} active={index === currentSlide}>
         {index + 1}
       </Pagination.Item>
     </ul>
