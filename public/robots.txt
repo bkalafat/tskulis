@@ -1,4 +1,9 @@
+# *
 User-agent: *
 Allow: /
+
+# Host
 Host: https://tskulis.com
+
+# Sitemaps
 Sitemap: https://tskulis.com/sitemap.xml
