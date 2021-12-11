@@ -1,8 +1,8 @@
 import AdminPanel from "../../pages/adminpanel"
-import { signIn, signOut, useSession } from 'next-auth/client'//MOCK'LA
+import { signIn, signOut, useSession } from 'next-auth/react'//MOCK'LA
 import { getAdmins } from "../../utils/helper"
 
-jest.mock('next-auth/client')
+jest.mock('next-auth/react')
 
 describe('AdminPanel',() => {
 
