@@ -98,6 +98,7 @@ export const ShowMedias = (content: string) => {
 }
 
 const slugifyMarkless = (text: string) => {
+  text = text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
   if (text.endsWith('!') || text.endsWith('?') )
     return slugifyMarkless(text.substring(0, text.length - 1))
   return slugify(text)
