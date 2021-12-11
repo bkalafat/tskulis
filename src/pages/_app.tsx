@@ -5,13 +5,12 @@ import "slick-carousel/slick/slick-theme.css"
 import '../content-styles.css'
 
 
-import { Provider } from 'next-auth/client'
-import "reflect-metadata";
+import { SessionProvider } from 'next-auth/react'
 import type { AppProps } from 'next/app'
 
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-  return <Provider session={pageProps.session}>
+  return <SessionProvider session={pageProps.session}>
     <Component {...pageProps} />
-  </Provider>
+  </SessionProvider>
 }
