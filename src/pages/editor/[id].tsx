@@ -6,12 +6,12 @@ import * as Helper from "../../utils/helper"
 import Resizer from "react-image-file-resizer"
 import UploadAdapter from "../../utils/UploadAdapter"
 import Router, { useRouter } from 'next/router'
-import { signIn, signOut, useSession } from 'next-auth/react'
+import { signIn, signOut, useSession } from 'next-auth/client'
 import { getAdmins } from "../../utils/helper"
 import { CATEGORY, TYPE } from "../../utils/enum"
 
 const NewsEditor = () => {
-  const { data: session } = useSession()
+  const [session] = useSession()
   const fileInput = useRef(null)
   const router = useRouter()
   const { id } = router.query

@@ -3,13 +3,13 @@ import BootstrapTable, { SortOrder } from "react-bootstrap-table-next"
 import { MIN_SLUG_LENGTH, TIMEOUT } from "../utils/constant"
 import * as API from "../utils/api"
 import Router from 'next/router'
-import { signIn, signOut, useSession } from 'next-auth/react'
+import { signIn, signOut, useSession } from 'next-auth/client'
 import { getAdmins } from "../utils/helper"
 import { NewsType } from "../types/NewsType"
 import { TYPE } from "../utils/enum"
 
 const AdminPanel = ({ newsListParam }: { newsListParam: NewsType[] }) => {
-  const { data: session } = useSession()
+  const [session] = useSession()
   const [newsList, setNewsList] = useState<NewsType[]>(newsListParam)
 
   useEffect(() => {
