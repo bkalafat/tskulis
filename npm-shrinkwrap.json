@@ -16,7 +16,7 @@
         "@testing-library/jest-dom": "^5.16.1",
         "@testing-library/react": "^12.1.2",
         "@testing-library/user-event": "^13.5.0",
-        "@types/react": "^17.0.37",
+        "@types/react": "^17.0.38",
         "@types/react-dom": "^17.0.11",
         "axios": "^0.24.0",
         "bootstrap": "^4.6.0",
@@ -52,7 +52,7 @@
         "workbox-webpack-plugin": "^6.4.2"
       },
       "devDependencies": {
-        "@types/node": "^17.0.2",
+        "@types/node": "^17.0.4",
         "@types/react-bootstrap-table-next": "^4.0.17",
         "@types/react-slick": "^0.23.7",
         "babel-jest": "^27.4.5",
@@ -5076,9 +5076,9 @@
       "integrity": "sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ=="
     },
     "node_modules/@types/node": {
-      "version": "17.0.2",
-      "resolved": "https://registry.npmjs.org/@types/node/-/node-17.0.2.tgz",
-      "integrity": "sha512-JepeIUPFDARgIs0zD/SKPgFsJEAF0X5/qO80llx59gOxFTboS9Amv3S+QfB7lqBId5sFXJ99BN0J6zFRvL9dDA=="
+      "version": "17.0.4",
+      "resolved": "https://registry.npmjs.org/@types/node/-/node-17.0.4.tgz",
+      "integrity": "sha512-6xwbrW4JJiJLgF+zNypN5wr2ykM9/jHcL7rQ8fZe2vuftggjzZeRSM4OwRc6Xk8qWjwJ99qVHo/JgOGmomWRog=="
     },
     "node_modules/@types/normalize-package-data": {
       "version": "2.4.0",
@@ -5106,9 +5106,9 @@
       "integrity": "sha512-1HcDas8SEj4z1Wc696tH56G8OlRaH/sqZOynNNB+HF0WOeXPaxTtbYzJY2oEfiUxjSKjhCKr+MvR7dCHcEelug=="
     },
     "node_modules/@types/react": {
-      "version": "17.0.37",
-      "resolved": "https://registry.npmjs.org/@types/react/-/react-17.0.37.tgz",
-      "integrity": "sha512-2FS1oTqBGcH/s0E+CjrCCR9+JMpsu9b69RTFO+40ua43ZqP5MmQ4iUde/dMjWR909KxZwmOQIFq6AV6NjEG5xg==",
+      "version": "17.0.38",
+      "resolved": "https://registry.npmjs.org/@types/react/-/react-17.0.38.tgz",
+      "integrity": "sha512-SI92X1IA+FMnP3qM5m4QReluXzhcmovhZnLNm3pyeQlooi02qI7sLiepEYqT678uNiyc25XfCqxREFpy3W7YhQ==",
       "dependencies": {
         "@types/prop-types": "*",
         "@types/scheduler": "*",
@@ -30232,9 +30232,9 @@
       "integrity": "sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ=="
     },
     "@types/node": {
-      "version": "17.0.2",
-      "resolved": "https://registry.npmjs.org/@types/node/-/node-17.0.2.tgz",
-      "integrity": "sha512-JepeIUPFDARgIs0zD/SKPgFsJEAF0X5/qO80llx59gOxFTboS9Amv3S+QfB7lqBId5sFXJ99BN0J6zFRvL9dDA=="
+      "version": "17.0.4",
+      "resolved": "https://registry.npmjs.org/@types/node/-/node-17.0.4.tgz",
+      "integrity": "sha512-6xwbrW4JJiJLgF+zNypN5wr2ykM9/jHcL7rQ8fZe2vuftggjzZeRSM4OwRc6Xk8qWjwJ99qVHo/JgOGmomWRog=="
     },
     "@types/normalize-package-data": {
       "version": "2.4.0",
@@ -30262,9 +30262,9 @@
       "integrity": "sha512-1HcDas8SEj4z1Wc696tH56G8OlRaH/sqZOynNNB+HF0WOeXPaxTtbYzJY2oEfiUxjSKjhCKr+MvR7dCHcEelug=="
     },
     "@types/react": {
-      "version": "17.0.37",
-      "resolved": "https://registry.npmjs.org/@types/react/-/react-17.0.37.tgz",
-      "integrity": "sha512-2FS1oTqBGcH/s0E+CjrCCR9+JMpsu9b69RTFO+40ua43ZqP5MmQ4iUde/dMjWR909KxZwmOQIFq6AV6NjEG5xg==",
+      "version": "17.0.38",
+      "resolved": "https://registry.npmjs.org/@types/react/-/react-17.0.38.tgz",
+      "integrity": "sha512-SI92X1IA+FMnP3qM5m4QReluXzhcmovhZnLNm3pyeQlooi02qI7sLiepEYqT678uNiyc25XfCqxREFpy3W7YhQ==",
       "requires": {
         "@types/prop-types": "*",
         "@types/scheduler": "*",
