@@ -23,7 +23,7 @@
     "mongodb": "^3.6.9",
     "next": "^12.0.7",
     "next-auth": "^3.29.0",
-    "next-sitemap": "^1.6.203",
+    "next-sitemap": "^1.6.261",
     "node-sass": "^6.0.1",
     "npm": "^8.3.0",
     "popper.js": "^1.16.1",
