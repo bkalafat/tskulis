@@ -1,0 +1,905 @@
+{
+  "fileCounts": {},
+  "anys": [
+    {
+      "file": "lib\\mongodb.ts",
+      "line": 5,
+      "character": 4,
+      "text": "client",
+      "kind": 1
+    },
+    {
+      "file": "lib\\mongodb.ts",
+      "line": 6,
+      "character": 4,
+      "text": "clientPromise",
+      "kind": 1
+    },
+    {
+      "file": "lib\\mongodb.ts",
+      "line": 15,
+      "character": 14,
+      "text": "_mongoClientPromise",
+      "kind": 1
+    },
+    {
+      "file": "lib\\mongodb.ts",
+      "line": 16,
+      "character": 4,
+      "text": "client",
+      "kind": 1
+    },
+    {
+      "file": "lib\\mongodb.ts",
+      "line": 17,
+      "character": 11,
+      "text": "_mongoClientPromise",
+      "kind": 1
+    },
+    {
+      "file": "lib\\mongodb.ts",
+      "line": 17,
+      "character": 33,
+      "text": "client",
+      "kind": 1
+    },
+    {
+      "file": "lib\\mongodb.ts",
+      "line": 17,
+      "character": 40,
+      "text": "connect",
+      "kind": 1
+    },
+    {
+      "file": "lib\\mongodb.ts",
+      "line": 19,
+      "character": 2,
+      "text": "clientPromise",
+      "kind": 1
+    },
+    {
+      "file": "lib\\mongodb.ts",
+      "line": 19,
+      "character": 25,
+      "text": "_mongoClientPromise",
+      "kind": 1
+    },
+    {
+      "file": "lib\\mongodb.ts",
+      "line": 22,
+      "character": 2,
+      "text": "client",
+      "kind": 1
+    },
+    {
+      "file": "lib\\mongodb.ts",
+      "line": 23,
+      "character": 2,
+      "text": "clientPromise",
+      "kind": 1
+    },
+    {
+      "file": "lib\\mongodb.ts",
+      "line": 23,
+      "character": 18,
+      "text": "client",
+      "kind": 1
+    },
+    {
+      "file": "lib\\mongodb.ts",
+      "line": 23,
+      "character": 25,
+      "text": "connect",
+      "kind": 1
+    },
+    {
+      "file": "lib\\mongodb.ts",
+      "line": 28,
+      "character": 15,
+      "text": "clientPromise",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\sliderItem.tsx",
+      "line": 3,
+      "character": 42,
+      "text": "onClick",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\sliderItem.tsx",
+      "line": 6,
+      "character": 2,
+      "text": "onClick",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\sliderItem.tsx",
+      "line": 23,
+      "character": 9,
+      "text": "dots",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\helper.ts",
+      "line": 9,
+      "character": 34,
+      "text": "uri",
+      "kind": 1
+    },
+    {
+      "file": "src\\components\\CategoryNews.tsx",
+      "line": 10,
+      "character": 16,
+      "text": "error",
+      "kind": 1
+    },
+    {
+      "file": "src\\components\\CategoryNews.tsx",
+      "line": 15,
+      "character": 6,
+      "text": "error",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\api.ts",
+      "line": 16,
+      "character": 90,
+      "text": "error",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\api.ts",
+      "line": 16,
+      "character": 111,
+      "text": "error",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\api.ts",
+      "line": 20,
+      "character": 94,
+      "text": "error",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\api.ts",
+      "line": 20,
+      "character": 115,
+      "text": "error",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\api.ts",
+      "line": 28,
+      "character": 79,
+      "text": "error",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\api.ts",
+      "line": 28,
+      "character": 100,
+      "text": "error",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\api.ts",
+      "line": 32,
+      "character": 87,
+      "text": "error",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\api.ts",
+      "line": 32,
+      "character": 108,
+      "text": "error",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\api.ts",
+      "line": 52,
+      "character": 22,
+      "text": "error",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\api.ts",
+      "line": 52,
+      "character": 43,
+      "text": "error",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\api.ts",
+      "line": 64,
+      "character": 22,
+      "text": "error",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\api.ts",
+      "line": 64,
+      "character": 43,
+      "text": "error",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\api.ts",
+      "line": 70,
+      "character": 22,
+      "text": "error",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\api.ts",
+      "line": 70,
+      "character": 43,
+      "text": "error",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\api.ts",
+      "line": 82,
+      "character": 22,
+      "text": "error",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\api.ts",
+      "line": 82,
+      "character": 43,
+      "text": "error",
+      "kind": 1
+    },
+    {
+      "file": "src\\components\\Layout.tsx",
+      "line": 9,
+      "character": 18,
+      "text": "children",
+      "kind": 1
+    },
+    {
+      "file": "src\\components\\Layout.tsx",
+      "line": 39,
+      "character": 17,
+      "text": "url",
+      "kind": 1
+    },
+    {
+      "file": "src\\components\\Layout.tsx",
+      "line": 39,
+      "character": 47,
+      "text": "data",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\adminpanel.tsx",
+      "line": 61,
+      "character": 27,
+      "text": "dataField",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\adminpanel.tsx",
+      "line": 69,
+      "character": 14,
+      "text": "_e",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\_app.tsx",
+      "line": 12,
+      "character": 43,
+      "text": "pageProps",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\_app.tsx",
+      "line": 13,
+      "character": 28,
+      "text": "pageProps",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\_app.tsx",
+      "line": 13,
+      "character": 38,
+      "text": "session",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 5,
+      "character": 2,
+      "text": "loader",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 6,
+      "character": 14,
+      "text": "loader",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 7,
+      "character": 9,
+      "text": "loader",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 7,
+      "character": 18,
+      "text": "loader",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 10,
+      "character": 16,
+      "text": "loader",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 10,
+      "character": 23,
+      "text": "file",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 10,
+      "character": 28,
+      "text": "then",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 11,
+      "character": 6,
+      "text": "file",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 13,
+      "character": 35,
+      "text": "file",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 18,
+      "character": 13,
+      "text": "resolve",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 18,
+      "character": 22,
+      "text": "file",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 27,
+      "character": 30,
+      "text": "resolve",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 27,
+      "character": 44,
+      "text": "file",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 27,
+      "character": 49,
+      "text": "name",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 36,
+      "character": 15,
+      "text": "file",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 38,
+      "character": 35,
+      "text": "file",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 38,
+      "character": 40,
+      "text": "name",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 41,
+      "character": 26,
+      "text": "progressEvent",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 42,
+      "character": 15,
+      "text": "loader",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 42,
+      "character": 22,
+      "text": "uploadTotal",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 42,
+      "character": 36,
+      "text": "progressEvent",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 42,
+      "character": 50,
+      "text": "total",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 43,
+      "character": 15,
+      "text": "loader",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 43,
+      "character": 22,
+      "text": "uploaded",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 43,
+      "character": 33,
+      "text": "progressEvent",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 43,
+      "character": 47,
+      "text": "loaded",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 51,
+      "character": 12,
+      "text": "resolve",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 51,
+      "character": 21,
+      "text": "url",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 51,
+      "character": 26,
+      "text": "filename",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 51,
+      "character": 36,
+      "text": "mimeType",
+      "kind": 1
+    },
+    {
+      "file": "src\\utils\\UploadAdapter.ts",
+      "line": 63,
+      "character": 8,
+      "text": "resolve",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 20,
+      "character": 6,
+      "text": "tempImgPath",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 22,
+      "character": 29,
+      "text": "imageUri",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 23,
+      "character": 43,
+      "text": "imageUri",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 32,
+      "character": 10,
+      "text": "CKEditor",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 32,
+      "character": 20,
+      "text": "ClassicEditor",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 32,
+      "character": 48,
+      "text": "current",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 35,
+      "character": 10,
+      "text": "watermark",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 35,
+      "character": 37,
+      "text": "current",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 38,
+      "character": 14,
+      "text": "current",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 39,
+      "character": 6,
+      "text": "CKEditor",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 39,
+      "character": 53,
+      "text": "CKEditor",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 40,
+      "character": 6,
+      "text": "ClassicEditor",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 42,
+      "character": 17,
+      "text": "current",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 43,
+      "character": 6,
+      "text": "watermark",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 69,
+      "character": 23,
+      "text": "e",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 70,
+      "character": 4,
+      "text": "e",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 70,
+      "character": 6,
+      "text": "preventDefault",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 71,
+      "character": 10,
+      "text": "form",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 71,
+      "character": 17,
+      "text": "e",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 71,
+      "character": 19,
+      "text": "currentTarget",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 72,
+      "character": 8,
+      "text": "form",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 72,
+      "character": 13,
+      "text": "checkValidity",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 73,
+      "character": 6,
+      "text": "e",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 73,
+      "character": 8,
+      "text": "stopPropagation",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 95,
+      "character": 17,
+      "text": "watermark",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 96,
+      "character": 7,
+      "text": "blob",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 96,
+      "character": 12,
+      "text": "watermark",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 96,
+      "character": 22,
+      "text": "text",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 96,
+      "character": 27,
+      "text": "upperRight",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 128,
+      "character": 6,
+      "text": "tempImgPath",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 145,
+      "character": 37,
+      "text": "current",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 145,
+      "character": 45,
+      "text": "click",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 244,
+      "character": 16,
+      "text": "editor",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 244,
+      "character": 24,
+      "text": "ClassicEditor",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 246,
+      "character": 25,
+      "text": "editor",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 247,
+      "character": 18,
+      "text": "editor",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 247,
+      "character": 25,
+      "text": "plugins",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 247,
+      "character": 33,
+      "text": "get",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 249,
+      "character": 20,
+      "text": "createUploadAdapter",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 249,
+      "character": 42,
+      "text": "loader",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 250,
+      "character": 45,
+      "text": "loader",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 253,
+      "character": 27,
+      "text": "_e",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 253,
+      "character": 31,
+      "text": "editor",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 254,
+      "character": 49,
+      "text": "editor",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\editor\\[id].tsx",
+      "line": 254,
+      "character": 56,
+      "text": "getData",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\[category]\\[slug].tsx",
+      "line": 87,
+      "character": 39,
+      "text": "params",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\[category]\\[slug].tsx",
+      "line": 89,
+      "character": 35,
+      "text": "params",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\[category]\\[slug].tsx",
+      "line": 89,
+      "character": 42,
+      "text": "slug",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\[category]\\[slug].tsx",
+      "line": 90,
+      "character": 43,
+      "text": "params",
+      "kind": 1
+    },
+    {
+      "file": "src\\pages\\[category]\\[slug].tsx",
+      "line": 90,
+      "character": 50,
+      "text": "slug",
+      "kind": 1
+    },
+    {
+      "file": "src\\test\\pages\\adminpanel.spec.ts",
+      "line": 8,
+      "character": 6,
+      "text": "expectedSignIn",
+      "kind": 1
+    },
+    {
+      "file": "src\\test\\pages\\adminpanel.spec.ts",
+      "line": 8,
+      "character": 22,
+      "text": "expectedEmail",
+      "kind": 1
+    },
+    {
+      "file": "src\\test\\pages\\adminpanel.spec.ts",
+      "line": 8,
+      "character": 37,
+      "text": "expectedPassword",
+      "kind": 1
+    }
+  ],
+  "percentage": 96.43056330172895,
+  "total": 3586,
+  "covered": 3458,
+  "uncovered": 128
+}

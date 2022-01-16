@@ -1,0 +1,118 @@
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>api.ts</title>
+      <link href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" type="text/css" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/mode/javascript/javascript.min.js" type="text/javascript" charset="utf-8"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.css" type="text/css" rel="stylesheet">
+<script src="..\..\..\assets\source-file.js" type="text/javascript" charset="utf-8"></script>
+<link href="..\..\..\assets\source-file.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+    <div style="margin-top:3em" class="ui container"><h1 class="ui header"><a href="..\..\..\index.html">TypeScript coverage report</a></h1><table style="margin-top:2em" class="ui celled table"><thead class=""><tr class=""><th class="">Filename</th><th class="">Percent</th><th class="">Threshold</th><th class="">Total</th><th class="">Covered</th><th class="">Uncovered</th></tr></thead><tbody class=""><tr class="positive"><td class="">src\utils\api.ts</td><td class="">92.83%</td><td class="">80%</td><td class="">223</td><td class="">207</td><td class="">16</td></tr></tbody></table><textarea id="editor" readonly="" style="margin-top:3em">import { getEnvironmentUrl, setDefaultCommentValues, setDefaultValues } from &quot;./helper&quot;
+import axios from &quot;axios&quot;
+import fetch from &#x27;isomorphic-unfetch&#x27;
+import * as Const from &quot;./constant&quot;
+import { NewsType } from &quot;../types/NewsType&quot;
+import { CommentType } from &quot;../types/CommentType&quot;
+
+export const getNewsList = (): Promise&lt;NewsType[]&gt; =&gt; {
+  return fetch(getEnvironmentUrl() + &quot;news/get&quot;).then(res =&gt; res.json())
+}
+
+export const getCommentList = (): Promise&lt;CommentType[]&gt; =&gt; {
+  return fetch(getEnvironmentUrl() + &quot;comment/get&quot;).then(res =&gt; res.json())
+}
+
+export const getCommentsBySlug = (slug: string): Promise&lt;CommentType[]&gt; =&gt; {
+  return fetch(getEnvironmentUrl() + &quot;comment/GetBySlug/&quot; + slug).then(res =&gt; res.json(), error =&gt; console.log(error))
+}
+
+export const getCommentsByNewsId = (newsId: string): Promise&lt;CommentType[]&gt; =&gt; {
+  return fetch(getEnvironmentUrl() + &quot;comment/GetByNewsId/&quot; + newsId).then(res =&gt; res.json(), error =&gt; console.log(error))
+}
+
+export const getLastNewsList = (): Promise&lt;NewsType[]&gt; =&gt; {
+  return fetch(getEnvironmentUrl() + &quot;news/GetLastNews&quot;).then(res =&gt; res.json())
+}
+
+export const getNews = (id: string): Promise&lt;NewsType&gt; =&gt; {
+  return fetch(getEnvironmentUrl() + &quot;news/get/&quot; + id).then(res =&gt; res.json(), error =&gt; console.log(error))
+}
+
+export const getNewsBySlug = (slug: string): Promise&lt;NewsType&gt; =&gt; {
+  return fetch(getEnvironmentUrl() + &quot;news/GetBySlug/&quot; + slug).then(res =&gt; res.json(), error =&gt; console.log(error))
+}
+
+export const upsertNews = (newNews: NewsType) =&gt; {
+  if (&quot;id&quot; in newNews &amp;&amp; newNews.id &amp;&amp; newNews.id.length &gt; 0) {
+    return updateNews(newNews)
+  } else {
+    return insertNews(newNews)
+  }
+}
+
+export const insertNews = (news: NewsType) =&gt; {
+  setDefaultValues(news)
+  return fetch(getEnvironmentUrl() + &quot;news/post&quot;, {
+    method: &quot;POST&quot;,
+    headers: {
+      Accept: &quot;application/json&quot;,
+      &quot;Content-Type&quot;: &quot;application/json&quot;
+    },
+    body: JSON.stringify(news)
+  }).then(() =&gt; &quot;ok&quot;, error =&gt; console.log(error))
+}
+
+export const updateNews = (news: NewsType) =&gt; {
+  news.updateDate = new Date().toISOString()
+  news.imgAlt = news.caption
+  return fetch(getEnvironmentUrl() + &quot;news/put/&quot; + news.id, {
+    method: &quot;PUT&quot;,
+    headers: {
+      &quot;Content-Type&quot;: &quot;application/json&quot;
+    },
+    body: JSON.stringify(news)
+  }).then(() =&gt; &quot;ok&quot;, error =&gt; console.log(error))
+}
+
+export const deleteNews = (id: string) =&gt; {
+  return fetch(getEnvironmentUrl() + &quot;news/delete/&quot; + id, {
+    method: &quot;DELETE&quot;
+  }).then(() =&gt; &quot;ok&quot;, error =&gt; console.log(error))
+}
+
+export const insertComment = (comment: CommentType) =&gt; {
+  setDefaultCommentValues(comment)
+  return fetch(getEnvironmentUrl() + &quot;comment/post&quot;, {
+    method: &quot;POST&quot;,
+    headers: {
+      Accept: &quot;application/json&quot;,
+      &quot;Content-Type&quot;: &quot;application/json&quot;
+    },
+    body: JSON.stringify(comment)
+  }).then(() =&gt; &quot;ok&quot;, error =&gt; console.log(error))
+}
+
+export const uploadFile = async (file: File) =&gt; {
+  const formData = new FormData()
+  formData.append(&quot;image&quot;, file, file.name)
+  const res = await axios.post&lt;{fileUrl: string}&gt;(Const.UPLOAD_FILE_PATH, formData)
+  console.log(res.data)
+  return res.data.fileUrl
+}
+
+export async function createFile(url: string, fileName: string, type: string) {
+  let response = await fetch(url);
+  let blobData = await response.blob();
+  let metadata = {
+    type
+  };
+  return new File([blobData], fileName, metadata);
+}</textarea><pre id="annotations" style="display:none">[{&quot;file&quot;:&quot;src\\utils\\api.ts&quot;,&quot;line&quot;:16,&quot;character&quot;:90,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\utils\\api.ts&quot;,&quot;line&quot;:16,&quot;character&quot;:111,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\utils\\api.ts&quot;,&quot;line&quot;:20,&quot;character&quot;:94,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\utils\\api.ts&quot;,&quot;line&quot;:20,&quot;character&quot;:115,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\utils\\api.ts&quot;,&quot;line&quot;:28,&quot;character&quot;:79,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\utils\\api.ts&quot;,&quot;line&quot;:28,&quot;character&quot;:100,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\utils\\api.ts&quot;,&quot;line&quot;:32,&quot;character&quot;:87,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\utils\\api.ts&quot;,&quot;line&quot;:32,&quot;character&quot;:108,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\utils\\api.ts&quot;,&quot;line&quot;:52,&quot;character&quot;:22,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\utils\\api.ts&quot;,&quot;line&quot;:52,&quot;character&quot;:43,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\utils\\api.ts&quot;,&quot;line&quot;:64,&quot;character&quot;:22,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\utils\\api.ts&quot;,&quot;line&quot;:64,&quot;character&quot;:43,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\utils\\api.ts&quot;,&quot;line&quot;:70,&quot;character&quot;:22,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\utils\\api.ts&quot;,&quot;line&quot;:70,&quot;character&quot;:43,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\utils\\api.ts&quot;,&quot;line&quot;:82,&quot;character&quot;:22,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\utils\\api.ts&quot;,&quot;line&quot;:82,&quot;character&quot;:43,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1}]</pre></div>
+    <p class="footer-text">TypeScript Coverage Report generated by <a href="https://github.com/plantain-00/type-coverage">type-coverage</a> and <a href="https://github.com/alexcanessa/typescript-coverage-report">typescript-coverage-report</a> at Sun, 16 Jan 2022 12:28:32 GMT</p>
+    </body>
+  </html>
+  

@@ -1,0 +1,119 @@
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>[slug].tsx</title>
+      <link href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" type="text/css" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/mode/javascript/javascript.min.js" type="text/javascript" charset="utf-8"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.css" type="text/css" rel="stylesheet">
+<script src="..\..\..\..\assets\source-file.js" type="text/javascript" charset="utf-8"></script>
+<link href="..\..\..\..\assets\source-file.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+    <div style="margin-top:3em" class="ui container"><h1 class="ui header"><a href="..\..\..\..\index.html">TypeScript coverage report</a></h1><table style="margin-top:2em" class="ui celled table"><thead class=""><tr class=""><th class="">Filename</th><th class="">Percent</th><th class="">Threshold</th><th class="">Total</th><th class="">Covered</th><th class="">Uncovered</th></tr></thead><tbody class=""><tr class="positive"><td class="">src\pages\[category]\[slug].tsx</td><td class="">98.01%</td><td class="">80%</td><td class="">251</td><td class="">246</td><td class="">5</td></tr></tbody></table><textarea id="editor" readonly="" style="margin-top:3em">import Share from &quot;../../components/Share&quot;
+import Layout from &quot;../../components/Layout&quot;
+import Head from &quot;next/head&quot;
+import SquareAd from &quot;../../components/SquareAd&quot;
+import SubNews from &quot;../../components/SubNews&quot;
+import CommentArea from &quot;../../components/CommentArea&quot;
+import { NewsType } from &quot;../../types/NewsType&quot;
+import Image from &quot;next/image&quot;;
+import { generateUrlWithoutId, getCategoryToByKey, ShowMedias } from &quot;../../utils/helper&quot;
+import { getCommentsBySlug, getLastNewsList, getNewsBySlug, getNewsList } from &quot;../../utils/api&quot;
+import { MIN_SLUG_LENGTH, TIMEOUT } from &quot;../../utils/constant&quot;
+import { CommentType } from &quot;../../types/CommentType&quot;
+
+const NewsDetail = ({ lastNewsList, news, comments: comments }: { lastNewsList: NewsType[], news: NewsType, comments: CommentType[] }) =&gt; {
+  if (news &amp;&amp; news.createDate) {
+    let [y, m, d, hh, mm, ss, ms] = news.createDate.match(/\d+/g)
+    let date = new Date(Date.UTC(+y, +m - 1, +d, +hh, +mm, +ss, +ms))
+    let formatted = date.toLocaleString()
+    const url = generateUrlWithoutId(news)
+    return (
+      &lt;Layout&gt;
+        &lt;Head&gt;
+          &lt;title&gt;{news.caption}&lt;/title&gt;
+          &lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1.0, width=device-width&quot; /&gt;
+          &lt;meta name=&quot;title&quot; content={news.caption} /&gt;
+          &lt;meta name=&quot;description&quot; content={news.summary} /&gt;
+          &lt;meta property=&quot;og:image&quot; content={news.imgPath} /&gt;
+          &lt;meta property=&quot;og:url&quot; content={url} /&gt;
+          &lt;meta property=&quot;og:type&quot; content=&quot;website&quot; /&gt;
+          &lt;meta property=&quot;og:url&quot; content={url} /&gt;
+          &lt;meta property=&quot;og:title&quot; content={news.caption} /&gt;
+          &lt;meta property=&quot;og:description&quot; content={news.summary} /&gt;
+          &lt;meta name=&quot;twitter:card&quot; content=&quot;summary_large_image&quot; /&gt;
+          &lt;meta name=&quot;twitter:url&quot; content={url} /&gt;
+          &lt;meta property=&quot;twitter:title&quot; content={news.caption} /&gt;
+          &lt;meta property=&quot;twitter:description&quot; content={news.summary + &quot; #tskulis&quot;} /&gt;
+          &lt;meta name=&quot;keywords&quot; content={news.keywords ? news.keywords : news.caption.split(&#x27; &#x27;).join(&#x27;, &#x27;)} /&gt;
+        &lt;/Head&gt;
+        &lt;div className=&quot;newsDetail&quot;&gt;
+          &lt;h1 className=&quot;spaceAround&quot;&gt;{news.caption}&lt;/h1&gt;
+          &lt;p className=&quot;lead spaceAround&quot;&gt;{news.summary}&lt;/p&gt;
+          &lt;div className=&quot;center-item col-md-6 col-xs-12 col-sm-12 &quot;&gt;
+            &lt;Image
+              width=&quot;1500&quot; height=&quot;1000&quot;
+              className=&quot;detailImg&quot;
+              src={news.imgPath}
+              alt={news.imgAlt}
+            /&gt;&lt;/div&gt;
+          &lt;Share news={news}&gt;&lt;/Share&gt;
+          &lt;SquareAd /&gt;
+        &lt;/div&gt;
+        &lt;div
+          className=&quot;container&quot;
+          onContextMenu={e =&gt; e.preventDefault()}
+          dangerouslySetInnerHTML={{
+            __html:
+              &quot;&lt;div class=&#x27;ck-content&#x27;&gt; &quot; + ShowMedias(news.content) +
+              &quot; &lt;/div&gt;&quot;
+          }}
+        /&gt;
+        &lt;div className=&#x27;container content center-item text-center&#x27;&gt;
+          &lt;SquareAd /&gt;
+          &lt;time className=&quot;time&quot; dateTime={news.createDate}&gt;Haber Giriş: {formatted}&lt;/time&gt;
+          &lt;SubNews newsList={lastNewsList.filter(
+            n =&gt;
+              n.id != news.id &amp;&amp;
+              n.isActive
+          )} /&gt;
+          &lt;CommentArea newsId={news.id} comments={comments} /&gt;
+        &lt;/div&gt;
+      &lt;/Layout&gt;
+    )
+  } else return &lt;Layout&gt;
+    &lt;Head&gt;
+      &lt;title&gt;Detay&lt;/title&gt;
+    &lt;/Head&gt;
+  &lt;/Layout&gt;
+}
+
+export async function getStaticPaths() {
+  const newsList = await getNewsList()
+  const paths = newsList.filter(n =&gt; n.slug?.length &gt;= MIN_SLUG_LENGTH).map((news) =&gt; ({
+    params: { category: getCategoryToByKey(news.category), slug: news.slug }
+  }))
+  return { paths, fallback: true }
+}
+
+export const getStaticProps = async ({ params }) =&gt; {
+  const lastNewsList = await getLastNewsList()
+  const news = await getNewsBySlug(params.slug)
+  const comments = await getCommentsBySlug(params.slug)
+  return {
+    revalidate: TIMEOUT,
+    props: {
+      lastNewsList,
+      news,
+      comments
+    }
+  }
+}
+
+export default NewsDetail</textarea><pre id="annotations" style="display:none">[{&quot;file&quot;:&quot;src\\pages\\[category]\\[slug].tsx&quot;,&quot;line&quot;:87,&quot;character&quot;:39,&quot;text&quot;:&quot;params&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\[category]\\[slug].tsx&quot;,&quot;line&quot;:89,&quot;character&quot;:35,&quot;text&quot;:&quot;params&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\[category]\\[slug].tsx&quot;,&quot;line&quot;:89,&quot;character&quot;:42,&quot;text&quot;:&quot;slug&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\[category]\\[slug].tsx&quot;,&quot;line&quot;:90,&quot;character&quot;:43,&quot;text&quot;:&quot;params&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\[category]\\[slug].tsx&quot;,&quot;line&quot;:90,&quot;character&quot;:50,&quot;text&quot;:&quot;slug&quot;,&quot;kind&quot;:1}]</pre></div>
+    <p class="footer-text">TypeScript Coverage Report generated by <a href="https://github.com/plantain-00/type-coverage">type-coverage</a> and <a href="https://github.com/alexcanessa/typescript-coverage-report">typescript-coverage-report</a> at Sun, 16 Jan 2022 12:28:32 GMT</p>
+    </body>
+  </html>
+  

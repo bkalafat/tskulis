@@ -1,0 +1,134 @@
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>adminpanel.tsx</title>
+      <link href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" type="text/css" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/mode/javascript/javascript.min.js" type="text/javascript" charset="utf-8"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.css" type="text/css" rel="stylesheet">
+<script src="..\..\..\assets\source-file.js" type="text/javascript" charset="utf-8"></script>
+<link href="..\..\..\assets\source-file.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+    <div style="margin-top:3em" class="ui container"><h1 class="ui header"><a href="..\..\..\index.html">TypeScript coverage report</a></h1><table style="margin-top:2em" class="ui celled table"><thead class=""><tr class=""><th class="">Filename</th><th class="">Percent</th><th class="">Threshold</th><th class="">Total</th><th class="">Covered</th><th class="">Uncovered</th></tr></thead><tbody class=""><tr class="positive"><td class="">src\pages\adminpanel.tsx</td><td class="">98.59%</td><td class="">80%</td><td class="">142</td><td class="">140</td><td class="">2</td></tr></tbody></table><textarea id="editor" readonly="" style="margin-top:3em">import React, { useState, useEffect } from &quot;react&quot;
+import BootstrapTable, { SortOrder } from &quot;react-bootstrap-table-next&quot;
+import { MIN_SLUG_LENGTH, TIMEOUT } from &quot;../utils/constant&quot;
+import * as API from &quot;../utils/api&quot;
+import Router from &#x27;next/router&#x27;
+import { signIn, signOut, useSession } from &#x27;next-auth/client&#x27;
+import { getAdmins } from &quot;../utils/helper&quot;
+import { NewsType } from &quot;../types/NewsType&quot;
+import { TYPE } from &quot;../utils/enum&quot;
+
+const AdminPanel = ({ newsListParam }: { newsListParam: NewsType[] }) =&gt; {
+  const [session] = useSession()
+  const [newsList, setNewsList] = useState&lt;NewsType[]&gt;(newsListParam)
+
+  useEffect(() =&gt; {
+    API.getNewsList().then(result =&gt; {
+      setNewsList(result)
+    })
+  }, [])
+
+  const navigateForCreate = () =&gt; Router.push(&quot;/editor/new&quot;)
+  const navigateForUpdate = (news: NewsType) =&gt; news.slug?.length &gt; MIN_SLUG_LENGTH ? Router.push(&quot;/editor/&quot; + news.slug + &quot;$&quot;) : Router.push(&quot;/editor/&quot; + news.id)
+
+  function typeFormatter(type: string) {
+    if (type === TYPE.NEWS) {
+      return &quot;Ana Haber&quot;
+    } else {
+      return &quot;Alt Haber&quot;
+    }
+  }
+
+  const columns = [
+    {
+      dataField: &quot;caption&quot;,
+      text: &quot;Başık&quot;,
+      sort: true
+    },
+    {
+      dataField: &quot;authors&quot;,
+      text: &quot;Yazarlar&quot;
+    },
+    {
+      dataField: &quot;type&quot;,
+      text: &quot;Tip&quot;,
+      formatter: typeFormatter
+    },
+    {
+      dataField: &quot;category&quot;,
+      text: &quot;Kategori&quot;
+    },
+    {
+      dataField: &quot;createDate&quot;,
+      text: &quot;Oluşturma tarihi&quot;,
+      sort: true
+    },
+    {
+      dataField: &quot;isActive&quot;,
+      text: &quot;Durum&quot;
+    }
+  ]
+
+  const defaultSorted : [{ dataField: any; order: SortOrder }] = [
+    {
+      dataField: &quot;createDate&quot;,
+      order: &quot;desc&quot;
+    }
+  ]
+
+  const rowEvents = {
+    onClick: (_e: any, row : NewsType) =&gt; {
+      navigateForUpdate(row)
+    }
+  }
+  if (newsList) {
+    const admins = getAdmins();
+    return &lt;div className=&quot;center-item&quot;&gt;
+      {!session &amp;&amp; &lt;&gt;
+        Not admins signed in &lt;br /&gt;
+        &lt;button onClick={() =&gt; signIn()}&gt;Sign in&lt;/button&gt;
+      &lt;/&gt;}
+      {session &amp;&amp; admins.includes(session.user.email.toLowerCase()) &amp;&amp; &lt;&gt;
+        Signed in as {session.user.email} &lt;br /&gt;
+        &lt;button onClick={() =&gt; signOut()}&gt;Sign out&lt;/button&gt; &lt;br /&gt;
+
+        &lt;input
+          onClick={navigateForCreate}
+          type=&quot;submit&quot;
+          value=&quot;Yeni Haber Ekle&quot;
+        /&gt;
+        &lt;BootstrapTable
+          bootstrap4
+          keyField=&quot;id&quot;
+          data={newsList}
+          columns={columns}
+          defaultSorted={defaultSorted}
+          rowEvents={rowEvents}
+          striped
+          hover
+          condensed
+        /&gt;&lt;/&gt;}
+    &lt;/div&gt;
+
+  }
+  return &lt;&gt;&lt;/&gt;
+}
+
+export const getStaticProps = async () =&gt; {
+  const newsList = await API.getNewsList()
+  return {
+    revalidate: TIMEOUT,
+    props: {
+      newsList
+    }
+  }
+}
+
+export default AdminPanel</textarea><pre id="annotations" style="display:none">[{&quot;file&quot;:&quot;src\\pages\\adminpanel.tsx&quot;,&quot;line&quot;:61,&quot;character&quot;:27,&quot;text&quot;:&quot;dataField&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\adminpanel.tsx&quot;,&quot;line&quot;:69,&quot;character&quot;:14,&quot;text&quot;:&quot;_e&quot;,&quot;kind&quot;:1}]</pre></div>
+    <p class="footer-text">TypeScript Coverage Report generated by <a href="https://github.com/plantain-00/type-coverage">type-coverage</a> and <a href="https://github.com/alexcanessa/typescript-coverage-report">typescript-coverage-report</a> at Sun, 16 Jan 2022 12:28:32 GMT</p>
+    </body>
+  </html>
+  

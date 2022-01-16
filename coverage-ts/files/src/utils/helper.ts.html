@@ -1,0 +1,122 @@
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>helper.ts</title>
+      <link href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" type="text/css" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/mode/javascript/javascript.min.js" type="text/javascript" charset="utf-8"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.css" type="text/css" rel="stylesheet">
+<script src="..\..\..\assets\source-file.js" type="text/javascript" charset="utf-8"></script>
+<link href="..\..\..\assets\source-file.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+    <div style="margin-top:3em" class="ui container"><h1 class="ui header"><a href="..\..\..\index.html">TypeScript coverage report</a></h1><table style="margin-top:2em" class="ui celled table"><thead class=""><tr class=""><th class="">Filename</th><th class="">Percent</th><th class="">Threshold</th><th class="">Total</th><th class="">Covered</th><th class="">Uncovered</th></tr></thead><tbody class=""><tr class="positive"><td class="">src\utils\helper.ts</td><td class="">99.55%</td><td class="">80%</td><td class="">222</td><td class="">221</td><td class="">1</td></tr></tbody></table><textarea id="editor" readonly="" style="margin-top:3em">import * as Const from &quot;./constant&quot;
+import slugify from &quot;slugify&quot;
+import { NewsType } from &quot;../types/NewsType&quot;
+import { CommentType } from &quot;../types/CommentType&quot;
+
+export function getEnvironmentUrl() {
+  return process.env.NEXT_PUBLIC_API_PATH
+}
+
+export const convertFile = async (uri: any, filename: string) =&gt; {
+  const response = await fetch(uri)
+  const arrayBuffer = await response.arrayBuffer()
+  return new File([arrayBuffer], filename, { type: &quot;WEBP&quot; })
+}
+
+export function setDefaultValues(news: NewsType) {
+  news.subjects = [&quot;haber&quot;]
+  news.createDate = new Date().toISOString()
+  news.updateDate = new Date().toISOString()
+  news.expressDate = new Date().toISOString()
+  news.slug = slugifyMarkless(news.caption)
+  news.url = generateUrlWithoutId(news)
+  news.priority = 300
+  news.imgAlt = news.caption;
+  delete news[&#x27;id&#x27;]
+
+  return news
+}
+
+export function setDefaultCommentValues(comment: CommentType) {
+  comment.createDate = new Date().toISOString()
+  comment.updateDate = new Date().toISOString()
+  delete comment[&#x27;id&#x27;]
+  return comment
+}
+
+export const getCategoryByTo = (to: string) =&gt; {
+  return Object.values(Const.Categories).find(c =&gt; c.to === to)
+}
+
+export const getCategoryToByKey = (key: string) =&gt; {
+  const categories = Object.values(Const.Categories)
+  const category = categories.find(c =&gt; c.key === key)
+  return category ? category.to : &quot;new&quot;
+}
+
+export const getUrlWithId = (news: NewsType) =&gt; {
+  return &quot;https://tskulis.com/&quot; + getCategoryToByKey(news.category) + &quot;/&quot; + getSlug(news) + &quot;/&quot; + news.id
+}
+
+export const getFullUrl = (news: NewsType) =&gt; {
+  return news.url.length &gt;= Const.MIN_SLUG_LENGTH ? news.url : getUrlWithId(news)
+}
+
+export const getHrefModel = (urlLength: number) =&gt; {
+  return urlLength &lt; Const.MIN_SLUG_LENGTH ? &quot;[category]/[slug]/[id]&quot; : &quot;[category]/[slug]&quot;;
+}
+
+export const getSlug = (news: NewsType) =&gt; {
+  return news.slug?.length &gt; Const.MIN_SLUG_LENGTH ? news.slug : slugifyMarkless(news.caption);
+}
+
+export const getFullSlug = (news: NewsType) =&gt; {
+  return news.slug?.length &gt; Const.MIN_SLUG_LENGTH ? getCategoryToByKey(news.category) + &quot;/&quot; + getSlug(news) : getCategoryToByKey(news.category) + &quot;/&quot; + getSlug(news) + &quot;/&quot; + news.id
+}
+
+export const generateUrlWithoutId = (news: NewsType) =&gt; {
+  return &quot;https://tskulis.com/&quot; + getCategoryToByKey(news.category) + &quot;/&quot; + getSlug(news)
+}
+
+export const sortCreateDateDesc = () =&gt; {
+  return function (a: NewsType, b: NewsType) {
+    return new Date(b.createDate).getTime() - new Date(a.createDate).getTime()
+  }
+}
+
+export const getAdmins = () =&gt; {
+  return [&quot;kalafatburak@gmail.com&quot;, &quot;fatalarr@gmail.com&quot;, &quot;ktuna17@outlook.com&quot;, &quot;mircolakoglu@gmail.com&quot;, &quot;burakkalafat@hotmail.com&quot;, &quot;barisatmaca061@gmail.com&quot;, &quot;aberker61@gmail.com&quot;, &quot;berkerkucuk1@gmail.com&quot;, &quot;zaferhalatci@gmail.com&quot;];
+}
+
+export const ShowMedias = (content: string) =&gt; {
+  const oembed = content.split(&#x27;&lt;/oembed&gt;&#x27;);
+  let body = &#x27;&#x27;;
+  oembed.forEach((item, index) =&gt; {
+    body += oembed[index] + &#x27;&lt;/oembed&gt;&#x27;;
+    const oembed1 = item.split(&#x27;url=&quot;&#x27;)[1];
+    if (oembed1) {
+      const oembed2 = oembed1.split(&#x27;&quot;&gt;&#x27;)[0];
+      if (oembed2) {
+        const youtube = oembed2.split(&#x27;https://www.youtube.com/watch?v=&#x27;)[1];
+        if (youtube) {
+          body += &#x27;&lt;div class=&quot;iframe-container&quot;&gt;&lt;iframe src=&quot;https://youtube.com/embed/&#x27; + youtube + &#x27;&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&#x27;;
+        }
+      }
+    }
+  });
+  return body;
+}
+
+const slugifyMarkless = (text: string) =&gt; {
+  text = text.replace(/[.,\/#!$%\^&amp;\*;:{}=\-_`~()]/g,&quot;&quot;)
+  if (text.endsWith(&#x27;!&#x27;) || text.endsWith(&#x27;?&#x27;) )
+    return slugifyMarkless(text.substring(0, text.length - 1))
+  return slugify(text)
+}</textarea><pre id="annotations" style="display:none">[{&quot;file&quot;:&quot;src\\utils\\helper.ts&quot;,&quot;line&quot;:9,&quot;character&quot;:34,&quot;text&quot;:&quot;uri&quot;,&quot;kind&quot;:1}]</pre></div>
+    <p class="footer-text">TypeScript Coverage Report generated by <a href="https://github.com/plantain-00/type-coverage">type-coverage</a> and <a href="https://github.com/alexcanessa/typescript-coverage-report">typescript-coverage-report</a> at Sun, 16 Jan 2022 12:28:32 GMT</p>
+    </body>
+  </html>
+  

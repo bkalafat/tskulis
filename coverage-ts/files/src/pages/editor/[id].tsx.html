@@ -1,0 +1,319 @@
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>[id].tsx</title>
+      <link href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" type="text/css" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/mode/javascript/javascript.min.js" type="text/javascript" charset="utf-8"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.css" type="text/css" rel="stylesheet">
+<script src="..\..\..\..\assets\source-file.js" type="text/javascript" charset="utf-8"></script>
+<link href="..\..\..\..\assets\source-file.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+    <div style="margin-top:3em" class="ui container"><h1 class="ui header"><a href="..\..\..\..\index.html">TypeScript coverage report</a></h1><table style="margin-top:2em" class="ui celled table"><thead class=""><tr class=""><th class="">Filename</th><th class="">Percent</th><th class="">Threshold</th><th class="">Total</th><th class="">Covered</th><th class="">Uncovered</th></tr></thead><tbody class=""><tr class="positive"><td class="">src\pages\editor\[id].tsx</td><td class="">92.87%</td><td class="">80%</td><td class="">631</td><td class="">586</td><td class="">45</td></tr></tbody></table><textarea id="editor" readonly="" style="margin-top:3em">import { useState, useEffect, useRef, ChangeEvent } from &quot;react&quot;
+import { Form, Button } from &quot;react-bootstrap&quot;
+import * as Const from &quot;../../utils/constant&quot;
+import * as API from &quot;../../utils/api&quot;
+import * as Helper from &quot;../../utils/helper&quot;
+import Resizer from &quot;react-image-file-resizer&quot;
+import UploadAdapter from &quot;../../utils/UploadAdapter&quot;
+import Router, { useRouter } from &#x27;next/router&#x27;
+import { signIn, signOut, useSession } from &#x27;next-auth/client&#x27;
+import { getAdmins } from &quot;../../utils/helper&quot;
+import { CATEGORY, TYPE } from &quot;../../utils/enum&quot;
+
+const NewsEditor = () =&gt; {
+  const [session] = useSession()
+  const fileInput = useRef(null)
+  const router = useRouter()
+  const { id } = router.query
+  const urlId = Array.isArray(id) ? id[0] : id
+  const isUpdate = urlId &amp;&amp; urlId != &#x27;new&#x27;;
+  const [newNews, setNews] = useState(Const.DEFAULT_NEWS)
+  let tempImgPath;
+
+  const handleImage = async (imageUri: any) =&gt; {
+    const image = await Helper.convertFile(imageUri, &quot;tskulis-&quot; + selectedImg.name + &#x27;.webp&#x27;)
+    setNews({ ...newNews, imgPath: await API.uploadFile(image) })
+    setSubmitting(true)
+  }
+  const [isSubmitting, setSubmitting] = useState(false)
+  const [selectedImg, setSelectedImg] = useState&lt;File&gt;(null)
+
+  const editorRef = useRef&lt;any&gt;()
+  const [editorLoaded, setEditorLoaded] = useState(false)
+  const { CKEditor, ClassicEditor } = editorRef.current || {}
+
+  const watermarkRef = useRef&lt;any&gt;()
+  const { watermark } = watermarkRef.current || {}
+
+  useEffect(() =&gt; {
+    editorRef.current = {
+      CKEditor: require(&#x27;@ckeditor/ckeditor5-react&#x27;).CKEditor,
+      ClassicEditor: require(&#x27;@ckeditor/ckeditor5-build-classic&#x27;)
+    }
+    watermarkRef.current = {
+      watermark: require(&#x27;watermarkjs&#x27;)
+    }
+    if (isUpdate &amp;&amp; !newNews.id) {
+      if (urlId.includes(&#x27;$&#x27;)) {
+        API.getNewsBySlug(urlId.slice(0, -1)).then(
+          res =&gt; {
+            setNews(res)
+          }
+        )
+      }
+      else {
+        API.getNews(urlId).then(
+          res =&gt; {
+            setNews(res)
+          }
+        )
+      }
+    }
+    setEditorLoaded(true)
+    if (isSubmitting) {
+      API.upsertNews(newNews).then(() =&gt; {
+        Router.push(&quot;/adminpanel&quot;)
+      })
+    }
+    if (isSubmitting) setSubmitting(false)
+  }, [isSubmitting, isUpdate, newNews, urlId])
+  const handleSubmit = e =&gt; {
+    e.preventDefault();
+    const form = e.currentTarget;
+    if (form.checkValidity() === false) {
+      e.stopPropagation();
+    }
+    else {
+      setValidated(true);
+    }
+    const currentAuthor = session.user.email.toLowerCase()
+
+    if (!newNews.authors.includes(currentAuthor) &amp;&amp; currentAuthor !== &quot;&quot;) {
+      setNews({ ...newNews, authors: [...newNews.authors.filter(x =&gt; x !== &quot;&quot;), currentAuthor] })
+    }
+    if (validateInputs())
+      if (selectedImg &amp;&amp; selectedImg.name &amp;&amp; newNews.imgPath !== Const.BreakingNewsImgPath) {
+        upsertImage(selectedImg)
+      } else if (isUpdate || newNews.imgPath === Const.BreakingNewsImgPath) {
+        setSubmitting(true)
+      }
+  }
+  const upsertImage = async (selectedImg: File) =&gt; {
+    const imgBlob = await putWatermark(selectedImg)
+    resizeImage(imgBlob)
+  }
+  const putWatermark = async (image: File): Promise&lt;Blob&gt; =&gt; {
+    return await watermark([image])
+      .blob(watermark.text.upperRight(&#x27;TsKulis.com&#x27;, &#x27;24px serif&#x27;, &#x27;#a3a3a3&#x27;, 0.3))
+  }
+  const resizeImage = (imgBlob: Blob) =&gt; {
+    Resizer.imageFileResizer(imgBlob, 1280, 800, &quot;JPEG&quot;, 90, 0,
+      uri =&gt; handleImage(uri),
+      &quot;base64&quot;
+    )
+  }
+  const validateInputs = (): boolean =&gt; {
+    const validationMessages: string[] = []
+    if (!isUpdate &amp;&amp; (!selectedImg || !selectedImg.name) &amp;&amp; newNews.imgPath !== Const.BreakingNewsImgPath) {
+      validationMessages.push(&quot;Lütfen fotoğraf ekleyiniz!&quot;)
+    }
+    if (newNews.content.length &lt;= 45) {
+      validationMessages.push(&quot;İçerik 45 karakterden uzun olmalıdır!&quot;)
+    }
+    if (validationMessages.length &gt; 0) {
+      //TODO bkalafat show pop up
+      console.log(validationMessages)
+      return false;
+    }
+    return true;
+  }
+  const [validated, setValidated] = useState(false);
+  const fileSelectorHandler = (event: ChangeEvent&lt;HTMLInputElement&gt;) =&gt; {
+    setSelectedImg(event.target.files[0])
+  }
+  const toggleLastMinuteImg = async () =&gt; {
+    if (newNews.imgPath === Const.BreakingNewsImgPath) {
+      setNews({ ...newNews, imgPath: tempImgPath })
+    }
+    else {
+      tempImgPath = newNews.imgPath;
+      setNews({ ...newNews, imgPath: Const.BreakingNewsImgPath, imgAlt: &quot;Son Dakika Resmi&quot; })
+    }
+  }
+  const admins = getAdmins();
+  return (
+    &lt;div&gt;
+      {!session &amp;&amp; &lt;&gt;
+        Not admins signed in &lt;br&gt;&lt;/br&gt;
+        &lt;button onClick={() =&gt; signIn()}&gt;Sign in&lt;/button&gt;
+      &lt;/&gt;}
+      {session &amp;&amp; admins.includes(session.user.email.toLowerCase()) &amp;&amp; &lt;&gt;
+        Signed in as {session.user.email} &lt;br /&gt;
+        &lt;button onClick={() =&gt; signOut()}&gt;Sign out&lt;/button&gt; &lt;br /&gt;
+        &lt;div className=&quot;center&quot;&gt;
+          &lt;Button
+            variant={selectedImg ? &quot;info&quot; : &quot;primary&quot;}
+            onClick={() =&gt; fileInput.current.click()}
+            disabled={newNews.imgPath === Const.BreakingNewsImgPath}
+          &gt;
+            {isUpdate ? &quot;Fotoğrafı Güncelle&quot; : &quot;Fotoğraf Ekle&quot;}
+          &lt;/Button&gt;
+          &lt;p&gt;{selectedImg ? selectedImg.name : &quot;Fotoğraf Seç&quot;}&lt;/p&gt;
+          &lt;Button
+            variant={newNews.imgPath === Const.BreakingNewsImgPath ? &quot;info&quot; : &quot;primary&quot;}
+            onClick={() =&gt; toggleLastMinuteImg()}
+          &gt;
+            Son Dakika Foto
+          &lt;/Button&gt;
+        &lt;/div&gt;
+        &lt;input
+          ref={fileInput}
+          style={{ display: &quot;none&quot; }}
+          id=&quot;imageSelector&quot;
+          type=&quot;file&quot;
+          onChange={fileSelectorHandler}
+        /&gt;
+        &lt;div className=&quot;centerFlex&quot;&gt;
+          &lt;Form noValidate validated={validated} onSubmit={handleSubmit} className=&quot;col-md-10 col-xl-10&quot;&gt;
+            &lt;Form.Group&gt;
+              &lt;Form.Label&gt;Kategori&lt;/Form.Label&gt;
+              &lt;Form.Control
+                value={newNews.category}
+                onChange={e =&gt; setNews({ ...newNews, category: e.target.value as CATEGORY })}
+                as=&quot;select&quot;
+              &gt;
+                {Object.values(Const.Categories).map(c =&gt; (
+                  &lt;option key={c.key} value={c.key}&gt;{c.value}&lt;/option&gt;
+                ))}
+              &lt;/Form.Control&gt;
+            &lt;/Form.Group&gt;
+            &lt;Form.Group&gt;
+              &lt;Form.Label&gt;Tip&lt;/Form.Label&gt;
+              &lt;Form.Control
+                value={newNews.type}
+                onChange={e =&gt; setNews({ ...newNews, type: e.target.value as TYPE })}
+                as=&quot;select&quot;
+              &gt;
+                &lt;option value={TYPE.NEWS}&gt;Manşet&lt;/option&gt;
+                &lt;option value={TYPE.HEADLINE}&gt;Alt Manşet&lt;/option&gt;
+                &lt;option value={TYPE.SUB_NEWS}&gt;Alt Haber&lt;/option&gt;
+              &lt;/Form.Control&gt;
+            &lt;/Form.Group&gt;
+            &lt;Form.Group&gt;
+              &lt;Form.Check
+                onChange={(e: ChangeEvent&lt;HTMLInputElement&gt;) =&gt;
+                  setNews({
+                    ...newNews,
+                    isSecondPageNews: e.target.checked
+                  })
+                }
+                checked={newNews.isSecondPageNews}
+                type=&quot;checkbox&quot;
+                label=&quot;İkinci sayfa haberi&quot;
+              /&gt;
+            &lt;/Form.Group&gt;
+            &lt;Form.Group&gt;
+              &lt;Form.Label&gt;Başlık&lt;/Form.Label&gt;
+              &lt;Form.Control
+                value={newNews.caption}
+                required
+                minLength={8}
+                type=&quot;text&quot;
+                onChange={e =&gt; setNews({ ...newNews, caption: e.target.value })}
+              /&gt;
+            &lt;/Form.Group&gt;
+            &lt;Form.Group&gt;
+              &lt;Form.Label&gt;Keywords&lt;/Form.Label&gt;
+              &lt;Form.Control
+                placeholder=&quot;haber, keyword, seo&quot;
+                value={newNews.keywords}
+                onChange={e =&gt; setNews({ ...newNews, keywords: e.target.value })}
+              /&gt;
+            &lt;/Form.Group&gt;
+            &lt;Form.Group&gt;
+              &lt;Form.Label&gt;Sosyal Tag&lt;/Form.Label&gt;
+              &lt;Form.Control
+                placeholder=&quot;facebooktag, gundem, twitterTag&quot;
+                value={newNews.socialTags}
+                onChange={e =&gt; setNews({ ...newNews, socialTags: e.target.value })}
+              /&gt;
+            &lt;/Form.Group&gt;
+            &lt;Form.Group&gt;
+              &lt;Form.Label&gt;Özet&lt;/Form.Label&gt;
+              &lt;Form.Control
+                required
+                minLength={15}
+                value={newNews.summary}
+                onChange={e =&gt; setNews({ ...newNews, summary: e.target.value })}
+                as=&quot;textarea&quot;
+                rows={2}
+              /&gt;
+            &lt;/Form.Group&gt;
+            &lt;Form.Group&gt;
+              &lt;Form.Label&gt;İçerik&lt;/Form.Label&gt;
+              {editorLoaded ? (&lt;CKEditor
+                editor={ClassicEditor}
+                data={newNews.content}
+                onReady={editor =&gt; {
+                  editor.plugins.get(
+                    &quot;FileRepository&quot;
+                  ).createUploadAdapter = loader =&gt; {
+                    return new UploadAdapter(loader)
+                  }
+                }}
+                onChange={(_e, editor) =&gt; {
+                  setNews({ ...newNews, content: editor.getData() })
+                }}
+              /&gt;) : (
+                &lt;Form.Control
+                  value={newNews.content}
+                  onChange={e =&gt; setNews({ ...newNews, content: e.target.value })}
+                  as=&quot;textarea&quot;
+                  rows={2}
+                /&gt;
+              )}
+            &lt;/Form.Group&gt;
+            &lt;Form.Group&gt;
+              &lt;Form.Label&gt;Durum&lt;/Form.Label&gt;
+              &lt;Form.Control
+                value={Number(newNews.isActive)}
+                onChange={e =&gt; setNews({ ...newNews, isActive: e.target.value === &quot;true&quot; })}
+                as=&quot;select&quot;
+              &gt;
+                &lt;option value=&quot;true&quot;&gt;Aktif&lt;/option&gt;
+                &lt;option value=&quot;false&quot;&gt;Pasif&lt;/option&gt;
+              &lt;/Form.Control&gt;
+            &lt;/Form.Group&gt;
+            &lt;Button style={{ marginRight: 7 }} variant=&quot;primary&quot; type=&quot;submit&quot;&gt;
+              {isUpdate ? &quot;Güncelle&quot; : &quot;Ekle&quot;}
+            &lt;/Button&gt;
+            &lt;Button style={{ marginRight: 7 }} variant=&quot;warning&quot; onClick={() =&gt; Router.push(&#x27;/adminpanel&#x27;)}&gt;
+              Geri
+            &lt;/Button&gt;
+            {isUpdate &amp;&amp; (
+              &lt;Button
+                variant=&quot;danger&quot;
+                onClick={() =&gt;
+                  API.deleteNews(newNews.id).then(() =&gt; {
+                    Router.push(&quot;/adminpanel&quot;)
+                  })
+                }
+              &gt;
+                Sil
+              &lt;/Button&gt;
+            )}
+          &lt;/Form&gt;
+        &lt;/div&gt;
+      &lt;/&gt;}
+    &lt;/div&gt;
+  )
+}
+
+export default NewsEditor</textarea><pre id="annotations" style="display:none">[{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:20,&quot;character&quot;:6,&quot;text&quot;:&quot;tempImgPath&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:22,&quot;character&quot;:29,&quot;text&quot;:&quot;imageUri&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:23,&quot;character&quot;:43,&quot;text&quot;:&quot;imageUri&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:32,&quot;character&quot;:10,&quot;text&quot;:&quot;CKEditor&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:32,&quot;character&quot;:20,&quot;text&quot;:&quot;ClassicEditor&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:32,&quot;character&quot;:48,&quot;text&quot;:&quot;current&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:35,&quot;character&quot;:10,&quot;text&quot;:&quot;watermark&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:35,&quot;character&quot;:37,&quot;text&quot;:&quot;current&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:38,&quot;character&quot;:14,&quot;text&quot;:&quot;current&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:39,&quot;character&quot;:6,&quot;text&quot;:&quot;CKEditor&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:39,&quot;character&quot;:53,&quot;text&quot;:&quot;CKEditor&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:40,&quot;character&quot;:6,&quot;text&quot;:&quot;ClassicEditor&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:42,&quot;character&quot;:17,&quot;text&quot;:&quot;current&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:43,&quot;character&quot;:6,&quot;text&quot;:&quot;watermark&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:69,&quot;character&quot;:23,&quot;text&quot;:&quot;e&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:70,&quot;character&quot;:4,&quot;text&quot;:&quot;e&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:70,&quot;character&quot;:6,&quot;text&quot;:&quot;preventDefault&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:71,&quot;character&quot;:10,&quot;text&quot;:&quot;form&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:71,&quot;character&quot;:17,&quot;text&quot;:&quot;e&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:71,&quot;character&quot;:19,&quot;text&quot;:&quot;currentTarget&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:72,&quot;character&quot;:8,&quot;text&quot;:&quot;form&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:72,&quot;character&quot;:13,&quot;text&quot;:&quot;checkValidity&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:73,&quot;character&quot;:6,&quot;text&quot;:&quot;e&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:73,&quot;character&quot;:8,&quot;text&quot;:&quot;stopPropagation&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:95,&quot;character&quot;:17,&quot;text&quot;:&quot;watermark&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:96,&quot;character&quot;:7,&quot;text&quot;:&quot;blob&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:96,&quot;character&quot;:12,&quot;text&quot;:&quot;watermark&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:96,&quot;character&quot;:22,&quot;text&quot;:&quot;text&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:96,&quot;character&quot;:27,&quot;text&quot;:&quot;upperRight&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:128,&quot;character&quot;:6,&quot;text&quot;:&quot;tempImgPath&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:145,&quot;character&quot;:37,&quot;text&quot;:&quot;current&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:145,&quot;character&quot;:45,&quot;text&quot;:&quot;click&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:244,&quot;character&quot;:16,&quot;text&quot;:&quot;editor&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:244,&quot;character&quot;:24,&quot;text&quot;:&quot;ClassicEditor&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:246,&quot;character&quot;:25,&quot;text&quot;:&quot;editor&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:247,&quot;character&quot;:18,&quot;text&quot;:&quot;editor&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:247,&quot;character&quot;:25,&quot;text&quot;:&quot;plugins&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:247,&quot;character&quot;:33,&quot;text&quot;:&quot;get&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:249,&quot;character&quot;:20,&quot;text&quot;:&quot;createUploadAdapter&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:249,&quot;character&quot;:42,&quot;text&quot;:&quot;loader&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:250,&quot;character&quot;:45,&quot;text&quot;:&quot;loader&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:253,&quot;character&quot;:27,&quot;text&quot;:&quot;_e&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:253,&quot;character&quot;:31,&quot;text&quot;:&quot;editor&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:254,&quot;character&quot;:49,&quot;text&quot;:&quot;editor&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\pages\\editor\\[id].tsx&quot;,&quot;line&quot;:254,&quot;character&quot;:56,&quot;text&quot;:&quot;getData&quot;,&quot;kind&quot;:1}]</pre></div>
+    <p class="footer-text">TypeScript Coverage Report generated by <a href="https://github.com/plantain-00/type-coverage">type-coverage</a> and <a href="https://github.com/alexcanessa/typescript-coverage-report">typescript-coverage-report</a> at Sun, 16 Jan 2022 12:28:32 GMT</p>
+    </body>
+  </html>
+  

@@ -1,0 +1,96 @@
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>CategoryNews.tsx</title>
+      <link href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" type="text/css" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/mode/javascript/javascript.min.js" type="text/javascript" charset="utf-8"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.css" type="text/css" rel="stylesheet">
+<script src="..\..\..\assets\source-file.js" type="text/javascript" charset="utf-8"></script>
+<link href="..\..\..\assets\source-file.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+    <div style="margin-top:3em" class="ui container"><h1 class="ui header"><a href="..\..\..\index.html">TypeScript coverage report</a></h1><table style="margin-top:2em" class="ui celled table"><thead class=""><tr class=""><th class="">Filename</th><th class="">Percent</th><th class="">Threshold</th><th class="">Total</th><th class="">Covered</th><th class="">Uncovered</th></tr></thead><tbody class=""><tr class="positive"><td class="">src\components\CategoryNews.tsx</td><td class="">98.92%</td><td class="">80%</td><td class="">185</td><td class="">183</td><td class="">2</td></tr></tbody></table><textarea id="editor" readonly="" style="margin-top:3em">import SubSlider from &quot;./SubSlider&quot;
+import SubNews from &quot;./SubNews&quot;
+import { getEnvironmentUrl, getCategoryByTo, sortCreateDateDesc } from &quot;../utils/helper&quot;
+import useSWR from &quot;swr&quot;
+import Head from &quot;next/head&quot;
+import { useRouter } from &#x27;next/router&#x27;
+import { NewsType } from &quot;../types/NewsType&quot;
+import { TYPE } from &quot;../utils/enum&quot;
+
+const CategoryNews = () =&gt; {
+  const { data, error } = useSWR&lt;NewsType[], any&gt;(getEnvironmentUrl() + &quot;news/get&quot;)
+  const router = useRouter()
+  const { category } = router.query
+  const categoryUrl = Array.isArray(category) ? category[0] : category;
+
+  if (error || !data || categoryUrl == undefined) {
+    return (
+      &lt;&gt;&lt;Head&gt;&lt;title&gt;{categoryUrl}&lt;/title&gt;&lt;/Head&gt;&lt;div&gt;Yükleniyor...&lt;/div&gt;&lt;/&gt;
+    )
+  }
+  else {
+    if (!data &amp;&amp; data.length === 0)
+      return (&lt;&gt;&lt;Head&gt;&lt;title&gt;{categoryUrl}&lt;/title&gt;&lt;/Head&gt;&lt;div&gt;Haber bulunamadı&lt;/div&gt;&lt;/&gt;)
+
+    const categoryObj = getCategoryByTo(categoryUrl)
+    const newsList = data.filter(news =&gt; news.category === categoryObj.key)
+    const mainNews = newsList
+      .filter(
+        news =&gt;
+          news.isActive &amp;&amp; (news.type === TYPE.NEWS || news.type === TYPE.HEADLINE)
+      )
+      .sort(sortCreateDateDesc())
+    const sliderNewsList = mainNews
+
+    const extraNews = mainNews.slice(13, 26)
+
+    const tempNewsList = newsList
+      .filter(news =&gt; news.isActive &amp;&amp; news.type === TYPE.SUB_NEWS)
+      .concat(extraNews)
+      .sort(sortCreateDateDesc())
+    const subNewsList = tempNewsList
+
+    let upperCaseCategory = categoryUrl;
+    upperCaseCategory = `${upperCaseCategory[0].toUpperCase()}${upperCaseCategory.substring(1)}`;
+
+    return (
+      &lt;&gt;
+        &lt;Head&gt;
+          &lt;title&gt;{upperCaseCategory + &quot; haberi bul, son dakika &quot; + upperCaseCategory + &quot; gelişmeleri&quot;}&lt;/title&gt;
+          &lt;link rel=&quot;shortcut icon&quot; href=&quot;/favicon.ico&quot; /&gt;
+          &lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1.0, width=device-width&quot; /&gt;
+          &lt;meta name=&quot;title&quot; content=&quot;Ts Kulis&quot; /&gt;
+          &lt;meta name=&quot;description&quot; content={categoryObj.value + &quot; haberlerini bulabileceğiniz haberi bul sayfası.&quot;} /&gt;
+          &lt;meta property=&quot;og:image&quot; content=&quot;/logo512.png&quot; /&gt;
+          &lt;meta property=&quot;og:url&quot; content={&quot;https://tskulis.com/&quot; + categoryObj.to} /&gt;
+          &lt;meta property=&quot;og:type&quot; content=&quot;website&quot; /&gt;
+          &lt;meta property=&quot;og:url&quot; content={&quot;https://tskulis.com&quot; + categoryObj.to} /&gt;
+          &lt;meta property=&quot;og:title&quot; content=&quot;tskulis.com&quot; /&gt;
+          &lt;meta property=&quot;og:description&quot; content={categoryObj.value + &quot; haberlerini bulabileceğiniz haberi bul sayfası.&quot;} /&gt;
+          &lt;meta property=&quot;twitter:card&quot; content=&quot;summary_large_image&quot; /&gt;
+          &lt;meta property=&quot;twitter:url&quot; content={&quot;https://tskulis.com/&quot; + categoryObj.to} /&gt;
+          &lt;meta property=&quot;twitter:title&quot; content=&quot;tskulis.com&quot; /&gt;
+          &lt;meta property=&quot;twitter:description&quot; content={categoryObj.value + &quot; haberlerini bulabileceğiniz haberi bul sayfası.&quot;} /&gt;
+        &lt;/Head&gt;
+        &lt;div className=&quot;center&quot;&gt;
+          &lt;h2&gt;{categoryObj.value}&lt;/h2&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;centerFlex&quot;&gt;
+          &lt;div className=&quot;col-md-10 col-xl-10 noPadding&quot;&gt;
+            &lt;SubSlider newsList={sliderNewsList.slice(0, 13)} /&gt;
+          &lt;/div&gt;
+          &lt;SubNews newsList={subNewsList.slice(0, 32)} /&gt;
+        &lt;/div&gt;
+      &lt;/&gt;
+    )
+  }
+}
+
+export default CategoryNews</textarea><pre id="annotations" style="display:none">[{&quot;file&quot;:&quot;src\\components\\CategoryNews.tsx&quot;,&quot;line&quot;:10,&quot;character&quot;:16,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\components\\CategoryNews.tsx&quot;,&quot;line&quot;:15,&quot;character&quot;:6,&quot;text&quot;:&quot;error&quot;,&quot;kind&quot;:1}]</pre></div>
+    <p class="footer-text">TypeScript Coverage Report generated by <a href="https://github.com/plantain-00/type-coverage">type-coverage</a> and <a href="https://github.com/alexcanessa/typescript-coverage-report">typescript-coverage-report</a> at Sun, 16 Jan 2022 12:28:32 GMT</p>
+    </body>
+  </html>
+  

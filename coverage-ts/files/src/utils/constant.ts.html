@@ -1,0 +1,101 @@
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>constant.ts</title>
+      <link href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" type="text/css" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/mode/javascript/javascript.min.js" type="text/javascript" charset="utf-8"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.css" type="text/css" rel="stylesheet">
+<script src="..\..\..\assets\source-file.js" type="text/javascript" charset="utf-8"></script>
+<link href="..\..\..\assets\source-file.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+    <div style="margin-top:3em" class="ui container"><h1 class="ui header"><a href="..\..\..\index.html">TypeScript coverage report</a></h1><table style="margin-top:2em" class="ui celled table"><thead class=""><tr class=""><th class="">Filename</th><th class="">Percent</th><th class="">Threshold</th><th class="">Total</th><th class="">Covered</th><th class="">Uncovered</th></tr></thead><tbody class=""><tr class="positive"><td class="">src\utils\constant.ts</td><td class="">100.00%</td><td class="">80%</td><td class="">113</td><td class="">113</td><td class="">0</td></tr></tbody></table><textarea id="editor" readonly="" style="margin-top:3em">import { CommentType } from &quot;../types/CommentType&quot;
+import { NewsType } from &quot;../types/NewsType&quot;
+import { CATEGORY, TYPE } from &quot;./enum&quot;
+
+export const MIN_SLUG_LENGTH = 8
+export const TIMEOUT = 60
+export const UPLOAD_FILE_PATH =
+  &quot;https://us-central1-news-26417.cloudfunctions.net/uploadFile&quot;
+export const DEFAULT_NEWS: NewsType = {
+  type: TYPE.NEWS,
+  category: CATEGORY.TRABZONSPOR,
+  caption: &quot;&quot;,
+  summary: &quot;&quot;,
+  content:
+    &quot;&lt;h2&gt;(Başlık)&lt;/h2&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;İçerik oluştur...&lt;/p&gt;&lt;p&gt;(Kopyala yapıştır ile direk sayfa alabilirsin)&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&quot;,
+  isActive: true,
+  priority: 300,
+  imgPath: &quot;https://via.placeholder.com/500x250?text=HABER&quot;,
+  imgAlt: &quot;haber&quot;,
+  slug: &quot;&quot;,
+  url: &quot;&quot;,
+  authors: [&quot;&quot;],
+  createDate: &quot;&quot;,
+  updateDate: &quot;&quot;,
+  expressDate: &quot;&quot;,
+  id: null,
+  isSecondPageNews: false,
+  subjects: [&quot;&quot;],
+  keywords: &quot;&quot;,
+  socialTags: &quot;&quot;,
+}
+
+export const TEST_NEWS: NewsType = {
+  type: TYPE.NEWS,
+  category: CATEGORY.TRABZONSPOR,
+  caption: &quot;Test Caption About &quot; + Date.now.toString(),
+  summary: &quot;Test Summary About &quot; + Date.now.toString(),
+  content:
+    &quot;&lt;h2&gt;(Başlık)&lt;/h2&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;İçerik oluştur...&lt;/p&gt;&lt;p&gt;(Kopyala yapıştır ile direk sayfa alabilirsin)&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&quot;,
+  isActive: true,
+  priority: 300,
+  imgPath: &quot;https://via.placeholder.com/1000x500?text=Test_HABER&quot; + Date.now.toString(),
+  imgAlt: &quot;Test Caption About &quot; + Date.now.toString(),
+  slug: &quot;&quot;,
+  url: &quot;&quot;,
+  authors: [&quot;&quot;],
+  createDate: &quot;&quot;,
+  updateDate: &quot;&quot;,
+  expressDate: &quot;&quot;,
+  id: null,
+  isSecondPageNews: false,
+  subjects: [&quot;&quot;],
+  keywords: &quot;&quot;,
+  socialTags: &quot;&quot;,
+}
+
+export const Categories = Object.freeze({
+  TRABZONSPOR: { key: CATEGORY.TRABZONSPOR, value: &quot;Trabzonspor&quot;, to: &quot;trabzonspor&quot; },
+  FOOTBALL: { key: CATEGORY.FOOTBALL, value: &quot;Futbol&quot;, to: &quot;futbol&quot; },
+  TRANSFER: { key: CATEGORY.TRANSFER, value: &quot;Transfer&quot;, to: &quot;transfer&quot; },
+  GENERAL: { key: CATEGORY.GENERAL, value: &quot;Trabzon Gündemi&quot;, to: &quot;gundem&quot; }
+})
+
+export const BreakingNewsImgPath = &quot;https://firebasestorage.googleapis.com/v0/b/news-26417.appspot.com/o/tskulis-EQp1k2OW4AALwQt.jfif.webp?alt=media&amp;token=db4a1bab-06a6-48c0-9743-3046d16fc7a4&quot;
+
+export const COMMENT_ONE_EMNIYET: CommentType = {
+  text: &quot;Güzel bir haber olmuş&quot;,
+  isActive: true,
+  createDate: &quot;2021-06-23T10:21:32.786Z&quot;,
+  updateDate: &quot;2021-06-23T10:21:32.786Z&quot;,
+  id: &quot;1&quot;,
+  newsId: &quot;726ce751-40c4-44fb-a998-77369333ad28&quot;,
+  userName: &quot;mehmet@gmail.com&quot;
+}
+
+export const COMMENT_TWO_EMNIYET: CommentType = {
+  text: &quot;Katılıyorum&quot;,
+  isActive: true,
+  createDate: &quot;2021-06-24T10:21:32.786Z&quot;,
+  updateDate: &quot;2021-06-24T10:21:32.786Z&quot;,
+  id: &quot;1&quot;,
+  newsId: &quot;726ce751-40c4-44fb-a998-77369333ad28&quot;,
+  userName: &quot;ayse@gmail.com&quot;
+}</textarea><pre id="annotations" style="display:none">[]</pre></div>
+    <p class="footer-text">TypeScript Coverage Report generated by <a href="https://github.com/plantain-00/type-coverage">type-coverage</a> and <a href="https://github.com/alexcanessa/typescript-coverage-report">typescript-coverage-report</a> at Sun, 16 Jan 2022 12:28:32 GMT</p>
+    </body>
+  </html>
+  

@@ -1,0 +1,83 @@
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Layout.tsx</title>
+      <link href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" type="text/css" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/mode/javascript/javascript.min.js" type="text/javascript" charset="utf-8"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.css" type="text/css" rel="stylesheet">
+<script src="..\..\..\assets\source-file.js" type="text/javascript" charset="utf-8"></script>
+<link href="..\..\..\assets\source-file.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+    <div style="margin-top:3em" class="ui container"><h1 class="ui header"><a href="..\..\..\index.html">TypeScript coverage report</a></h1><table style="margin-top:2em" class="ui celled table"><thead class=""><tr class=""><th class="">Filename</th><th class="">Percent</th><th class="">Threshold</th><th class="">Total</th><th class="">Covered</th><th class="">Uncovered</th></tr></thead><tbody class=""><tr class="positive"><td class="">src\components\Layout.tsx</td><td class="">97.54%</td><td class="">80%</td><td class="">122</td><td class="">119</td><td class="">3</td></tr></tbody></table><textarea id="editor" readonly="" style="margin-top:3em">import Navigator from &quot;./Navigator&quot;
+import Footer from &quot;./Footer&quot;
+import { SWRConfig } from &quot;swr&quot;
+import axios from &quot;axios&quot;
+import Head from &#x27;next/head&#x27;
+import Script from &#x27;next/script&#x27;
+
+
+
+const Layout = ({ children }) =&gt; {
+  return &lt;div&gt;
+    &lt;Head&gt;
+      &lt;link rel=&quot;shortcut icon&quot; href=&quot;/favicon.ico&quot; /&gt;
+      &lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1.0, width=device-width&quot; /&gt;
+      &lt;meta property=&quot;twitter:card&quot; content=&quot;summary_large_image&quot; /&gt;
+      &lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;57x57&quot; href=&quot;/apple-icon-57x57.png&quot; /&gt;
+      &lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;60x60&quot; href=&quot;/apple-icon-60x60.png&quot; /&gt;
+      &lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;72x72&quot; href=&quot;/apple-icon-72x72.png&quot; /&gt;
+      &lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;76x76&quot; href=&quot;/apple-icon-76x76.png&quot; /&gt;
+      &lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;114x114&quot; href=&quot;/apple-icon-114x114.png&quot; /&gt;
+      &lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;120x120&quot; href=&quot;/apple-icon-120x120.png&quot; /&gt;
+      &lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;144x144&quot; href=&quot;/apple-icon-144x144.png&quot; /&gt;
+      &lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;152x152&quot; href=&quot;/apple-icon-152x152.png&quot; /&gt;
+      &lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;180x180&quot; href=&quot;/apple-icon-180x180.png&quot; /&gt;
+      &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;192x192&quot; href=&quot;/android-icon-192x192.png&quot; /&gt;
+      &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;32x32&quot; href=&quot;/favicon-32x32.png&quot; /&gt;
+      &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;96x96&quot; href=&quot;/favicon-96x96.png&quot; /&gt;
+      &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;16x16&quot; href=&quot;/favicon-16x16.png&quot; /&gt;
+      &lt;link rel=&quot;manifest&quot; href=&quot;/manifest.json&quot; /&gt;
+      &lt;meta name=&quot;msapplication-TileColor&quot; content=&quot;#ffffff&quot; /&gt;
+      &lt;meta name=&quot;msapplication-TileImage&quot; content=&quot;/ms-icon-144x144.png&quot; /&gt;
+      &lt;meta name=&quot;theme-color&quot; content=&quot;#ffffff&quot; /&gt;
+
+
+    &lt;/Head&gt;
+    &lt;Navigator /&gt;
+    &lt;SWRConfig
+      value={{
+        dedupingInterval: 1000000,
+        fetcher: url =&gt; axios(url).then(r =&gt; r.data)
+      }}
+    &gt;
+
+      &lt;Script id=&quot;tagManagerScript&quot;
+        src=&#x27;https://www.googletagmanager.com/gtag/js?id=G-M9FK14GYVR&#x27;
+        strategy=&quot;lazyOnload&quot;&gt;
+      &lt;/Script&gt;
+      &lt;Script id=&quot;gtagScript&quot; strategy=&quot;lazyOnload&quot;
+        dangerouslySetInnerHTML={{
+          __html: `
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag(&#x27;js&#x27;, new Date());
+   gtag(&#x27;config&#x27;, &#x27;G-M9FK14GYVR&#x27;);
+   `
+        }}&gt;
+      &lt;/Script&gt;
+      &lt;Script id=&quot;adsScript&quot; data-ad-client=&quot;ca-pub-9881133041867885&quot; strategy=&quot;lazyOnload&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/Script&gt;
+
+      {children}
+    &lt;/SWRConfig&gt;
+    &lt;Footer /&gt;
+  &lt;/div&gt;
+}
+
+export default Layout</textarea><pre id="annotations" style="display:none">[{&quot;file&quot;:&quot;src\\components\\Layout.tsx&quot;,&quot;line&quot;:9,&quot;character&quot;:18,&quot;text&quot;:&quot;children&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\components\\Layout.tsx&quot;,&quot;line&quot;:39,&quot;character&quot;:17,&quot;text&quot;:&quot;url&quot;,&quot;kind&quot;:1},{&quot;file&quot;:&quot;src\\components\\Layout.tsx&quot;,&quot;line&quot;:39,&quot;character&quot;:47,&quot;text&quot;:&quot;data&quot;,&quot;kind&quot;:1}]</pre></div>
+    <p class="footer-text">TypeScript Coverage Report generated by <a href="https://github.com/plantain-00/type-coverage">type-coverage</a> and <a href="https://github.com/alexcanessa/typescript-coverage-report">typescript-coverage-report</a> at Sun, 16 Jan 2022 12:28:32 GMT</p>
+    </body>
+  </html>
+  
