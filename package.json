@@ -15,7 +15,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
-    "axios": "^0.24.0",
+    "axios": "^0.25.0",
     "bootstrap": "^4.6.0",
     "cross-env": "^7.0.3",
     "isomorphic-unfetch": "^3.1.0",
@@ -23,9 +23,9 @@
     "mongodb": "^3.6.9",
     "next": "^12.0.8",
     "next-auth": "^3.29.0",
-    "next-sitemap": "^1.9.9",
+    "next-sitemap": "^1.9.12",
     "node-sass": "^6.0.1",
-    "npm": "^8.3.1",
+    "npm": "^8.3.2",
     "popper.js": "^1.16.1",
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
@@ -38,7 +38,7 @@
     "react-scripts": "^5.0.0",
     "react-share": "^4.4.0",
     "react-slick": "^0.28.1",
-    "react-social-icons": "^5.7.0",
+    "react-social-icons": "^5.8.0",
     "slick-carousel": "^1.8.1",
     "slugify": "^1.6.5",
     "styled-components": "^5.3.3",
@@ -71,12 +71,12 @@
     ]
   },
   "devDependencies": {
-    "@types/node": "^17.0.8",
+    "@types/node": "^17.0.10",
     "@types/react-bootstrap-table-next": "^4.0.17",
     "@types/react-slick": "^0.23.8",
     "babel-jest": "^27.4.6",
     "eslint-config-next": "^12.0.8",
     "jest": "^27.4.7",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.5"
   }
 }
