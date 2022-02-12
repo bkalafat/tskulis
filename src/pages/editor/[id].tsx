@@ -76,7 +76,7 @@ const NewsEditor = () => {
     else {
       setValidated(true);
     }
-    const currentAuthor = session.user.name.toLowerCase()
+    const currentAuthor = session.user.name
 
     if (!newNews.authors.includes(currentAuthor) && currentAuthor !== "") {
       setNews({ ...newNews, authors: [...newNews.authors.filter(x => x !== ""), currentAuthor] })
@@ -137,7 +137,7 @@ const NewsEditor = () => {
         Not admins signed in <br></br>
         <button onClick={() => signIn()}>Sign in</button>
       </>}
-      {session && admins.includes(session.user.name.toLowerCase()) && <>
+      {session && admins.includes(session.user.name) && <>
         Signed in as {session.user.name} <br />
         <button onClick={() => signOut()}>Sign out</button> <br />
         <div className="center">
@@ -295,7 +295,7 @@ const NewsEditor = () => {
           </Form>
         </div>
       </>}
-      {session && !admins.includes(session.user.name.toLowerCase()) && <>
+      {session && !admins.includes(session.user.name) && <>
         {session.user.name} <br />
         Admin değilsiniz <br />
         Yazılımcıya ekran görüntüsü at seni eklesin.

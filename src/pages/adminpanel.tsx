@@ -79,7 +79,7 @@ const AdminPanel = ({ newsListParam }: { newsListParam: NewsType[] }) => {
         Not admins signed in <br />
         <button onClick={() => signIn()}>Sign in</button>
       </>}
-      {session && admins.includes(session.user.name.toLowerCase()) && <>
+      {session && admins.includes(session.user.name) && <>
         Signed in as {session.user.name} <br />
         <button onClick={() => signOut()}>Sign out</button> <br />
         <input
@@ -98,7 +98,7 @@ const AdminPanel = ({ newsListParam }: { newsListParam: NewsType[] }) => {
           hover
           condensed
         /></>}
-        {session && !admins.includes(session.user.name.toLowerCase()) && <>
+        {session && !admins.includes(session.user.name) && <>
         {session.user.name} <br />
         Admin değilsiniz <br />
         Yazılımcıya ekran görüntüsü at seni eklesin.
