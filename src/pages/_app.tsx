@@ -5,13 +5,13 @@ import "slick-carousel/slick/slick-theme.css"
 import '../content-styles.css'
 
 
-import { Provider } from 'next-auth/client'
+import { SessionProvider } from "next-auth/react"
 import "reflect-metadata";
 import type { AppProps } from 'next/app'
 
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-  return <Provider session={pageProps.session}>
+  return <SessionProvider session={pageProps.session} refetchInterval={5 * 60} >
     <Component {...pageProps} />
-  </Provider>
+  </SessionProvider>
 }

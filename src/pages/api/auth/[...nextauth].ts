@@ -1,25 +1,25 @@
-import NextAuth from 'next-auth'
-import { NextApiRequest, NextApiResponse } from 'next-auth/internals/utils'
-import Providers from 'next-auth/providers'
+import NextAuth, { NextAuthOptions } from 'next-auth'
+import TwitterProvider from 'next-auth/providers/twitter'
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
+import clientPromise from '../../../../lib/mongodb'
+import { NextApiRequest, NextApiResponse } from 'next'
 
-const options = {
-  site: process.env.NEXTAUTH_URL,
+const options : NextAuthOptions = {
   debug: true,
   providers: [
-    Providers.Twitter({
-      clientId: process.env.TWITTER_CLIENT_KEY,
+    TwitterProvider({
+      clientId: process.env.TWITTER_CLIENT_ID,
       clientSecret: process.env.TWITTER_CLIENT_SECRET
-    })
+    }),
+
   ],
 
-  database: process.env.DATABASE_URL,
+  secret: process.env.SECRET,
+
+  adapter: MongoDBAdapter(clientPromise),
 
   callbacks: {
-    /**
-     * @param  {string} _url     URL provided as callback URL by the client
-     * @param  {string} baseUrl  Default base URL of site (can be used as fallback)
-     */
-    redirect: async (_url: string, baseUrl: string) => {
+    redirect: async  ({baseUrl} ) => {
       return Promise.resolve(baseUrl + "/adminpanel")
     }
   }

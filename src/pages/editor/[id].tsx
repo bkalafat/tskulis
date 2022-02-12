@@ -6,12 +6,12 @@ import * as Helper from "../../utils/helper"
 import Resizer from "react-image-file-resizer"
 import UploadAdapter from "../../utils/UploadAdapter"
 import Router, { useRouter } from 'next/router'
-import { signIn, signOut, useSession } from 'next-auth/client'
+import { useSession, signIn, signOut } from "next-auth/react"
 import { getAdmins } from "../../utils/helper"
 import { CATEGORY, TYPE } from "../../utils/enum"
 
 const NewsEditor = () => {
-  const [session] = useSession()
+  const session = useSession().data
   const fileInput = useRef(null)
   const router = useRouter()
   const { id } = router.query
@@ -76,7 +76,7 @@ const NewsEditor = () => {
     else {
       setValidated(true);
     }
-    const currentAuthor = session.user.email.toLowerCase()
+    const currentAuthor = session.user.name.toLowerCase()
 
     if (!newNews.authors.includes(currentAuthor) && currentAuthor !== "") {
       setNews({ ...newNews, authors: [...newNews.authors.filter(x => x !== ""), currentAuthor] })
@@ -137,8 +137,8 @@ const NewsEditor = () => {
         Not admins signed in <br></br>
         <button onClick={() => signIn()}>Sign in</button>
       </>}
-      {session && admins.includes(session.user.email.toLowerCase()) && <>
-        Signed in as {session.user.email} <br />
+      {session && admins.includes(session.user.name.toLowerCase()) && <>
+        Signed in as {session.user.name} <br />
         <button onClick={() => signOut()}>Sign out</button> <br />
         <div className="center">
           <Button
@@ -294,6 +294,11 @@ const NewsEditor = () => {
             )}
           </Form>
         </div>
+      </>}
+      {session && !admins.includes(session.user.name.toLowerCase()) && <>
+        {session.user.name} <br />
+        Admin değilsiniz <br />
+        Yazılımcıya ekran görüntüsü at seni eklesin.
       </>}
     </div>
   )

@@ -3,13 +3,14 @@ import BootstrapTable, { SortOrder } from "react-bootstrap-table-next"
 import { MIN_SLUG_LENGTH, TIMEOUT } from "../utils/constant"
 import * as API from "../utils/api"
 import Router from 'next/router'
-import { signIn, signOut, useSession } from 'next-auth/client'
+// import { signIn, signOut, useSession } from 'next-auth/client'
+import { useSession, signIn, signOut } from "next-auth/react"
 import { getAdmins } from "../utils/helper"
 import { NewsType } from "../types/NewsType"
 import { TYPE } from "../utils/enum"
 
 const AdminPanel = ({ newsListParam }: { newsListParam: NewsType[] }) => {
-  const [session] = useSession()
+  const session = useSession().data
   const [newsList, setNewsList] = useState<NewsType[]>(newsListParam)
 
   useEffect(() => {
@@ -78,10 +79,9 @@ const AdminPanel = ({ newsListParam }: { newsListParam: NewsType[] }) => {
         Not admins signed in <br />
         <button onClick={() => signIn()}>Sign in</button>
       </>}
-      {session && admins.includes(session.user.email.toLowerCase()) && <>
-        Signed in as {session.user.email} <br />
+      {session && admins.includes(session.user.name.toLowerCase()) && <>
+        Signed in as {session.user.name} <br />
         <button onClick={() => signOut()}>Sign out</button> <br />
-
         <input
           onClick={navigateForCreate}
           type="submit"
@@ -98,6 +98,11 @@ const AdminPanel = ({ newsListParam }: { newsListParam: NewsType[] }) => {
           hover
           condensed
         /></>}
+        {session && !admins.includes(session.user.name.toLowerCase()) && <>
+        {session.user.name} <br />
+        Admin değilsiniz <br />
+        Yazılımcıya ekran görüntüsü at seni eklesin.
+      </>}
     </div>
 
   }

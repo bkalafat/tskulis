@@ -7,3 +7,4 @@ Host: https://tskulis.com
 
 # Sitemaps
 Sitemap: https://tskulis.com/sitemap.xml
+Sitemap: https://tskulis.com/sitemap-0.xml
