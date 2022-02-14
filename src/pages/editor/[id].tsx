@@ -9,6 +9,8 @@ import Router, { useRouter } from 'next/router'
 import { useSession, signIn, signOut } from "next-auth/react"
 import { getAdmins } from "../../utils/helper"
 import { CATEGORY, TYPE } from "../../utils/enum"
+import Popup from 'reactjs-popup'
+import 'reactjs-popup/dist/index.css'
 
 const NewsEditor = () => {
   const session = useSession().data
@@ -18,6 +20,7 @@ const NewsEditor = () => {
   const urlId = Array.isArray(id) ? id[0] : id
   const isUpdate = urlId && urlId != 'new';
   const [newNews, setNews] = useState(Const.DEFAULT_NEWS)
+  const [errorMessages, setErrorMessages] = useState<string[]>([])
   let tempImgPath;
 
   const handleImage = async (imageUri: any) => {
@@ -103,18 +106,25 @@ const NewsEditor = () => {
     )
   }
   const validateInputs = (): boolean => {
-    const validationMessages: string[] = []
+    let validationMessages: string[] = []
     if (!isUpdate && (!selectedImg || !selectedImg.name) && newNews.imgPath !== Const.BreakingNewsImgPath) {
       validationMessages.push("Lütfen fotoğraf ekleyiniz!")
     }
     if (newNews.content.length <= 45) {
       validationMessages.push("İçerik 45 karakterden uzun olmalıdır!")
     }
+    if (newNews.summary.length <= 10) {
+      validationMessages.push("Özet 10 karakterden uzun olmalıdır!")
+    }
+    if (newNews.caption.length <= 9) {
+      validationMessages.push("Başlık 9 karakterden uzun olmalıdır!")
+    }
     if (validationMessages.length > 0) {
-      //TODO bkalafat show pop up
-      console.log(validationMessages)
+      setErrorMessages(validationMessages)
       return false;
     }
+    validationMessages = []
+    setErrorMessages(validationMessages)
     return true;
   }
   const [validated, setValidated] = useState(false);
@@ -291,6 +301,14 @@ const NewsEditor = () => {
               >
                 Sil
               </Button>
+            )}
+            {errorMessages.length > 0 && (
+              <Popup trigger={<button>Hata mesajları</button>} position="right center">
+               <div>Hatalar..</div>
+                {errorMessages.map((error, index) => (
+                  <div key={index}>{error}</div>
+                ))}
+             </Popup>
             )}
           </Form>
         </div>
