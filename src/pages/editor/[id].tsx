@@ -213,6 +213,19 @@ const NewsEditor = () => {
               />
             </Form.Group>
             <Form.Group>
+              <Form.Check
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setNews({
+                    ...newNews,
+                    showNotification: e.target.checked
+                  })
+                }
+                checked={newNews.showNotification}
+                type="checkbox"
+                label="Bildirim gönder"
+              />
+            </Form.Group>
+            <Form.Group>
               <Form.Label>Başlık</Form.Label>
               <Form.Control
                 value={newNews.caption}

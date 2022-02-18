@@ -17,6 +17,7 @@ export type NewsType = {
   priority: number;
   isActive: boolean;
   isSecondPageNews: boolean;
+  showNotification: boolean;
   slug: string;
   url: string;
   keywords: string;
