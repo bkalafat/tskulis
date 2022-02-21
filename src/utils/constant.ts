@@ -53,6 +53,7 @@ export const TEST_NEWS: NewsType = {
   subjects: [""],
   keywords: "",
   socialTags: "",
+  showNotification: false
 }
 
 export const Categories = Object.freeze({
