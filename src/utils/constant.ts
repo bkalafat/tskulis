@@ -25,6 +25,7 @@ export const DEFAULT_NEWS: NewsType = {
   expressDate: "",
   id: null,
   isSecondPageNews: false,
+  showNotification: false,
   subjects: [""],
   keywords: "",
   socialTags: "",
