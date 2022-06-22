@@ -2,6 +2,7 @@ import * as Const from "./constant"
 import slugify from "slugify"
 import { NewsType } from "../types/NewsType"
 import { CommentType } from "../types/CommentType"
+import { getNewsBySlug } from "./api"
 
 export function getEnvironmentUrl() {
   return process.env.NEXT_PUBLIC_API_PATH
@@ -57,7 +58,7 @@ export const getHrefModel = (urlLength: number) => {
 }
 
 export const getSlug = (news: NewsType) => {
-  return news.slug?.length > Const.MIN_SLUG_LENGTH ? news.slug : slugifyMarkless(news.caption);
+  return news.slug?.length > Const.MIN_SLUG_LENGTH ? news.slug : createSlug(news.caption);
 }
 
 export const getFullSlug = (news: NewsType) => {
@@ -97,9 +98,27 @@ export const ShowMedias = (content: string) => {
   return body;
 }
 
-const slugifyMarkless = (text: string) => {
+const createSlug = (text: string) : string => {
+  let slug = slugifyMarkless(text)
+  let isExistSlug : boolean = checkExistSlug(slug)
+  let i = 1
+  while (isExistSlug) {
+    slug = slugifyMarkless(text) + '-' + i
+    isExistSlug = checkExistSlug(slug)
+    i++
+  }
+
+  return slug
+}
+
+const slugifyMarkless = (text: string) : string => {
   text = text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
   if (text.endsWith('!') || text.endsWith('?') )
     return slugifyMarkless(text.substring(0, text.length - 1))
   return slugify(text)
+}
+
+const checkExistSlug = (slug: string) : boolean => {
+  let news = getNewsBySlug(slug)
+  return news ? true : false
 }
