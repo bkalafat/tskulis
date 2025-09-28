@@ -1,0 +1,30 @@
+{
+  "source": {
+    "include": ["./src/"],
+    "includePattern": "\\.(js|jsx|ts|tsx)$",
+    "exclude": ["node_modules/", "build/", "dist/", "*.test.*", "*.spec.*"]
+  },
+  "opts": {
+    "destination": "./docs/api/",
+    "readme": "./README.md",
+    "recurse": true,
+    "private": true
+  },
+  "plugins": [
+    "plugins/markdown",
+    "node_modules/jsdoc-route-plugin",
+    "@microsoft/tsdoc"
+  ],
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false
+  },
+  "markdown": {
+    "parser": "gfm",
+    "hardwrap": true
+  },
+  "typescript": {
+    "moduleRoot": "src",
+    "ignoreCompilerErrors": false
+  }
+}

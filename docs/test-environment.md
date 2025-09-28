@@ -1,5 +1,13 @@
 # Test Environment Configuration
 
+## Table of Contents
+
+- [Database Configuration](#database-configuration)
+- [Environment Variables (.env.test)](#environment-variables-env-test)
+- [Firebase Test Configuration](#firebase-test-configuration)
+- [Testing Scripts](#testing-scripts)
+- [Status](#status)
+
 **Environment**: isolated-testing  
 **Purpose**: Safe modernization testing without affecting production data
 

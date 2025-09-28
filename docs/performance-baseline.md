@@ -1,5 +1,50 @@
 # Performance Baseline Report
 
+## Table of Contents
+
+- [Table of Contents](#table-of-contents)
+- [Bundle Size Analysis](#bundle-size-analysis)
+  - [Page-Level Breakdown](#page-level-breakdown)
+  - [Shared Bundles (121 kB Total)](#shared-bundles-121-kb-total)
+- [Performance Metrics (Current State)](#performance-metrics-current-state)
+  - [Critical Issues Identified](#critical-issues-identified)
+  - [Build Warnings (Accessibility)](#build-warnings-accessibility)
+- [Technology Stack Assessment](#technology-stack-assessment)
+  - [Outdated Dependencies](#outdated-dependencies)
+  - [Security Issues  ](#security-issues)
+- [Performance Targets for Modernization](#performance-targets-for-modernization)
+  - [Bundle Size Targets](#bundle-size-targets)
+  - [Loading Performance Targets  ](#loading-performance-targets)
+- [Optimization Opportunities](#optimization-opportunities)
+  - [1. Code Splitting](#1-code-splitting)
+  - [2. CSS Optimization](#2-css-optimization)
+  - [3. Framework Updates](#3-framework-updates)
+  - [4. Asset Optimization](#4-asset-optimization)
+- [Constitutional Compliance](#constitutional-compliance)
+- [Next Steps](#next-steps)
+
+## Table of Contents
+
+- [Bundle Size Analysis](#bundle-size-analysis)
+  - [Page-Level Breakdown](#page-level-breakdown)
+  - [Shared Bundles (121 kB Total)](#shared-bundles-121-kb-total)
+- [Performance Metrics (Current State)](#performance-metrics-current-state)
+  - [Critical Issues Identified](#critical-issues-identified)
+  - [Build Warnings (Accessibility)](#build-warnings-accessibility)
+- [Technology Stack Assessment](#technology-stack-assessment)
+  - [Outdated Dependencies](#outdated-dependencies)
+  - [Security Issues  ](#security-issues)
+- [Performance Targets for Modernization](#performance-targets-for-modernization)
+  - [Bundle Size Targets](#bundle-size-targets)
+  - [Loading Performance Targets  ](#loading-performance-targets)
+- [Optimization Opportunities](#optimization-opportunities)
+  - [1. Code Splitting](#1-code-splitting)
+  - [2. CSS Optimization](#2-css-optimization)
+  - [3. Framework Updates](#3-framework-updates)
+  - [4. Asset Optimization](#4-asset-optimization)
+- [Constitutional Compliance](#constitutional-compliance)
+- [Next Steps](#next-steps)
+
 **Date**: 2025-09-28 20:08  
 **Build**: Next.js production build analysis  
 **Purpose**: Pre-modernization performance baseline

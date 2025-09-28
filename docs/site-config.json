@@ -1,0 +1,12 @@
+{
+  "title": "TS Kulis Documentation",
+  "description": "Comprehensive documentation for TS Kulis React components and API",
+  "baseUrl": "/",
+  "generateAt": "2025-09-28T20:42:01.768Z",
+  "componentsCount": 30,
+  "sections": [
+    "Components",
+    "API",
+    "Guides"
+  ]
+}

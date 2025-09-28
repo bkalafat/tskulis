@@ -1,0 +1,1522 @@
+[
+  {
+    "title": "AdvancedSearch",
+    "url": "/components/AdvancedSearch.md",
+    "content": " AdvancedSearch\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n- [Accessibility](accessibility)\n- [Keyboard Support](keyboard-support)\n- [Notes](notes)\n\n Table of Conte",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Keyboa...",
+        "url": "/components/AdvancedSearch.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Keyboard Support](keyboard-support) - [Notes](n...",
+        "url": "/components/AdvancedSearch.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Advanced Search Component for TS Kulis",
+        "url": "/components/AdvancedSearch.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { AdvancedSearch } from '@/components/AdvancedSearch';",
+        "url": "/components/AdvancedSearch.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "| Prop | Type | Default | Required | Description | |------|------|---------|----------|-------------| | placeholder | string | - | ❌ | - | | onResultSelect | (result: NewsType) => void | - | ❌ | - | |...",
+        "url": "/components/AdvancedSearch.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/AdvancedSearch.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "No variants documented.",
+        "url": "/components/AdvancedSearch.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "",
+        "url": "/components/AdvancedSearch.md#accessibility"
+      },
+      {
+        "title": "Keyboard Support",
+        "content": "Component supports keyboard navigation.",
+        "url": "/components/AdvancedSearch.md#keyboard-support"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.419Z",
+        "url": "/components/AdvancedSearch.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "SliderCard",
+    "url": "/components/cards/SliderCard.md",
+    "content": " SliderCard\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n- [Accessibility](accessibility)\n- [Notes](notes)\n\n Table of Contents\n\n- [Overview](overview)\n- [Import](impo",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes]...",
+        "url": "/components/cards/SliderCard.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes](notes)",
+        "url": "/components/cards/SliderCard.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Component description not provided.",
+        "url": "/components/cards/SliderCard.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { SliderCard } from '@/components/cards/SliderCard';",
+        "url": "/components/cards/SliderCard.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "No props documented.",
+        "url": "/components/cards/SliderCard.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/cards/SliderCard.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "No variants documented.",
+        "url": "/components/cards/SliderCard.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "No accessibility information provided.",
+        "url": "/components/cards/SliderCard.md#accessibility"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.424Z",
+        "url": "/components/cards/SliderCard.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "SubNewsCard",
+    "url": "/components/cards/SubNewsCard.md",
+    "content": " SubNewsCard\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n- [Accessibility](accessibility)\n- [Notes](notes)\n\n Table of Contents\n\n- [Overview](overview)\n- [Import](imp",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes]...",
+        "url": "/components/cards/SubNewsCard.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes](notes)",
+        "url": "/components/cards/SubNewsCard.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Component description not provided.",
+        "url": "/components/cards/SubNewsCard.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { SubNewsCard } from '@/components/cards/SubNewsCard';",
+        "url": "/components/cards/SubNewsCard.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "No props documented.",
+        "url": "/components/cards/SubNewsCard.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/cards/SubNewsCard.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "No variants documented.",
+        "url": "/components/cards/SubNewsCard.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "No accessibility information provided.",
+        "url": "/components/cards/SubNewsCard.md#accessibility"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.426Z",
+        "url": "/components/cards/SubNewsCard.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "SubSliderCard",
+    "url": "/components/cards/SubSliderCard.md",
+    "content": " SubSliderCard\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n- [Accessibility](accessibility)\n- [Notes](notes)\n\n Table of Contents\n\n- [Overview](overview)\n- [Import](i",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes]...",
+        "url": "/components/cards/SubSliderCard.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes](notes)",
+        "url": "/components/cards/SubSliderCard.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Component description not provided.",
+        "url": "/components/cards/SubSliderCard.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { SubSliderCard } from '@/components/cards/SubSliderCard';",
+        "url": "/components/cards/SubSliderCard.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "No props documented.",
+        "url": "/components/cards/SubSliderCard.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/cards/SubSliderCard.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "No variants documented.",
+        "url": "/components/cards/SubSliderCard.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "No accessibility information provided.",
+        "url": "/components/cards/SubSliderCard.md#accessibility"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.429Z",
+        "url": "/components/cards/SubSliderCard.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "CategoryNews",
+    "url": "/components/CategoryNews.md",
+    "content": " CategoryNews\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n- [Accessibility](accessibility)\n- [Notes](notes)\n\n Table of Contents\n\n- [Overview](overview)\n- [Import](im",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes]...",
+        "url": "/components/CategoryNews.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes](notes)",
+        "url": "/components/CategoryNews.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Component description not provided.",
+        "url": "/components/CategoryNews.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { CategoryNews } from '@/components/CategoryNews';",
+        "url": "/components/CategoryNews.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "No props documented.",
+        "url": "/components/CategoryNews.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/CategoryNews.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "No variants documented.",
+        "url": "/components/CategoryNews.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "No accessibility information provided.",
+        "url": "/components/CategoryNews.md#accessibility"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.433Z",
+        "url": "/components/CategoryNews.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "CommentArea",
+    "url": "/components/CommentArea.md",
+    "content": " CommentArea\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n- [Accessibility](accessibility)\n- [Notes](notes)\n\n Table of Contents\n\n- [Overview](overview)\n- [Import](imp",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes]...",
+        "url": "/components/CommentArea.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes](notes)",
+        "url": "/components/CommentArea.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Component description not provided.",
+        "url": "/components/CommentArea.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { CommentArea } from '@/components/CommentArea';",
+        "url": "/components/CommentArea.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "No props documented.",
+        "url": "/components/CommentArea.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/CommentArea.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "No variants documented.",
+        "url": "/components/CommentArea.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "No accessibility information provided.",
+        "url": "/components/CommentArea.md#accessibility"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.435Z",
+        "url": "/components/CommentArea.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "Content",
+    "url": "/components/Content.md",
+    "content": " Content\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n- [Accessibility](accessibility)\n- [Notes](notes)\n\n Table of Contents\n\n- [Overview](overview)\n- [Import](import)",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes]...",
+        "url": "/components/Content.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes](notes)",
+        "url": "/components/Content.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Component description not provided.",
+        "url": "/components/Content.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { Content } from '@/components/Content';",
+        "url": "/components/Content.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "No props documented.",
+        "url": "/components/Content.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/Content.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "No variants documented.",
+        "url": "/components/Content.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "No accessibility information provided.",
+        "url": "/components/Content.md#accessibility"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.440Z",
+        "url": "/components/Content.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "CustomSlider",
+    "url": "/components/CustomSlider.md",
+    "content": " CustomSlider\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n- [Accessibility](accessibility)\n- [Notes](notes)\n\n Table of Contents\n\n- [Overview](overview)\n- [Import](im",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes]...",
+        "url": "/components/CustomSlider.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes](notes)",
+        "url": "/components/CustomSlider.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Component description not provided.",
+        "url": "/components/CustomSlider.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { CustomSlider } from '@/components/CustomSlider';",
+        "url": "/components/CustomSlider.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "No props documented.",
+        "url": "/components/CustomSlider.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/CustomSlider.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "No variants documented.",
+        "url": "/components/CustomSlider.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "No accessibility information provided.",
+        "url": "/components/CustomSlider.md#accessibility"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.443Z",
+        "url": "/components/CustomSlider.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "Footer",
+    "url": "/components/Footer.md",
+    "content": " Footer\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n- [Accessibility](accessibility)\n- [Notes](notes)\n\n Table of Contents\n\n- [Overview](overview)\n- [Import](import)\n",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes]...",
+        "url": "/components/Footer.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes](notes)",
+        "url": "/components/Footer.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Component description not provided.",
+        "url": "/components/Footer.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { Footer } from '@/components/Footer';",
+        "url": "/components/Footer.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "No props documented.",
+        "url": "/components/Footer.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/Footer.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "No variants documented.",
+        "url": "/components/Footer.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "No accessibility information provided.",
+        "url": "/components/Footer.md#accessibility"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.445Z",
+        "url": "/components/Footer.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "Layout",
+    "url": "/components/Layout.md",
+    "content": " Layout\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n- [Accessibility](accessibility)\n- [Notes](notes)\n\n Table of Contents\n\n- [Overview](overview)\n- [Import](import)\n",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes]...",
+        "url": "/components/Layout.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes](notes)",
+        "url": "/components/Layout.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Component description not provided.",
+        "url": "/components/Layout.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { Layout } from '@/components/Layout';",
+        "url": "/components/Layout.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "No props documented.",
+        "url": "/components/Layout.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/Layout.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "No variants documented.",
+        "url": "/components/Layout.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "No accessibility information provided.",
+        "url": "/components/Layout.md#accessibility"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.448Z",
+        "url": "/components/Layout.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "Navigator",
+    "url": "/components/Navigator.md",
+    "content": " Navigator\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n- [Accessibility](accessibility)\n- [ARIA Labels](aria-labels)\n- [Notes](notes)\n\n Table of Contents\n\n- [Overvie",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [ARIA L...",
+        "url": "/components/Navigator.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [ARIA Labels](aria-labels) - [Notes](notes)",
+        "url": "/components/Navigator.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Component description not provided.",
+        "url": "/components/Navigator.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { Navigator } from '@/components/Navigator';",
+        "url": "/components/Navigator.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "No props documented.",
+        "url": "/components/Navigator.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/Navigator.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "No variants documented.",
+        "url": "/components/Navigator.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "",
+        "url": "/components/Navigator.md#accessibility"
+      },
+      {
+        "title": "ARIA Labels",
+        "content": "Component supports ARIA labels for accessibility.",
+        "url": "/components/Navigator.md#aria-labels"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.451Z",
+        "url": "/components/Navigator.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "News",
+    "url": "/components/News.md",
+    "content": " News\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n- [Accessibility](accessibility)\n- [Notes](notes)\n\n Table of Contents\n\n- [Overview](overview)\n- [Import](import)\n- ",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes]...",
+        "url": "/components/News.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes](notes)",
+        "url": "/components/News.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Component description not provided.",
+        "url": "/components/News.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { News } from '@/components/News';",
+        "url": "/components/News.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "No props documented.",
+        "url": "/components/News.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/News.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "No variants documented.",
+        "url": "/components/News.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "No accessibility information provided.",
+        "url": "/components/News.md#accessibility"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.453Z",
+        "url": "/components/News.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "PerformanceDashboard",
+    "url": "/components/PerformanceDashboard.md",
+    "content": " PerformanceDashboard\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n- [Accessibility](accessibility)\n- [Notes](notes)\n\n Table of Contents\n\n- [Overview](overview)\n- [Im",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes]...",
+        "url": "/components/PerformanceDashboard.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes](notes)",
+        "url": "/components/PerformanceDashboard.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Performance Dashboard Component",
+        "url": "/components/PerformanceDashboard.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { PerformanceDashboard } from '@/components/PerformanceDashboard';",
+        "url": "/components/PerformanceDashboard.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "No props documented.",
+        "url": "/components/PerformanceDashboard.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/PerformanceDashboard.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "No variants documented.",
+        "url": "/components/PerformanceDashboard.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "No accessibility information provided.",
+        "url": "/components/PerformanceDashboard.md#accessibility"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.455Z",
+        "url": "/components/PerformanceDashboard.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "Component Documentation",
+    "url": "/components/README.md",
+    "content": " Component Documentation\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Components](components)\n- [Documentation Guidelines](documentation-guidelines)\n  - [Component Structure](component-structure)\n  - [Best Practices](best-practices)\n- [Auto-generation](auto-generation)\n\n Table of",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Components](components) - [Documentation Guidelines](documentation-guidelines)   - [Component Structure](component-structure)   - [Best Practices](best-prac...",
+        "url": "/components/README.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Components](components) - [Documentation Guidelines](documentation-guidelines)   - [Component Structure](component-structure)   - [Best Practices](best-practices) - [Auto-generation](auto-generatio...",
+        "url": "/components/README.md#table-of-contents"
+      },
+      {
+        "title": "Components",
+        "content": "- [AdvancedSearch](./AdvancedSearch.md) - [SliderCard](./cards/SliderCard.md) - [SubNewsCard](./cards/SubNewsCard.md) - [SubSliderCard](./cards/SubSliderCard.md) - [CategoryNews](./CategoryNews.md) - ...",
+        "url": "/components/README.md#components"
+      },
+      {
+        "title": "Documentation Guidelines",
+        "content": "Component Structure Each component documentation includes: - Overview: Brief description and purpose - Import: How to import the component - Props: Complete props interface with types and descriptions...",
+        "url": "/components/README.md#documentation-guidelines"
+      },
+      {
+        "title": "Auto-generation",
+        "content": "This documentation is automatically generated from component source code using JSDoc comments and TypeScript interfaces.  Run npm run docs:components to regenerate this documentation.  --- Generated o...",
+        "url": "/components/README.md#auto-generation"
+      }
+    ]
+  },
+  {
+    "title": "SEO",
+    "url": "/components/SEO.md",
+    "content": " SEO\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n- [Accessibility](accessibility)\n- [Notes](notes)\n\n Table of Contents\n\n- [Overview](overview)\n- [Import](import)\n- [",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes]...",
+        "url": "/components/SEO.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes](notes)",
+        "url": "/components/SEO.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Advanced SEO Component with Structured Data",
+        "url": "/components/SEO.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { SEO } from '@/components/SEO';",
+        "url": "/components/SEO.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "| Prop | Type | Default | Required | Description | |------|------|---------|----------|-------------| | title | string | - | ❌ | - | | description | string | - | ❌ | - | | canonicalUrl | string | - | ...",
+        "url": "/components/SEO.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/SEO.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "No variants documented.",
+        "url": "/components/SEO.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "No accessibility information provided.",
+        "url": "/components/SEO.md#accessibility"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.458Z",
+        "url": "/components/SEO.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "Share",
+    "url": "/components/Share.md",
+    "content": " Share\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n- [Accessibility](accessibility)\n- [Notes](notes)\n\n Table of Contents\n\n- [Overview](overview)\n- [Import](import)\n-",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes]...",
+        "url": "/components/Share.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes](notes)",
+        "url": "/components/Share.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Component description not provided.",
+        "url": "/components/Share.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { Share } from '@/components/Share';",
+        "url": "/components/Share.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "No props documented.",
+        "url": "/components/Share.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/Share.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "No variants documented.",
+        "url": "/components/Share.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "No accessibility information provided.",
+        "url": "/components/Share.md#accessibility"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.460Z",
+        "url": "/components/Share.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "SocialShare",
+    "url": "/components/SocialShare.md",
+    "content": " SocialShare\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n- [Accessibility](accessibility)\n- [ARIA Labels](aria-labels)\n- [Notes](notes)\n\n Table of Contents\n\n- [Overv",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [ARIA L...",
+        "url": "/components/SocialShare.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [ARIA Labels](aria-labels) - [Notes](notes)",
+        "url": "/components/SocialShare.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Social Media Optimization Component for TS Kulis",
+        "url": "/components/SocialShare.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { SocialShare } from '@/components/SocialShare';",
+        "url": "/components/SocialShare.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "| Prop | Type | Default | Required | Description | |------|------|---------|----------|-------------| | article | NewsType | - | ❌ | - | | url | string | - | ❌ | - | | title | string | - | ❌ | - | | d...",
+        "url": "/components/SocialShare.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/SocialShare.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "No variants documented.",
+        "url": "/components/SocialShare.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "",
+        "url": "/components/SocialShare.md#accessibility"
+      },
+      {
+        "title": "ARIA Labels",
+        "content": "Component supports ARIA labels for accessibility.",
+        "url": "/components/SocialShare.md#aria-labels"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.462Z",
+        "url": "/components/SocialShare.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "SquareAd",
+    "url": "/components/SquareAd.md",
+    "content": " SquareAd\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n- [Accessibility](accessibility)\n- [Notes](notes)\n\n Table of Contents\n\n- [Overview](overview)\n- [Import](import",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes]...",
+        "url": "/components/SquareAd.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes](notes)",
+        "url": "/components/SquareAd.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Component description not provided.",
+        "url": "/components/SquareAd.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { SquareAd } from '@/components/SquareAd';",
+        "url": "/components/SquareAd.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "No props documented.",
+        "url": "/components/SquareAd.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/SquareAd.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "No variants documented.",
+        "url": "/components/SquareAd.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "No accessibility information provided.",
+        "url": "/components/SquareAd.md#accessibility"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.465Z",
+        "url": "/components/SquareAd.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "SubNews",
+    "url": "/components/SubNews.md",
+    "content": " SubNews\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n- [Accessibility](accessibility)\n- [Notes](notes)\n\n Table of Contents\n\n- [Overview](overview)\n- [Import](import)",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes]...",
+        "url": "/components/SubNews.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes](notes)",
+        "url": "/components/SubNews.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Component description not provided.",
+        "url": "/components/SubNews.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { SubNews } from '@/components/SubNews';",
+        "url": "/components/SubNews.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "No props documented.",
+        "url": "/components/SubNews.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/SubNews.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "No variants documented.",
+        "url": "/components/SubNews.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "No accessibility information provided.",
+        "url": "/components/SubNews.md#accessibility"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.468Z",
+        "url": "/components/SubNews.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "SubSlider",
+    "url": "/components/SubSlider.md",
+    "content": " SubSlider\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n- [Accessibility](accessibility)\n- [Notes](notes)\n\n Table of Contents\n\n- [Overview](overview)\n- [Import](impor",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes]...",
+        "url": "/components/SubSlider.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes](notes)",
+        "url": "/components/SubSlider.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Component description not provided.",
+        "url": "/components/SubSlider.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { SubSlider } from '@/components/SubSlider';",
+        "url": "/components/SubSlider.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "No props documented.",
+        "url": "/components/SubSlider.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/SubSlider.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "No variants documented.",
+        "url": "/components/SubSlider.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "No accessibility information provided.",
+        "url": "/components/SubSlider.md#accessibility"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.470Z",
+        "url": "/components/SubSlider.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "Button",
+    "url": "/components/ui/Button.md",
+    "content": " Button\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n  - [primary](primary)\n  - [secondary](secondary)\n  - [outline](outline)\n  - [ghost](ghost)\n- [Accessibility](acc",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants)   - [primary](primary)   - [secondary](sec...",
+        "url": "/components/ui/Button.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants)   - [primary](primary)   - [secondary](secondary)   - [outline](outline)   - [ghost...",
+        "url": "/components/ui/Button.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Button Component for TS Kulis",
+        "url": "/components/ui/Button.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { Button } from '@/components/ui/Button';",
+        "url": "/components/ui/Button.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "No props documented.",
+        "url": "/components/ui/Button.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/ui/Button.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "primary primary variant of the component   secondary secondary variant of the component   outline outline variant of the component   ghost ghost variant of the component",
+        "url": "/components/ui/Button.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "No accessibility information provided.",
+        "url": "/components/ui/Button.md#accessibility"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.473Z",
+        "url": "/components/ui/Button.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "Card",
+    "url": "/components/ui/Card.md",
+    "content": " Card\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n  - [default](default)\n  - [elevated](elevated)\n  - [interactive](interactive)\n- [Accessibility](accessibility)\n- [",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants)   - [default](default)   - [elevated](elev...",
+        "url": "/components/ui/Card.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants)   - [default](default)   - [elevated](elevated)   - [interactive](interactive) - [A...",
+        "url": "/components/ui/Card.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Card Component for TS Kulis",
+        "url": "/components/ui/Card.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { Card } from '@/components/ui/Card';",
+        "url": "/components/ui/Card.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "| Prop | Type | Default | Required | Description | |------|------|---------|----------|-------------| | children | React.ReactNode | - | ✅ | - | | variant | 'default' | 'elevated' | 'interactive' | - ...",
+        "url": "/components/ui/Card.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/ui/Card.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "default default variant of the component   elevated elevated variant of the component   interactive interactive variant of the component",
+        "url": "/components/ui/Card.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "No accessibility information provided.",
+        "url": "/components/ui/Card.md#accessibility"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.475Z",
+        "url": "/components/ui/Card.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "Input",
+    "url": "/components/ui/Input.md",
+    "content": " Input\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n  - [default](default)\n  - [error](error)\n  - [success](success)\n- [Accessibility](accessibility)\n- [Notes](notes)",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants)   - [default](default)   - [error](error) ...",
+        "url": "/components/ui/Input.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants)   - [default](default)   - [error](error)   - [success](success) - [Accessibility](...",
+        "url": "/components/ui/Input.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Input Component for TS Kulis",
+        "url": "/components/ui/Input.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { Input } from '@/components/ui/Input';",
+        "url": "/components/ui/Input.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "No props documented.",
+        "url": "/components/ui/Input.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/ui/Input.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "default default variant of the component   error error variant of the component   success success variant of the component",
+        "url": "/components/ui/Input.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "No accessibility information provided.",
+        "url": "/components/ui/Input.md#accessibility"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.477Z",
+        "url": "/components/ui/Input.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "Layout",
+    "url": "/components/ui/Layout.md",
+    "content": " Layout\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n- [Accessibility](accessibility)\n- [Notes](notes)\n\n Table of Contents\n\n- [Overview](overview)\n- [Import](import)\n",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes]...",
+        "url": "/components/ui/Layout.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants) - [Accessibility](accessibility) - [Notes](notes)",
+        "url": "/components/ui/Layout.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Layout Components for TS Kulis",
+        "url": "/components/ui/Layout.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { Layout } from '@/components/ui/Layout';",
+        "url": "/components/ui/Layout.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "| Prop | Type | Default | Required | Description | |------|------|---------|----------|-------------| | children | React.ReactNode | - | ✅ | - | | direction | 'row' | 'column' | 'row-reverse' | 'colum...",
+        "url": "/components/ui/Layout.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/ui/Layout.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "No variants documented.",
+        "url": "/components/ui/Layout.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "No accessibility information provided.",
+        "url": "/components/ui/Layout.md#accessibility"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.480Z",
+        "url": "/components/ui/Layout.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "SimpleButton",
+    "url": "/components/ui/SimpleButton.md",
+    "content": " SimpleButton\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n  - [primary](primary)\n  - [secondary](secondary)\n  - [outline](outline)\n  - [ghost](ghost)\n- [Accessibilit",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants)   - [primary](primary)   - [secondary](sec...",
+        "url": "/components/ui/SimpleButton.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants)   - [primary](primary)   - [secondary](secondary)   - [outline](outline)   - [ghost...",
+        "url": "/components/ui/SimpleButton.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Simple Button Component for TS Kulis",
+        "url": "/components/ui/SimpleButton.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { SimpleButton } from '@/components/ui/SimpleButton';",
+        "url": "/components/ui/SimpleButton.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "No props documented.",
+        "url": "/components/ui/SimpleButton.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/ui/SimpleButton.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "primary primary variant of the component   secondary secondary variant of the component   outline outline variant of the component   ghost ghost variant of the component",
+        "url": "/components/ui/SimpleButton.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "No accessibility information provided.",
+        "url": "/components/ui/SimpleButton.md#accessibility"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.483Z",
+        "url": "/components/ui/SimpleButton.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "Typography",
+    "url": "/components/ui/Typography.md",
+    "content": " Typography\n\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Overview](overview)\n- [Import](import)\n- [Props](props)\n- [Usage Examples](usage-examples)\n- [Variants](variants)\n  - [h1](h1)\n  - [h2](h2)\n  - [h3](h3)\n  - [h4](h4)\n  - [h5](h5)\n  - [h6](h6)\n  - [body1](body1)\n  - [body2](",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants)   - [h1](h1)   - [h2](h2)   - [h3](h3)   -...",
+        "url": "/components/ui/Typography.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Overview](overview) - [Import](import) - [Props](props) - [Usage Examples](usage-examples) - [Variants](variants)   - [h1](h1)   - [h2](h2)   - [h3](h3)   - [h4](h4)   - [h5](h5)   - [h6](h6)   - [...",
+        "url": "/components/ui/Typography.md#table-of-contents"
+      },
+      {
+        "title": "Overview",
+        "content": "Typography Components for TS Kulis",
+        "url": "/components/ui/Typography.md#overview"
+      },
+      {
+        "title": "Import",
+        "content": "typescript import { Typography } from '@/components/ui/Typography';",
+        "url": "/components/ui/Typography.md#import"
+      },
+      {
+        "title": "Props",
+        "content": "| Prop | Type | Default | Required | Description | |------|------|---------|----------|-------------| | children | React.ReactNode | - | ✅ | - | | variant | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | '...",
+        "url": "/components/ui/Typography.md#props"
+      },
+      {
+        "title": "Usage Examples",
+        "content": "No usage examples provided.",
+        "url": "/components/ui/Typography.md#usage-examples"
+      },
+      {
+        "title": "Variants",
+        "content": "h1 h1 variant of the component   h2 h2 variant of the component   h3 h3 variant of the component   h4 h4 variant of the component   h5 h5 variant of the component   h6 h6 variant of the component   bo...",
+        "url": "/components/ui/Typography.md#variants"
+      },
+      {
+        "title": "Accessibility",
+        "content": "No accessibility information provided.",
+        "url": "/components/ui/Typography.md#accessibility"
+      },
+      {
+        "title": "Notes",
+        "content": "No additional notes.  --- Generated on 2025-09-28T20:41:23.485Z",
+        "url": "/components/ui/Typography.md#notes"
+      }
+    ]
+  },
+  {
+    "title": "Performance Baseline Report",
+    "url": "/performance-baseline.md",
+    "content": " Performance Baseline Report\r\n\r\n Table of Contents\n\n- [Table of Contents](table-of-contents)\n- [Bundle Size Analysis\r](bundle-size-analysis)\n  - [Page-Level Breakdown\r](page-level-breakdown)\n  - [Shared Bundles (121 kB Total)\r](shared-bundles-121-kb-total)\n- [Performance Metrics (Current State)\r](pe",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Table of Contents](table-of-contents) - [Bundle Size Analysis\r](bundle-size-analysis)   - [Page-Level Breakdown\r](page-level-breakdown)   - [Shared Bundles (121 kB Total)\r](shared-bundles-121-kb-to...",
+        "url": "/performance-baseline.md#table-of-contents"
+      },
+      {
+        "title": "Table of Contents",
+        "content": "- [Bundle Size Analysis\r](bundle-size-analysis)   - [Page-Level Breakdown\r](page-level-breakdown)   - [Shared Bundles (121 kB Total)\r](shared-bundles-121-kb-total) - [Performance Metrics (Current Stat...",
+        "url": "/performance-baseline.md#table-of-contents"
+      },
+      {
+        "title": "Bundle Size Analysis\r",
+        "content": "Page-Level Breakdown\r | Route | Size | First Load JS | Type | Notes |\r |-----------|----------|-------------------|----------|-----------|\r | / (Homepage) | 2.64 kB | 198 kB | Static | Core landing pa...",
+        "url": "/performance-baseline.md#bundle-size-analysis-"
+      },
+      {
+        "title": "Performance Metrics (Current State)\r",
+        "content": "Critical Issues Identified\r 1. Editor Page: 376 kB first load (CKEditor bundle)\r 2. Homepage: 198 kB first load (target: <150 kB)\r 3. Category Pages: 197 kB first load\r 4. CSS Bundle: 31.2 kB global s...",
+        "url": "/performance-baseline.md#performance-metrics-current-state-"
+      },
+      {
+        "title": "Technology Stack Assessment\r",
+        "content": "Outdated Dependencies\r - Browserslist: caniuse-lite outdated\r - Node.js: v22.20.0 (newer than required)\r - Next.js: 12.x (target: 14.x for modernization)\r \r  Security Issues  \r - NODE_TLS_REJECT_UNAUT...",
+        "url": "/performance-baseline.md#technology-stack-assessment-"
+      },
+      {
+        "title": "Performance Targets for Modernization\r",
+        "content": "Bundle Size Targets\r - Homepage: 198 kB → 150 kB (25% reduction)\r - Category Pages: 197 kB → 150 kB (24% reduction)\r - Article Pages: 188 kB → 140 kB (26% reduction)\r - Editor Page: 376 kB → 250 kB (3...",
+        "url": "/performance-baseline.md#performance-targets-for-modernization-"
+      },
+      {
+        "title": "Optimization Opportunities\r",
+        "content": "1. Code Splitting\r - CKEditor: Lazy load in admin panel only\r - Admin Components: Separate bundle from public pages\r - Image Libraries: Dynamic imports for optimization\r \r  2. CSS Optimization\r - Boot...",
+        "url": "/performance-baseline.md#optimization-opportunities-"
+      },
+      {
+        "title": "Constitutional Compliance\r",
+        "content": "✅ Modern Stack Maintenance: Performance baseline established  \r ✅ Backward Compatibility: Current metrics preserved for comparison  \r ✅ Test-Driven Upgrades: Performance tests planned in T017, T066-T0...",
+        "url": "/performance-baseline.md#constitutional-compliance-"
+      },
+      {
+        "title": "Next Steps\r",
+        "content": "1. T005-T010: Complete configuration and tooling setup\r 2. T017: Implement performance testing with current baseline  \r 3. T063-T067: Bundle optimization and Core Web Vitals improvements\r 4. T071: Per...",
+        "url": "/performance-baseline.md#next-steps-"
+      }
+    ]
+  },
+  {
+    "title": "Security Audit Report",
+    "url": "/security-audit.md",
+    "content": " Security Audit Report\r\n\r\n Table of Contents\n\n- [Summary\r](summary)\n- [Critical Vulnerabilities (Priority 1)\r](critical-vulnerabilities-priority-1)\n  - [1. @babel/traverse < 7.23.2\r](1-babel-traverse-7-23-2)\n  - [2. Next.js ≤ 14.2.31\r](2-next-js-14-2-31)\n  - [3. form-data vulnerabilities\r](3-form-da",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Summary\r](summary) - [Critical Vulnerabilities (Priority 1)\r](critical-vulnerabilities-priority-1)   - [1. @babel/traverse < 7.23.2\r](1-babel-traverse-7-23-2)   - [2. Next.js ≤ 14.2.31\r](2-next-js-...",
+        "url": "/security-audit.md#table-of-contents"
+      },
+      {
+        "title": "Summary\r",
+        "content": "- Total Vulnerabilities: 66\r - Critical: 7\r - High: 30  \r - Moderate: 23\r - Low: 6",
+        "url": "/security-audit.md#summary-"
+      },
+      {
+        "title": "Critical Vulnerabilities (Priority 1)\r",
+        "content": "1. @babel/traverse < 7.23.2\r - Risk: Arbitrary code execution\r - Impact: Code compilation vulnerability\r - Fix: npm audit fix\r \r  2. Next.js ≤ 14.2.31\r - Risk: Multiple vulnerabilities including CDN c...",
+        "url": "/security-audit.md#critical-vulnerabilities-priority-1-"
+      },
+      {
+        "title": "High Priority Dependencies for Modernization\r",
+        "content": "Framework Updates (Addresses Multiple Vulnerabilities)\r 1. Next.js: 12.x → 14.x+ (addresses 7+ vulnerabilities)\r 2. React: Current → 18.3.x (compatibility with Next.js 14)  \r 3. Bootstrap: 4.6.2 → 5.3...",
+        "url": "/security-audit.md#high-priority-dependencies-for-modernization-"
+      },
+      {
+        "title": "Constitutional Compliance Assessment\r",
+        "content": "✅ Modern Stack Maintenance: 66 vulnerabilities identified for immediate resolution  \r ✅ Backward Compatibility: Security fixes preserve functionality  \r ✅ Test-Driven Upgrades: Security fixes will be ...",
+        "url": "/security-audit.md#constitutional-compliance-assessment-"
+      },
+      {
+        "title": "Remediation Strategy\r",
+        "content": "Phase 1: Safe Updates (Non-Breaking)\r bash\r npm audit fix\r \r Impact: Resolves ~40 vulnerabilities without breaking changes\r \r  Phase 2: Framework Updates (Breaking Changes - Part of Modernization)\r ba...",
+        "url": "/security-audit.md#remediation-strategy-"
+      },
+      {
+        "title": "Next Steps\r",
+        "content": "1. Apply non-breaking security fixes immediately\r 2. Include security validation in all modernization tests  \r 3. Implement security scanning in CI/CD pipeline\r 4. Document security improvements in ea...",
+        "url": "/security-audit.md#next-steps-"
+      }
+    ]
+  },
+  {
+    "title": "Test Environment Configuration",
+    "url": "/test-environment.md",
+    "content": " Test Environment Configuration\r\n\r\n Table of Contents\n\n- [Database Configuration\r](database-configuration)\n- [Environment Variables (.env.test)\r](environment-variables-env-test)\n- [Firebase Test Configuration\r](firebase-test-configuration)\n- [Testing Scripts\r](testing-scripts)\n- [Status\r](status)\n\nE",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Database Configuration\r](database-configuration) - [Environment Variables (.env.test)\r](environment-variables-env-test) - [Firebase Test Configuration\r](firebase-test-configuration) - [Testing Scri...",
+        "url": "/test-environment.md#table-of-contents"
+      },
+      {
+        "title": "Database Configuration\r",
+        "content": "- Test Database: nextauth_test (isolated from production nextauth)\r - Connection: MongoDB localhost:27017\r - Data: Seeded with sample news articles for testing",
+        "url": "/test-environment.md#database-configuration-"
+      },
+      {
+        "title": "Environment Variables (.env.test)\r",
+        "content": "env\r NODE_ENV=test\r DATABASE_URL=mongodb://localhost:27017/nextauth_test\r NEXT_PUBLIC_API_PATH=http://localhost:5001/api/\r NEXTAUTH_URL=http://localhost:3001\r TWITTER_CLIENT_ID=test_client_id\r TWITTER...",
+        "url": "/test-environment.md#environment-variables-env-test-"
+      },
+      {
+        "title": "Firebase Test Configuration\r",
+        "content": "- Project: tskulis-test (separate from production)\r - Storage: Isolated storage bucket for test images\r - Functions: Test endpoints for image upload/optimization",
+        "url": "/test-environment.md#firebase-test-configuration-"
+      },
+      {
+        "title": "Testing Scripts\r",
+        "content": "Added to package.json:\r json\r {\r   \"scripts\": {\r     \"test\": \"jest --env=jsdom\",\r     \"test:watch\": \"jest --env=jsdom --watch\",\r     \"test:coverage\": \"jest --env=jsdom --coverage\",\r     \"test:e2e\": \"p...",
+        "url": "/test-environment.md#testing-scripts-"
+      },
+      {
+        "title": "Status\r",
+        "content": "✅ T002 COMPLETED: Isolated testing environment configured  \r ✅ Constitutional Compliance: Test environment preserves production integrity",
+        "url": "/test-environment.md#status-"
+      }
+    ]
+  },
+  {
+    "title": "TypeScript 5.x Strict Mode Configuration",
+    "url": "/typescript-configuration.md",
+    "content": " TypeScript 5.x Strict Mode Configuration\r\n\r\n Table of Contents\n\n- [Configuration Changes Applied\r](configuration-changes-applied)\n  - [Enhanced TypeScript Settings\r](enhanced-typescript-settings)\n- [Type Errors Identified (77 Total)\r](type-errors-identified-77-total)\n  - [Critical Areas Requiring U",
+    "sections": [
+      {
+        "title": "Table of Contents",
+        "content": "- [Configuration Changes Applied\r](configuration-changes-applied)   - [Enhanced TypeScript Settings\r](enhanced-typescript-settings) - [Type Errors Identified (77 Total)\r](type-errors-identified-77-tot...",
+        "url": "/typescript-configuration.md#table-of-contents"
+      },
+      {
+        "title": "Configuration Changes Applied\r",
+        "content": "Enhanced TypeScript Settings\r json\r {\r   \"compilerOptions\": {\r     \"target\": \"ES2022\",           // Modern JavaScript target\r     \"strict\": true,               // All strict checks enabled\r     \"noUnu...",
+        "url": "/typescript-configuration.md#configuration-changes-applied-"
+      },
+      {
+        "title": "Type Errors Identified (77 Total)\r",
+        "content": "Critical Areas Requiring Updates\r \r  1. MongoDB Connection (lib/mongodb.ts) - 5 errors\r - Issue: Global type declarations for MongoDB client\r - Priority: High (database connectivity)\r - Resolution: Ad...",
+        "url": "/typescript-configuration.md#type-errors-identified-77-total-"
+      },
+      {
+        "title": "Implementation Strategy\r",
+        "content": "Phase 1: Critical Infrastructure Types (T031 Focus)\r 1. MongoDB: Fix global client promise types\r 2. NextAuth: Add proper session type guards  \r 3. Environment: Add type-safe environment variable acce...",
+        "url": "/typescript-configuration.md#implementation-strategy-"
+      },
+      {
+        "title": "Constitutional Compliance\r",
+        "content": "✅ Modern Stack Maintenance: TypeScript 5.x with latest strict features  \r ✅ Backward Compatibility: All existing functionality preserved, types enforce safety  \r ✅ Test-Driven Upgrades: Type errors wi...",
+        "url": "/typescript-configuration.md#constitutional-compliance-"
+      },
+      {
+        "title": "Benefits of Strict Mode\r",
+        "content": "Developer Experience\r - IDE Support: Better autocomplete and error detection\r - Refactoring Safety: Confident code changes with type checking\r - Documentation: Types serve as inline documentation\r \r  ...",
+        "url": "/typescript-configuration.md#benefits-of-strict-mode-"
+      },
+      {
+        "title": "Next Steps\r",
+        "content": "1. T031: Systematic resolution of type errors during framework upgrade\r 2. T042-T046: Enhanced type definitions for all entities\r 3. T008-T009: Jest configuration with TypeScript support\r 4. Testing: ...",
+        "url": "/typescript-configuration.md#next-steps-"
+      }
+    ]
+  }
+]
