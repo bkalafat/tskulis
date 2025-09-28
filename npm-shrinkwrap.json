@@ -48,7 +48,7 @@
         "reflect-metadata": "^0.1.13",
         "slick-carousel": "^1.8.1",
         "slugify": "^1.6.5",
-        "styled-components": "^5.3.6",
+        "styled-components": "^5.3.11",
         "swr": "^1.3.0",
         "typescript-coverage-report": "^0.6.4",
         "watermarkjs": "^2.1.1",
@@ -63,6 +63,7 @@
         "@types/node": "^18.11.10",
         "@types/react-bootstrap-table-next": "^4.0.18",
         "@types/react-slick": "^0.23.10",
+        "@types/styled-components": "^5.1.34",
         "@types/supertest": "^6.0.3",
         "babel-jest": "^28.1.3",
         "critters": "^0.0.23",
@@ -9059,6 +9060,19 @@
         "@types/node": "*"
       }
     },
+    "node_modules/@types/hoist-non-react-statics": {
+      "version": "3.3.7",
+      "resolved": "https://registry.npmjs.org/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.7.tgz",
+      "integrity": "sha512-PQTyIulDkIDro8P+IHbKCsw7U2xxBYflVzW/FgWdCAePD9xGSidgA76/GeJ6lBKoblyhf9pBY763gbrN+1dI8g==",
+      "dev": true,
+      "license": "MIT",
+      "dependencies": {
+        "hoist-non-react-statics": "^3.3.0"
+      },
+      "peerDependencies": {
+        "@types/react": "*"
+      }
+    },
     "node_modules/@types/html-minifier-terser": {
       "version": "6.1.0",
       "resolved": "https://registry.npmjs.org/@types/html-minifier-terser/-/html-minifier-terser-6.1.0.tgz",
@@ -9426,6 +9440,18 @@
       "version": "2.0.1",
       "resolved": "https://registry.npmjs.org/@types/stack-utils/-/stack-utils-2.0.1.tgz",
       "integrity": "sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw=="
+    },
+    "node_modules/@types/styled-components": {
+      "version": "5.1.34",
+      "resolved": "https://registry.npmjs.org/@types/styled-components/-/styled-components-5.1.34.tgz",
+      "integrity": "sha512-mmiVvwpYklFIv9E8qfxuPyIt/OuyIrn6gMOAMOFUO3WJfSrSE+sGUoa4PiZj77Ut7bKZpaa6o1fBKS/4TOEvnA==",
+      "dev": true,
+      "license": "MIT",
+      "dependencies": {
+        "@types/hoist-non-react-statics": "*",
+        "@types/react": "*",
+        "csstype": "^3.0.2"
+      }
     },
     "node_modules/@types/superagent": {
       "version": "8.1.9",
@@ -29951,10 +29977,10 @@
       }
     },
     "node_modules/styled-components": {
-      "version": "5.3.6",
-      "resolved": "https://registry.npmjs.org/styled-components/-/styled-components-5.3.6.tgz",
-      "integrity": "sha512-hGTZquGAaTqhGWldX7hhfzjnIYBZ0IXQXkCYdvF1Sq3DsUaLx6+NTHC5Jj1ooM2F68sBiVz3lvhfwQs/S3l6qg==",
-      "hasInstallScript": true,
+      "version": "5.3.11",
+      "resolved": "https://registry.npmjs.org/styled-components/-/styled-components-5.3.11.tgz",
+      "integrity": "sha512-uuzIIfnVkagcVHv9nE0VPlHPSCmXIUGKfJ42LNjxCCTDTL5sgnJ8Z7GZBq0EnLYGln77tPpEpExt2+qa+cZqSw==",
+      "license": "MIT",
       "dependencies": {
         "@babel/helper-module-imports": "^7.0.0",
         "@babel/traverse": "^7.4.5",
