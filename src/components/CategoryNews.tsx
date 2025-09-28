@@ -68,7 +68,7 @@ const CategoryNews = () => {
           <h2>{categoryObj.value}</h2>
         </div>
         <div className="centerFlex">
-          <div className="col-md-10 col-xl-10 noPadding">
+          <div className="col-12 noPadding">
             <SubSlider newsList={sliderNewsList.slice(0, 13)} />
           </div>
           <SubNews newsList={subNewsList.slice(0, 32)} />

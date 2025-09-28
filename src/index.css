@@ -80,7 +80,10 @@ code {
 .subNews {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
+  width: 100%;
+  margin: 20px 0;
+  padding: 0 15px;
 }
 
 .currency {
@@ -89,7 +92,9 @@ code {
 }
 
 .subNews-child {
-  margin-bottom: 8px;
+  margin-bottom: 20px;
+  flex: 0 1 calc(33.333% - 15px);
+  min-width: 300px;
 }
 
 .clickable {
@@ -135,6 +140,8 @@ code {
 .ratio {
   position: relative;
   width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
 }
 
 .imgRatio {
@@ -367,6 +374,30 @@ footer {
 
 .cursor {
   cursor: pointer
+}
+
+/* Mobile responsive styles for category pages */
+@media (max-width: 768px) {
+  .subNews {
+    padding: 0 10px;
+    justify-content: center;
+  }
+  
+  .subNews-child {
+    flex: 1 1 100%;
+    min-width: unset;
+    margin-bottom: 15px;
+  }
+  
+  .centerFlex {
+    padding: 0 10px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .subNews-child {
+    flex: 0 1 calc(50% - 10px);
+  }
 }
 
 .textarea {

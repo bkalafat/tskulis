@@ -1,50 +1,80 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# TS Kulis Constitution
+
+<!--
+Sync Impact Report:
+Version change: none → 1.0.0 (initial constitution)
+Added sections: All sections - initial creation
+Modified principles: None (initial creation)
+Templates requiring updates: 
+✅ plan-template.md - constitution check will reference these principles
+✅ spec-template.md - requirements will align with upgrade principles  
+✅ tasks-template.md - task categorization includes upgrade tasks
+Follow-up TODOs: None
+-->
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Modern Stack Maintenance
+Every component must use the latest stable versions of its dependencies. Next.js, React, and all npm packages MUST be kept current within 6 months of major releases. Security vulnerabilities require immediate updates regardless of version timing.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+**Rationale**: The news website serves public content and requires security, performance, and compatibility with modern web standards.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### II. Backward Compatibility Assurance  
+All upgrades MUST maintain existing functionality without breaking changes to content, URLs, or user experience. Database schemas and API contracts require migration strategies before version updates.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+**Rationale**: News content and SEO rankings depend on stable URLs and consistent functionality.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### III. Test-Driven Upgrades
+Every major version upgrade requires comprehensive testing before deployment: existing functionality tests, new feature validation, cross-browser compatibility, and performance benchmarks.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+**Rationale**: News websites cannot afford downtime or broken functionality that impacts content accessibility.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### IV. Content Management Integrity
+CKEditor, image upload systems, and admin panel functionality MUST remain fully operational through all upgrades. Content creation workflows cannot be disrupted.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+**Rationale**: Editorial staff depend on consistent content management tools for daily news publication.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### V. Performance-First Architecture
+All upgrades must maintain or improve page load times, SEO scores, and mobile performance. Static generation (ISR) and image optimization are non-negotiable features.
+
+**Rationale**: News websites require fast loading for user retention and search engine ranking.
+
+## Upgrade Standards
+
+### Technology Stack Requirements
+- Next.js: Latest stable version with gradual adoption path
+- React: Latest stable version with concurrent features
+- TypeScript: Strict mode enabled with latest version
+- Node.js: LTS version compatibility maintained
+- MongoDB: Driver compatibility verified with each upgrade
+- Testing: Jest and React Testing Library current versions
+
+### Security and Compliance
+- All dependencies scanned for vulnerabilities before adoption
+- NextAuth.js kept current for authentication security
+- Image upload security maintained through Firebase integration
+- CORS and CSP headers updated per security best practices
+
+## Development Workflow
+
+### Upgrade Process
+1. Create feature branch for upgrade work
+2. Update dependencies in isolated testing environment  
+3. Execute full test suite with new versions
+4. Verify content management functionality
+5. Performance testing and SEO validation
+6. Gradual deployment with rollback capability
+
+### Quality Gates
+- All existing tests pass with new versions
+- Performance metrics meet or exceed current baselines
+- Editorial workflows tested and validated
+- Production deployment requires manual approval
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other development practices for the TS Kulis project. All upgrades and dependency changes must verify compliance with these principles. Breaking changes require documentation, approval, and migration planning.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+Amendment procedure requires documentation of rationale, impact assessment, and stakeholder review. Version compatibility testing is mandatory for all changes affecting public-facing functionality.
+
+**Version**: 1.0.0 | **Ratified**: 2025-09-28 | **Last Amended**: 2025-09-28

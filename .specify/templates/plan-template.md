@@ -47,7 +47,34 @@
 ## Constitution Check
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+**✅ Modern Stack Maintenance Check**
+- [ ] All dependency updates use latest stable versions
+- [ ] Security vulnerabilities addressed immediately
+- [ ] Update timeline within 6-month window for major releases
+
+**✅ Backward Compatibility Assurance Check**  
+- [ ] Existing functionality preserved through changes
+- [ ] Database migration strategy documented
+- [ ] URL structure and SEO preserved
+- [ ] Content management workflows unaffected
+
+**✅ Test-Driven Upgrades Check**
+- [ ] Comprehensive test coverage for existing functionality
+- [ ] Cross-browser compatibility testing planned
+- [ ] Performance benchmarks established
+- [ ] Rollback strategy documented
+
+**✅ Content Management Integrity Check**
+- [ ] CKEditor functionality preserved
+- [ ] Image upload systems tested
+- [ ] Admin panel workflows validated
+- [ ] Editorial staff workflow continuity
+
+**✅ Performance-First Architecture Check**
+- [ ] Page load time metrics maintained/improved
+- [ ] SEO scores preserved or enhanced  
+- [ ] Mobile performance benchmarks met
+- [ ] Static generation (ISR) functionality intact
 
 ## Project Structure
 
