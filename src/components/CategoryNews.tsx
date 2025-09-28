@@ -8,7 +8,7 @@ import { NewsType } from "../types/NewsType"
 import { TYPE } from "../utils/enum"
 
 const CategoryNews = () => {
-  const { data, error } = useSWR<NewsType[], any>(getEnvironmentUrl() + "news/get")
+  const { data, error } = useSWR<NewsType[], any>(getEnvironmentUrl() + "news")
   const router = useRouter()
   const { category } = router.query
   const categoryUrl = Array.isArray(category) ? category[0] : category;
@@ -19,11 +19,13 @@ const CategoryNews = () => {
     )
   }
   else {
-    if (!data && data.length === 0)
+    // Ensure data is array
+    const safeData = Array.isArray(data) ? data : []
+    if (safeData.length === 0)
       return (<><Head><title>{categoryUrl}</title></Head><div>Haber bulunamadı</div></>)
 
     const categoryObj = getCategoryByTo(categoryUrl)
-    const newsList = data.filter(news => news.category === categoryObj.key)
+    const newsList = safeData.filter(news => news.category === categoryObj?.key)
     const mainNews = newsList
       .filter(
         news =>
