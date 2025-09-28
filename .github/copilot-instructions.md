@@ -45,6 +45,19 @@ npm run test       # Jest tests
 npm run ts-coverage # TypeScript coverage report
 ```
 
+#### Backend API (News API)
+```bash
+# Run from anywhere in console
+cd c:\dev\news-api; dotnet run --project newsApi\newsApi.csproj
+
+# Or step by step
+cd c:\dev\news-api
+dotnet run --project newsApi\newsApi.csproj
+```
+- Runs on ports 5000 (HTTP) and 5001 (HTTPS)
+- MongoDB required for data storage
+- Swagger documentation at http://localhost:5000/swagger
+
 #### Testing
 - Jest with `@testing-library/react` and `jest-dom`
 - Setup file: `jest.setup.ts` imports `@testing-library/jest-dom`

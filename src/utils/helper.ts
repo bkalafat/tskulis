@@ -58,11 +58,11 @@ export const getHrefModel = (urlLength: number) => {
 }
 
 export const getSlug = (news: NewsType) => {
-  return news.slug?.length > Const.MIN_SLUG_LENGTH ? news.slug : createSlug(news.caption);
+  return news.url?.length > Const.MIN_SLUG_LENGTH ? news.url : news.slug?.length > Const.MIN_SLUG_LENGTH ? news.slug : createSlug(news.caption);
 }
 
 export const getFullSlug = (news: NewsType) => {
-  return news.slug?.length > Const.MIN_SLUG_LENGTH ? getCategoryToByKey(news.category) + "/" + getSlug(news) : getCategoryToByKey(news.category) + "/" + getSlug(news) + "/" + news.id
+  return news.url?.length > Const.MIN_SLUG_LENGTH ? getCategoryToByKey(news.category) + "/" + getSlug(news) : getCategoryToByKey(news.category) + "/" + getSlug(news) + "/" + news.id
 }
 
 export const generateUrlWithoutId = (news: NewsType) => {

@@ -1,6 +1,10 @@
 module.exports = {
   images: {
-    domains: ['firebasestorage.googleapis.com'],
+    domains: [
+      'firebasestorage.googleapis.com',
+      'placehold.co',           // Modern placeholder service
+      'picsum.photos',          // Lorem Picsum - real photos for demo
+    ],
   },
   // Optimize build performance
   experimental: {

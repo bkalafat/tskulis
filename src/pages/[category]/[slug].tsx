@@ -10,8 +10,75 @@ import { generateUrlWithoutId, getCategoryToByKey, ShowMedias } from "../../util
 import { getCommentsBySlug, getLastNewsList, getNewsBySlug, getNewsList } from "../../utils/api"
 import { MIN_SLUG_LENGTH, TIMEOUT } from "../../utils/constant"
 import { CommentType } from "../../types/CommentType"
+import { useRouter } from "next/router"
+import { useEffect, useState } from "react"
+import { getImageProps } from "../../utils/imageUtils"
 
-const NewsDetail = ({ lastNewsList, news, comments: comments }: { lastNewsList: NewsType[], news: NewsType, comments: CommentType[] }) => {
+const NewsDetail = () => {
+  const router = useRouter()
+  const { slug } = router.query
+  
+  const [news, setNews] = useState<NewsType | null>(null)
+  const [lastNewsList, setLastNewsList] = useState<NewsType[]>([])
+  const [comments, setComments] = useState<CommentType[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!slug) return
+
+    const fetchData = async () => {
+      try {
+        setLoading(true)
+        const [newsData, lastNews, commentsData] = await Promise.all([
+          getNewsBySlug(slug as string),
+          getLastNewsList(),
+          getCommentsBySlug(slug as string)
+        ])
+        
+        setNews(newsData)
+        setLastNewsList(lastNews || [])
+        setComments(commentsData || [])
+        setError(null)
+      } catch (err) {
+        console.error('Detail page fetch error:', err)
+        setError('Haber yüklenirken bir hata oluştu')
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchData()
+  }, [slug])
+
+  if (loading) {
+    return (
+      <Layout>
+        <Head>
+          <title>Yükleniyor... - TS Kulis</title>
+        </Head>
+        <div style={{ padding: '20px', textAlign: 'center' }}>
+          <h2>Yükleniyor...</h2>
+          <p>Haber detayı yükleniyor, lütfen bekleyiniz.</p>
+        </div>
+      </Layout>
+    )
+  }
+
+  if (error || !news) {
+    return (
+      <Layout>
+        <Head>
+          <title>Hata - TS Kulis</title>
+        </Head>
+        <div style={{ padding: '20px', textAlign: 'center' }}>
+          <h2>Hata</h2>
+          <p>{error || 'Haber bulunamadı'}</p>
+          <button onClick={() => router.back()}>Geri Dön</button>
+        </div>
+      </Layout>
+    )
+  }
   if (news && news.createDate) {
     let [y, m, d, hh, mm, ss, ms] = news.createDate.match(/\d+/g)
     let date = new Date(Date.UTC(+y, +m - 1, +d, +hh, +mm, +ss, +ms))
@@ -41,10 +108,16 @@ const NewsDetail = ({ lastNewsList, news, comments: comments }: { lastNewsList: 
           <p className="lead spaceAround">{news.summary}</p>
           <div className="center-item col-md-6 col-xs-12 col-sm-12 ">
             <Image
-              width="1500" height="1000"
-              className="detailImg"
-              src={news.imgPath}
-              alt={news.imgAlt}
+              {...getImageProps({
+                src: news.imgPath,
+                alt: news.imgAlt || `${news.caption} - TS Kulis`,
+                width: 1500,
+                height: 1000,
+                category: news.category,
+                caption: news.caption,
+                className: "detailImg",
+                priority: true
+              })}
             /></div>
           <Share news={news}></Share>
           <SquareAd />
@@ -75,28 +148,6 @@ const NewsDetail = ({ lastNewsList, news, comments: comments }: { lastNewsList: 
       <title>Detay</title>
     </Head>
   </Layout>
-}
-
-export async function getStaticPaths() {
-  const newsList = await getNewsList()
-  const paths = newsList.filter(n => n.slug?.length >= MIN_SLUG_LENGTH).map((news) => ({
-    params: { category: getCategoryToByKey(news.category), slug: news.slug }
-  }))
-  return { paths, fallback: true }
-}
-
-export const getStaticProps = async ({ params }) => {
-  const lastNewsList = await getLastNewsList()
-  const news = await getNewsBySlug(params.slug)
-  const comments = await getCommentsBySlug(params.slug)
-  return {
-    revalidate: TIMEOUT,
-    props: {
-      lastNewsList,
-      news,
-      comments
-    }
-  }
 }
 
 export default NewsDetail
