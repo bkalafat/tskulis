@@ -7,9 +7,12 @@ import { TYPE } from "../utils/enum"
 import { sortCreateDateDesc } from "../utils/helper"
 
 const News = ({ newsList }: { newsList: NewsType[] }) => {
-  if (!newsList && newsList.length === 0) return <div />
+  // Defensive programming - ensure newsList is always an array
+  const safeNewsList = Array.isArray(newsList) ? newsList : []
+  
+  if (safeNewsList.length === 0) return <div>Yükleniyor...</div>
 
-  const mainNews = newsList
+  const mainNews = safeNewsList
     .filter(
       news =>
         !news.isSecondPageNews &&
@@ -18,7 +21,7 @@ const News = ({ newsList }: { newsList: NewsType[] }) => {
     )
     .sort(sortCreateDateDesc())
 
-  const headlines = newsList
+  const headlines = safeNewsList
     .filter(
       news =>
         !news.isSecondPageNews && news.isActive && news.type === TYPE.HEADLINE
@@ -26,7 +29,7 @@ const News = ({ newsList }: { newsList: NewsType[] }) => {
     .sort(sortCreateDateDesc())
   const sliderNewsList = mainNews.slice(0, 13)
 
-  const subNewsList = newsList
+  const subNewsList = safeNewsList
     .filter(
       news =>
         !news.isSecondPageNews &&

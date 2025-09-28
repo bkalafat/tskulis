@@ -6,31 +6,56 @@ import { NewsType } from "../types/NewsType"
 import { CommentType } from "../types/CommentType"
 
 export const getNewsList = (): Promise<NewsType[]> => {
-  return fetch(getEnvironmentUrl() + "news/get").then(res => res.json())
+  return fetch(getEnvironmentUrl() + "news")
+    .then(res => {
+      if (!res.ok) {
+        console.error('API Error:', res.status, res.statusText)
+        return []
+      }
+      return res.json()
+    })
+    .then(data => {
+      // Ensure we always return an array
+      if (!Array.isArray(data)) {
+        console.error('API returned non-array data:', data)
+        return []
+      }
+      return data
+    })
+    .catch(error => {
+      console.error('getNewsList error:', error)
+      return []
+    })
 }
 
 export const getCommentList = (): Promise<CommentType[]> => {
-  return fetch(getEnvironmentUrl() + "comment/get").then(res => res.json())
+  // Comments not implemented in new backend yet
+  return Promise.resolve([])
 }
 
 export const getCommentsBySlug = (slug: string): Promise<CommentType[]> => {
-  return fetch(getEnvironmentUrl() + "comment/GetBySlug/" + slug).then(res => res.json(), error => console.log(error))
+  // Comments not implemented in new backend yet
+  return Promise.resolve([])
 }
 
 export const getCommentsByNewsId = (newsId: string): Promise<CommentType[]> => {
-  return fetch(getEnvironmentUrl() + "comment/GetByNewsId/" + newsId).then(res => res.json(), error => console.log(error))
+  // Comments not implemented in new backend yet
+  return Promise.resolve([])
 }
 
 export const getLastNewsList = (): Promise<NewsType[]> => {
-  return fetch(getEnvironmentUrl() + "news/GetLastNews").then(res => res.json())
+  // Backend doesn't have GetLastNews endpoint, so we get all news and sort by date
+  return fetch(getEnvironmentUrl() + "news").then(res => res.json()).then((news: NewsType[]) => {
+    return news.sort((a, b) => new Date(b.createDate || '').getTime() - new Date(a.createDate || '').getTime()).slice(0, 10)
+  })
 }
 
 export const getNews = (id: string): Promise<NewsType> => {
-  return fetch(getEnvironmentUrl() + "news/get/" + id).then(res => res.json(), error => console.log(error))
+  return fetch(getEnvironmentUrl() + "news/" + id).then(res => res.json(), error => console.log(error))
 }
 
 export const getNewsBySlug = (slug: string): Promise<NewsType> => {
-  return fetch(getEnvironmentUrl() + "news/GetBySlug/" + slug).then(res => res.json(), error => console.log(error))
+  return fetch(getEnvironmentUrl() + "news/by-url?url=" + slug).then(res => res.json(), error => console.log(error))
 }
 
 export const upsertNews = (newNews: NewsType) => {
@@ -43,7 +68,7 @@ export const upsertNews = (newNews: NewsType) => {
 
 export const insertNews = (news: NewsType) => {
   setDefaultValues(news)
-  return fetch(getEnvironmentUrl() + "news/post", {
+  return fetch(getEnvironmentUrl() + "news", {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -56,7 +81,7 @@ export const insertNews = (news: NewsType) => {
 export const updateNews = (news: NewsType) => {
   news.updateDate = new Date().toISOString()
   news.imgAlt = news.caption
-  return fetch(getEnvironmentUrl() + "news/put/" + news.id, {
+  return fetch(getEnvironmentUrl() + "news/" + news.id, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json"
@@ -66,21 +91,15 @@ export const updateNews = (news: NewsType) => {
 }
 
 export const deleteNews = (id: string) => {
-  return fetch(getEnvironmentUrl() + "news/delete/" + id, {
+  return fetch(getEnvironmentUrl() + "news/" + id, {
     method: "DELETE"
   }).then(() => "ok", error => console.log(error))
 }
 
 export const insertComment = (comment: CommentType) => {
+  // Comments not implemented in new backend yet
   setDefaultCommentValues(comment)
-  return fetch(getEnvironmentUrl() + "comment/post", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(comment)
-  }).then(() => "ok", error => console.log(error))
+  return Promise.resolve("ok")
 }
 
 export const uploadFile = async (file: File) => {

@@ -2,8 +2,8 @@ import { CATEGORY, TYPE } from "../utils/enum";
 
 export type NewsType = {
   id: string;
-  category: CATEGORY;
-  type: TYPE;
+  category: CATEGORY | string; // Allow both enum and string for backend compatibility
+  type: TYPE | string; // Allow both enum and string for backend compatibility
   caption: string;
   summary: string;
   imgPath: string;
@@ -22,4 +22,5 @@ export type NewsType = {
   url: string;
   keywords: string;
   socialTags: string;
+  viewCount?: number; // Add viewCount from backend API
 };
