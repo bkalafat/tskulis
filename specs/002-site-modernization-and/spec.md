@@ -14,6 +14,15 @@
 
 ---
 
+## Clarifications
+
+### Session 2025-09-28
+- Q: What network speed should be the baseline for the 3-second homepage load requirement? → A: Broadband (25+ Mbps) - typical home/office connection
+- Q: What is the target concurrent user capacity the website should handle? → A: Small scale (100-500 concurrent users)
+- Q: What level of WCAG accessibility compliance is required? → A: WCAG 2.1 Level A (basic compliance)
+- Q: How should the website behave when backend services are unavailable? → A: Show cached content with "limited functionality" banner
+- Q: What minimum test coverage percentage is required for the automated test suite? → A: 60
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### Primary User Story
@@ -31,7 +40,7 @@ As a visitor to TS Kulis, I want to experience a modern, professional news websi
 - How does the system handle slow internet connections?
 - What occurs when JavaScript is disabled in the browser?
 - How does the site perform during high traffic periods?
-- What happens when backend services are temporarily unavailable?
+- What happens when backend services are temporarily unavailable? → Display cached content with "limited functionality" banner
 
 ## Requirements *(mandatory)*
 
@@ -52,11 +61,11 @@ As a visitor to TS Kulis, I want to experience a modern, professional news websi
 - **FR-010**: System MUST support incremental updates for future maintenance
 
 **Performance & Reliability**
-- **FR-011**: Homepage MUST load within 3 seconds on standard connections
+- **FR-011**: Homepage MUST load within 3 seconds on broadband connections (25+ Mbps)
 - **FR-012**: All interactive elements MUST respond within 100ms of user action
 - **FR-013**: Website MUST maintain 99%+ uptime during normal operations
-- **FR-014**: Content MUST be accessible even when some services are degraded
-- **FR-015**: Site MUST handle concurrent users without performance degradation
+- **FR-014**: Content MUST be accessible via cached data with "limited functionality" banner when backend services are degraded
+- **FR-015**: Site MUST handle 100-500 concurrent users without performance degradation
 
 **Content Management**
 - **FR-016**: Admin users MUST be able to create and edit content without technical issues
@@ -69,11 +78,11 @@ As a visitor to TS Kulis, I want to experience a modern, professional news websi
 - **FR-021**: Website MUST display correctly on all major browsers (Chrome, Firefox, Safari, Edge)
 - **FR-022**: Mobile experience MUST provide full functionality equivalent to desktop
 - **FR-023**: Touch interactions MUST be responsive and intuitive on mobile devices
-- **FR-024**: Website MUST be accessible to users with disabilities (WCAG compliance)
+- **FR-024**: Website MUST be accessible to users with disabilities (WCAG 2.1 Level A compliance)
 - **FR-025**: Site MUST function properly with various screen sizes and orientations
 
 **Testing & Quality Assurance**
-- **FR-026**: All functionality MUST pass comprehensive automated testing
+- **FR-026**: All functionality MUST pass comprehensive automated testing with minimum 60% code coverage
 - **FR-027**: Manual testing MUST verify user workflows across all devices
 - **FR-028**: Performance testing MUST confirm speed and reliability benchmarks
 - **FR-029**: Security testing MUST verify no vulnerabilities are introduced
