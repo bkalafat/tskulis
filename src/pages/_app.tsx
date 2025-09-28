@@ -5,13 +5,19 @@ import "slick-carousel/slick/slick-theme.css"
 import '../content-styles.css'
 import { Session } from "next-auth";
 
-
 import { SessionProvider } from "next-auth/react"
 import "reflect-metadata";
 import type { AppProps } from 'next/app'
-
+import { usePerformanceMonitoring } from '../hooks/usePerformanceMonitoring'
 
 export default function MyApp({ Component, pageProps }: AppProps<{ session: Session;}>) {
+  // Initialize performance monitoring (only in production)
+  usePerformanceMonitoring({
+    enabled: process.env.NODE_ENV === 'production',
+    sampleRate: 1.0,
+    debug: false,
+  });
+
   return <SessionProvider session={pageProps.session} refetchInterval={5 * 60} >
     <Component {...pageProps} />
   </SessionProvider>
