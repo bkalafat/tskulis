@@ -5,8 +5,34 @@ import * as Const from "./constant"
 import { NewsType } from "../types/NewsType"
 import { CommentType } from "../types/CommentType"
 
+// Helper function for fetch with timeout
+const fetchWithTimeout = (url: string, options: RequestInit = {}, timeoutMs: number = 10000): Promise<Response> => {
+  const controller = new AbortController()
+  const timeoutId = setTimeout(() => controller.abort(), timeoutMs)
+
+  const fetchOptions: RequestInit = {
+    ...options,
+    signal: controller.signal,
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      ...options.headers
+    }
+  }
+
+  return fetch(url, fetchOptions)
+    .then(res => {
+      clearTimeout(timeoutId)
+      return res
+    })
+    .catch(error => {
+      clearTimeout(timeoutId)
+      throw error
+    })
+}
+
 export const getNewsList = (): Promise<NewsType[]> => {
-  return fetch(getEnvironmentUrl() + "news")
+  return fetchWithTimeout(getEnvironmentUrl() + "news")
     .then(res => {
       if (!res.ok) {
         console.error('API Error:', res.status, res.statusText)
@@ -23,7 +49,8 @@ export const getNewsList = (): Promise<NewsType[]> => {
       return data
     })
     .catch(error => {
-      console.error('getNewsList error:', error)
+      console.error('getNewsList error:', error.message || error)
+      // Return empty array instead of throwing
       return []
     })
 }
@@ -45,17 +72,55 @@ export const getCommentsByNewsId = (newsId: string): Promise<CommentType[]> => {
 
 export const getLastNewsList = (): Promise<NewsType[]> => {
   // Backend doesn't have GetLastNews endpoint, so we get all news and sort by date
-  return fetch(getEnvironmentUrl() + "news").then(res => res.json()).then((news: NewsType[]) => {
-    return news.sort((a, b) => new Date(b.createDate || '').getTime() - new Date(a.createDate || '').getTime()).slice(0, 10)
-  })
+  return fetchWithTimeout(getEnvironmentUrl() + "news")
+    .then(res => {
+      if (!res.ok) {
+        console.error('getLastNewsList API Error:', res.status, res.statusText)
+        return []
+      }
+      return res.json()
+    })
+    .then((news: NewsType[]) => {
+      if (!Array.isArray(news)) {
+        console.error('getLastNewsList API returned non-array data:', news)
+        return []
+      }
+      return news.sort((a, b) => new Date(b.createDate || '').getTime() - new Date(a.createDate || '').getTime()).slice(0, 10)
+    })
+    .catch(error => {
+      console.error('getLastNewsList error:', error.message || error)
+      return []
+    })
 }
 
-export const getNews = (id: string): Promise<NewsType> => {
-  return fetch(getEnvironmentUrl() + "news/" + id).then(res => res.json(), error => console.log(error))
+export const getNews = (id: string): Promise<NewsType | null> => {
+  return fetchWithTimeout(getEnvironmentUrl() + "news/" + id)
+    .then(res => {
+      if (!res.ok) {
+        console.error('getNews API Error:', res.status, res.statusText)
+        return null
+      }
+      return res.json()
+    })
+    .catch(error => {
+      console.error('getNews error:', error.message || error)
+      return null
+    })
 }
 
-export const getNewsBySlug = (slug: string): Promise<NewsType> => {
-  return fetch(getEnvironmentUrl() + "news/by-url?url=" + slug).then(res => res.json(), error => console.log(error))
+export const getNewsBySlug = (slug: string): Promise<NewsType | null> => {
+  return fetchWithTimeout(getEnvironmentUrl() + "news/by-url?url=" + slug)
+    .then(res => {
+      if (!res.ok) {
+        console.error('getNewsBySlug API Error:', res.status, res.statusText)
+        return null
+      }
+      return res.json()
+    })
+    .catch(error => {
+      console.error('getNewsBySlug error:', error.message || error)
+      return null
+    })
 }
 
 export const upsertNews = (newNews: NewsType) => {
