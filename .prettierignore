@@ -1,0 +1,15 @@
+node_modules/
+.next/
+.env*
+!.env.example
+dist/
+build/
+*.log
+.DS_Store
+coverage/
+.nyc_output/
+backups/
+specs/
+docs/
+*.md
+!README.md
