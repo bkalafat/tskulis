@@ -4,10 +4,10 @@ import '@testing-library/jest-dom';
 // This file is used for tests that run in Node environment
 
 // Mock environment variables for testing
-process.env.NODE_ENV = 'test';
-process.env.NEXT_PUBLIC_API_PATH = 'http://localhost:3001/api';
-process.env.NEXTAUTH_URL = 'http://localhost:3001';
-process.env.NEXTAUTH_SECRET = 'test-secret';
+(process.env as any).NODE_ENV = 'test';
+(process.env as any).NEXT_PUBLIC_API_PATH = 'http://localhost:3001/api';
+(process.env as any).NEXTAUTH_URL = 'http://localhost:3001';
+(process.env as any).NEXTAUTH_SECRET = 'test-secret';
 
 // Mock console methods to reduce noise in tests
 global.console = {

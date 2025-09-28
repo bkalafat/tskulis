@@ -53,11 +53,19 @@
     "debug": "cross-env NODE_OPTIONS='--inspect' next dev",
     "dev": "next dev",
     "build": "next build",
+    "build:analyze": "cross-env ANALYZE=true next build",
+    "build:production": "cross-env NODE_ENV=production next build && npm run build:optimize",
+    "build:optimize": "npm run build:analyze && npm run postbuild",
     "start": "next start",
     "export": "next export -o build/",
     "postbuild": "next-sitemap --config next-sitemap.config.js",
     "test": "jest --watch",
-    "ts-coverage": "typescript-coverage-report"
+    "test:ci": "jest --ci --coverage --watchAll=false",
+    "ts-coverage": "typescript-coverage-report",
+    "performance:audit": "npm run build && npm run start & sleep 5 && npm run lighthouse && pkill -f next",
+    "size:check": "npm run build:analyze && echo 'Check ./analyze/ folder for bundle analysis'",
+    "clean": "rm -rf .next build analyze coverage dist",
+    "precommit": "npm run test:ci && npm run build"
   },
   "browserslist": {
     "production": [
@@ -72,6 +80,7 @@
     ]
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^15.5.4",
     "@playwright/test": "^1.55.1",
     "@swc/core": "^1.13.5",
     "@swc/jest": "^0.2.39",
@@ -80,11 +89,13 @@
     "@types/react-slick": "^0.23.10",
     "@types/supertest": "^6.0.3",
     "babel-jest": "^28.1.3",
+    "critters": "^0.0.23",
     "eslint-config-next": "^12.3.4",
     "jest": "^28.1.3",
     "node-mocks-http": "^1.17.2",
     "sass": "^1.93.2",
     "supertest": "^7.1.4",
-    "typescript": "^4.9.3"
+    "typescript": "^4.9.3",
+    "webpack-bundle-analyzer": "^4.10.2"
   }
 }

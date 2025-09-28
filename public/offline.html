@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Çevrimdışı - TS Kulis</title>
+  <link rel="icon" href="/favicon.ico">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #8B1538 0%, #1e3a8a 100%);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .offline-container {
+      max-width: 600px;
+      width: 100%;
+    }
+    
+    .offline-icon {
+      font-size: 96px;
+      margin-bottom: 30px;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+    
+    .actions {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    
+    button {
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    
+    button:hover {
+      background: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-2px);
+    }
+    
+    button:active {
+      transform: translateY(0);
+    }
+    
+    .cached-content {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      margin-top: 40px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .cached-content h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    
+    .cached-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .cached-link {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 15px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .cached-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      text-decoration: none;
+      color: white;
+    }
+    
+    .network-status {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      z-index: 1000;
+    }
+    
+    .status-offline {
+      background: #dc2626;
+      color: white;
+    }
+    
+    .status-online {
+      background: #16a34a;
+      color: white;
+    }
+    
+    @media (max-width: 768px) {
+      .offline-icon {
+        font-size: 72px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      p {
+        font-size: 1rem;
+      }
+      
+      .actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      button {
+        min-width: 200px;
+      }
+      
+      .cached-links {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="networkStatus" class="network-status status-offline">
+    📡 Çevrimdışı
+  </div>
+  
+  <div class="offline-container">
+    <div class="offline-icon">📱</div>
+    <h1>Çevrimdışı Moddasınız</h1>
+    <p>
+      İnternet bağlantınız kesildi. Bağlantınızı kontrol edin ve tekrar deneyin.
+      <br>
+      Aşağıdaki sayfalar önbellekte mevcut olabilir.
+    </p>
+    
+    <div class="actions">
+      <button onclick="window.location.reload()" id="retryButton">
+        🔄 Tekrar Dene
+      </button>
+      <button onclick="goHome()" id="homeButton">
+        🏠 Ana Sayfa
+      </button>
+    </div>
+    
+    <div class="cached-content">
+      <h2>📋 Önbellekteki İçerikler</h2>
+      <p>Bu sayfalar çevrimdışıyken görüntülenebilir:</p>
+      
+      <div class="cached-links">
+        <a href="/" class="cached-link">
+          🏠 Ana Sayfa
+        </a>
+        <a href="/trabzonspor" class="cached-link">
+          ⚫🔵 Trabzonspor
+        </a>
+        <a href="/transfer" class="cached-link">
+          🔄 Transfer
+        </a>
+        <a href="/genel" class="cached-link">
+          📰 Genel
+        </a>
+        <a href="/futbol" class="cached-link">
+          ⚽ Futbol
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Network status monitoring
+    function updateNetworkStatus() {
+      const statusElement = document.getElementById('networkStatus');
+      const retryButton = document.getElementById('retryButton');
+      
+      if (navigator.onLine) {
+        statusElement.textContent = '🌐 Çevrimiçi';
+        statusElement.className = 'network-status status-online';
+        retryButton.textContent = '🔄 Yenile';
+      } else {
+        statusElement.textContent = '📡 Çevrimdışı';
+        statusElement.className = 'network-status status-offline';
+        retryButton.textContent = '🔄 Tekrar Dene';
+      }
+    }
+    
+    // Monitor network status changes
+    window.addEventListener('online', updateNetworkStatus);
+    window.addEventListener('offline', updateNetworkStatus);
+    
+    // Auto-refresh when online
+    window.addEventListener('online', () => {
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    });
+    
+    // Navigation functions
+    function goHome() {
+      window.location.href = '/';
+    }
+    
+    // Initialize
+    updateNetworkStatus();
+    
+    // Auto-retry logic
+    let retryCount = 0;
+    const maxRetries = 3;
+    const retryDelay = 5000; // 5 seconds
+    
+    function autoRetry() {
+      if (retryCount < maxRetries && !navigator.onLine) {
+        retryCount++;
+        console.log(`Auto-retry attempt ${retryCount}/${maxRetries}`);
+        
+        setTimeout(() => {
+          if (navigator.onLine) {
+            window.location.reload();
+          } else {
+            autoRetry();
+          }
+        }, retryDelay);
+      }
+    }
+    
+    // Start auto-retry if offline
+    if (!navigator.onLine) {
+      setTimeout(autoRetry, retryDelay);
+    }
+    
+    // Check for service worker updates
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.ready.then(registration => {
+        registration.addEventListener('updatefound', () => {
+          const newWorker = registration.installing;
+          if (newWorker) {
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                // New service worker available
+                const updateBanner = document.createElement('div');
+                updateBanner.style.cssText = `
+                  position: fixed;
+                  top: 70px;
+                  right: 20px;
+                  background: #16a34a;
+                  color: white;
+                  padding: 15px 20px;
+                  border-radius: 10px;
+                  font-weight: 600;
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                  z-index: 1001;
+                  cursor: pointer;
+                `;
+                updateBanner.textContent = '🔄 Güncelleme mevcut - Yenilemek için tıklayın';
+                updateBanner.onclick = () => window.location.reload();
+                document.body.appendChild(updateBanner);
+              }
+            });
+          }
+        });
+      });
+    }
+  </script>
+</body>
+</html>
