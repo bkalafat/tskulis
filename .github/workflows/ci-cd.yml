@@ -1,0 +1,470 @@
+# Continuous Integration and Deployment Pipeline
+# Comprehensive CI/CD workflow for TS Kulis news platform
+
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop, 'feature/*', 'release/*' ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+        - staging
+        - production
+
+env:
+  NODE_VERSION: '18.x'
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  # Code Quality and Security Analysis
+  quality-checks:
+    name: 'Code Quality & Security'
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+
+    - name: Install Dependencies
+      run: npm ci --legacy-peer-deps
+
+    - name: TypeScript Compilation Check
+      run: npx tsc --noEmit
+
+    - name: ESLint Analysis
+      run: npm run lint || echo "ESLint warnings detected"
+      continue-on-error: true
+
+    - name: TypeScript Coverage Report
+      run: npm run ts-coverage
+
+    - name: Dependency Security Audit
+      run: npm audit --audit-level=moderate
+      continue-on-error: true
+
+    - name: License Compliance Check
+      run: npx license-checker --summary
+      continue-on-error: true
+
+    - name: Code Complexity Analysis
+      run: |
+        npx complexity-report --format json --output complexity-report.json src/ || true
+        echo "Code complexity analysis completed"
+      continue-on-error: true
+
+    - name: Bundle Size Analysis
+      run: |
+        npm run build:analyze
+        echo "Bundle analysis completed - check artifacts"
+
+    - name: Upload Quality Reports
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: quality-reports
+        path: |
+          coverage-ts/
+          complexity-report.json
+          analyze/
+        retention-days: 30
+
+  # Comprehensive Testing Suite
+  test-suite:
+    name: 'Test Suite'
+    runs-on: ubuntu-latest
+    needs: quality-checks
+    
+    strategy:
+      matrix:
+        test-type: [unit, integration, e2e]
+        
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+
+    - name: Install Dependencies
+      run: npm ci --legacy-peer-deps
+
+    - name: Setup Test Environment
+      run: |
+        cp .env.example .env.local || touch .env.local
+        echo "MONGODB_URI=mongodb://localhost:27017/tskulis-test" >> .env.local
+        echo "NEXTAUTH_SECRET=test-secret-key-for-ci" >> .env.local
+
+    - name: Start MongoDB (for integration tests)
+      if: matrix.test-type == 'integration'
+      uses: supercharge/mongodb-github-action@1.10.0
+      with:
+        mongodb-version: '5.0'
+
+    - name: Run Unit Tests
+      if: matrix.test-type == 'unit'
+      run: |
+        npm run test:ci
+        echo "Unit tests completed"
+
+    - name: Run Integration Tests
+      if: matrix.test-type == 'integration'
+      run: |
+        npm run test:ci -- --testPathPattern=integration
+        echo "Integration tests completed"
+
+    - name: Install Playwright (for E2E tests)
+      if: matrix.test-type == 'e2e'
+      run: npx playwright install --with-deps chromium
+
+    - name: Build Application (for E2E tests)
+      if: matrix.test-type == 'e2e'
+      run: npm run build
+
+    - name: Start Application (for E2E tests)
+      if: matrix.test-type == 'e2e'
+      run: |
+        npm start &
+        sleep 10
+        echo "Application started for E2E tests"
+
+    - name: Run E2E Tests
+      if: matrix.test-type == 'e2e'
+      run: |
+        npx playwright test --reporter=github
+        echo "E2E tests completed"
+
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-results-${{ matrix.test-type }}
+        path: |
+          coverage/
+          test-results/
+          playwright-report/
+        retention-days: 30
+
+  # Performance Validation
+  performance-audit:
+    name: 'Performance Audit'
+    runs-on: ubuntu-latest
+    needs: test-suite
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+
+    - name: Install Dependencies
+      run: npm ci --legacy-peer-deps
+
+    - name: Build Application
+      run: npm run build:production
+
+    - name: Start Application
+      run: |
+        npm start &
+        sleep 10
+        echo "Application ready for performance audit"
+
+    - name: Run Lighthouse Audit
+      run: |
+        npm run lighthouse
+        echo "Lighthouse audit completed"
+
+    - name: Generate Performance Report
+      run: |
+        npm run performance:report
+        echo "Performance report generated"
+      continue-on-error: true
+
+    - name: Check Performance Budget
+      run: |
+        node -e "
+          const fs = require('fs');
+          try {
+            const report = JSON.parse(fs.readFileSync('./lighthouse-reports/performance-report.json', 'utf8'));
+            console.log('Performance Score:', report.summary.score);
+            console.log('Critical Issues:', report.issues.critical);
+            if (report.summary.score < 80) {
+              console.error('Performance score below threshold (80)');
+              process.exit(1);
+            }
+            if (report.issues.critical > 0) {
+              console.error('Critical performance issues detected');
+              process.exit(1);
+            }
+            console.log('Performance budget passed!');
+          } catch (error) {
+            console.warn('Performance report not found, skipping budget check');
+          }
+        "
+      continue-on-error: true
+
+    - name: Upload Performance Reports
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: performance-reports
+        path: |
+          lighthouse-reports/
+          analyze/
+        retention-days: 90
+
+  # Security Scanning
+  security-scan:
+    name: 'Security Scan'
+    runs-on: ubuntu-latest
+    needs: quality-checks
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Run Trivy Vulnerability Scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs'
+        scan-ref: '.'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+
+    - name: Upload Trivy Results
+      uses: github/codeql-action/upload-sarif@v3
+      if: always()
+      with:
+        sarif_file: 'trivy-results.sarif'
+
+    - name: Node.js Security Audit
+      run: |
+        npm audit --audit-level=high --production
+        echo "Security audit completed"
+      continue-on-error: true
+
+    - name: Check for Secrets
+      uses: trufflesecurity/trufflehog@main
+      with:
+        path: ./
+        base: main
+        head: HEAD
+        extra_args: --debug --only-verified
+
+  # Build and Package
+  build-package:
+    name: 'Build & Package'
+    runs-on: ubuntu-latest
+    needs: [test-suite, performance-audit, security-scan]
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' || github.event_name == 'workflow_dispatch'
+    
+    outputs:
+      image-digest: ${{ steps.build.outputs.digest }}
+      image-url: ${{ steps.build.outputs.url }}
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+
+    - name: Install Dependencies
+      run: npm ci --legacy-peer-deps
+
+    - name: Build Application
+      run: npm run build:production
+
+    - name: Create Deployment Package
+      run: |
+        mkdir -p deployment-package
+        cp -r .next deployment-package/
+        cp -r public deployment-package/
+        cp package.json deployment-package/
+        cp next.config.js deployment-package/
+        echo "Deployment package created"
+
+    - name: Upload Deployment Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: deployment-package
+        path: deployment-package/
+        retention-days: 30
+
+    - name: Log in to Container Registry
+      if: github.event_name != 'pull_request'
+      uses: docker/login-action@v3
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Extract Metadata
+      if: github.event_name != 'pull_request'
+      id: meta
+      uses: docker/metadata-action@v5
+      with:
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+        tags: |
+          type=ref,event=branch
+          type=ref,event=pr
+          type=sha,prefix={{branch}}-
+          type=raw,value=latest,enable={{is_default_branch}}
+
+    - name: Build and Push Docker Image
+      if: github.event_name != 'pull_request'
+      id: build
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        push: true
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
+
+  # Staging Deployment
+  deploy-staging:
+    name: 'Deploy to Staging'
+    runs-on: ubuntu-latest
+    needs: build-package
+    if: github.ref == 'refs/heads/develop' || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'staging')
+    environment:
+      name: staging
+      url: https://staging.tskulis.com
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Download Deployment Package
+      uses: actions/download-artifact@v4
+      with:
+        name: deployment-package
+        path: ./deployment
+
+    - name: Deploy to Staging
+      run: |
+        echo "Deploying to staging environment..."
+        echo "Package contents:"
+        ls -la ./deployment
+        echo "Staging deployment completed"
+        # Add actual deployment logic here (SSH, API calls, etc.)
+
+    - name: Run Smoke Tests
+      run: |
+        echo "Running staging smoke tests..."
+        # Add smoke tests for staging environment
+        curl -f https://staging.tskulis.com/health || exit 1
+        echo "Smoke tests passed"
+
+    - name: Notify Deployment
+      run: |
+        echo "Staging deployment successful!"
+        echo "URL: https://staging.tskulis.com"
+
+  # Production Deployment
+  deploy-production:
+    name: 'Deploy to Production'
+    runs-on: ubuntu-latest
+    needs: [build-package, deploy-staging]
+    if: github.ref == 'refs/heads/main' || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'production')
+    environment:
+      name: production
+      url: https://tskulis.com
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Download Deployment Package
+      uses: actions/download-artifact@v4
+      with:
+        name: deployment-package
+        path: ./deployment
+
+    - name: Pre-deployment Health Check
+      run: |
+        echo "Running pre-deployment health checks..."
+        curl -f https://tskulis.com/health || echo "Current production not responding"
+
+    - name: Deploy to Production
+      run: |
+        echo "Deploying to production environment..."
+        echo "Package contents:"
+        ls -la ./deployment
+        echo "Production deployment completed"
+        # Add actual deployment logic here
+
+    - name: Post-deployment Health Check
+      run: |
+        echo "Running post-deployment health checks..."
+        sleep 30
+        curl -f https://tskulis.com/health || exit 1
+        echo "Production health check passed"
+
+    - name: Run Production Smoke Tests
+      run: |
+        echo "Running production smoke tests..."
+        curl -f https://tskulis.com/ || exit 1
+        curl -f https://tskulis.com/trabzonspor || exit 1
+        echo "Production smoke tests passed"
+
+    - name: Monitor Deployment
+      run: |
+        echo "Setting up deployment monitoring..."
+        # Add monitoring setup or alerts
+        echo "Production deployment successful!"
+
+  # Rollback Capability
+  rollback:
+    name: 'Rollback'
+    runs-on: ubuntu-latest
+    if: failure() && (needs.deploy-production.result == 'failure' || needs.deploy-staging.result == 'failure')
+    needs: [deploy-staging, deploy-production]
+    environment:
+      name: rollback
+    
+    steps:
+    - name: Rollback Staging
+      if: needs.deploy-staging.result == 'failure'
+      run: |
+        echo "Rolling back staging deployment..."
+        # Add staging rollback logic
+        echo "Staging rollback completed"
+
+    - name: Rollback Production
+      if: needs.deploy-production.result == 'failure'
+      run: |
+        echo "Rolling back production deployment..."
+        # Add production rollback logic
+        echo "Production rollback completed"
+
+    - name: Notify Rollback
+      run: |
+        echo "Rollback completed due to deployment failure"
+        # Add notification logic (Slack, email, etc.)

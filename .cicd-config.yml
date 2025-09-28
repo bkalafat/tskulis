@@ -1,0 +1,321 @@
+# CI/CD Configuration for TS Kulis
+# This file defines the complete deployment pipeline settings
+
+# =============================================================================
+# Pipeline Configuration
+# =============================================================================
+pipeline:
+  name: "TS Kulis CI/CD Pipeline"
+  version: "1.0.0"
+  
+  # Environment definitions
+  environments:
+    development:
+      branch: "develop"
+      url: "http://localhost:3000"
+      auto_deploy: true
+      require_approval: false
+      
+    staging:
+      branch: "develop"
+      url: "https://staging.tskulis.com"
+      auto_deploy: true
+      require_approval: false
+      
+    production:
+      branch: "main"
+      url: "https://tskulis.com"
+      auto_deploy: false
+      require_approval: true
+      
+  # Quality Gates
+  quality_gates:
+    code_coverage:
+      minimum_threshold: 80
+      fail_on_decrease: true
+      
+    performance_budget:
+      lighthouse_performance: 85
+      lighthouse_accessibility: 95
+      lighthouse_seo: 95
+      bundle_size_limit: "500KB"
+      
+    security_scan:
+      block_on_high_vulnerabilities: true
+      block_on_secrets: true
+      
+    typescript_coverage:
+      minimum_threshold: 90
+
+# =============================================================================
+# Build Configuration
+# =============================================================================
+build:
+  node_version: "18.x"
+  npm_cache: true
+  
+  # Build matrix for different environments
+  matrix:
+    - environment: staging
+      build_command: "npm run build"
+      test_command: "npm run test:ci"
+      
+    - environment: production
+      build_command: "npm run build:production"
+      test_command: "npm run test:ci"
+      
+  # Artifacts to preserve
+  artifacts:
+    - name: "build-output"
+      paths: [".next/", "public/"]
+      retention_days: 30
+      
+    - name: "test-reports"
+      paths: ["coverage/", "test-results/"]
+      retention_days: 30
+      
+    - name: "performance-reports"
+      paths: ["lighthouse-reports/"]
+      retention_days: 90
+
+# =============================================================================
+# Testing Configuration
+# =============================================================================
+testing:
+  # Test stages
+  stages:
+    unit_tests:
+      command: "npm run test:ci"
+      parallel: true
+      coverage_threshold: 80
+      
+    integration_tests:
+      command: "npm run test:ci -- --testPathPattern=integration"
+      requires_database: true
+      
+    e2e_tests:
+      command: "npx playwright test"
+      requires_built_app: true
+      browser_matrix: ["chromium", "firefox", "webkit"]
+      
+    performance_tests:
+      command: "npm run lighthouse"
+      requires_running_app: true
+      performance_budget: true
+      
+  # Test environment setup
+  environment_setup:
+    mongodb_version: "5.0"
+    redis_version: "7.0"
+    node_env: "test"
+    
+  # Parallel execution
+  parallel_jobs: 4
+  timeout_minutes: 30
+
+# =============================================================================
+# Security Configuration
+# =============================================================================
+security:
+  # Vulnerability scanning
+  vulnerability_scan:
+    enabled: true
+    tools: ["npm audit", "trivy", "snyk"]
+    fail_on_high: true
+    fail_on_critical: true
+    
+  # Secret scanning
+  secret_scan:
+    enabled: true
+    tools: ["trufflehog", "gitleaks"]
+    
+  # License compliance
+  license_check:
+    enabled: true
+    allowed_licenses: ["MIT", "Apache-2.0", "BSD-3-Clause", "ISC"]
+    blocked_licenses: ["GPL-3.0", "AGPL-3.0"]
+    
+  # Container security
+  container_scan:
+    enabled: true
+    base_image_scan: true
+    
+  # SAST (Static Application Security Testing)
+  static_analysis:
+    enabled: true
+    tools: ["semgrep", "eslint-security"]
+
+# =============================================================================
+# Deployment Configuration
+# =============================================================================
+deployment:
+  # Deployment strategies
+  strategies:
+    staging:
+      type: "blue-green"
+      rollback_enabled: true
+      health_check_timeout: 300
+      
+    production:
+      type: "rolling"
+      rollback_enabled: true
+      health_check_timeout: 600
+      canary_percentage: 10
+      
+  # Infrastructure targets
+  targets:
+    staging:
+      platform: "docker"
+      registry: "ghcr.io"
+      resource_limits:
+        memory: "512Mi"
+        cpu: "500m"
+        
+    production:
+      platform: "kubernetes"
+      registry: "ghcr.io"
+      resource_limits:
+        memory: "1Gi"
+        cpu: "1000m"
+      replicas: 3
+      
+  # Health checks
+  health_checks:
+    endpoint: "/api/health"
+    interval: 30
+    timeout: 10
+    retries: 3
+    
+  # Rollback configuration
+  rollback:
+    automatic: true
+    conditions:
+      - health_check_failure
+      - error_rate_threshold: 5%
+      - response_time_threshold: 2000ms
+
+# =============================================================================
+# Monitoring Configuration
+# =============================================================================
+monitoring:
+  # Application monitoring
+  application:
+    enabled: true
+    metrics:
+      - response_time
+      - error_rate
+      - throughput
+      - memory_usage
+      
+  # Infrastructure monitoring
+  infrastructure:
+    enabled: true
+    metrics:
+      - cpu_usage
+      - memory_usage
+      - disk_usage
+      - network_io
+      
+  # Performance monitoring
+  performance:
+    enabled: true
+    lighthouse_schedule: "daily"
+    core_web_vitals: true
+    
+  # Alerting
+  alerts:
+    - name: "High Error Rate"
+      condition: "error_rate > 5%"
+      severity: "critical"
+      
+    - name: "Slow Response Time"
+      condition: "avg_response_time > 2000ms"
+      severity: "warning"
+      
+    - name: "Performance Degradation"
+      condition: "lighthouse_performance < 80"
+      severity: "warning"
+
+# =============================================================================
+# Notification Configuration
+# =============================================================================
+notifications:
+  # Channels
+  channels:
+    slack:
+      enabled: true
+      webhook_url_env: "SLACK_WEBHOOK_URL"
+      default_channel: "#deployments"
+      
+    email:
+      enabled: true
+      smtp_config:
+        host_env: "SMTP_HOST"
+        user_env: "SMTP_USER"
+        pass_env: "SMTP_PASS"
+      recipients: ["team@tskulis.com"]
+      
+    discord:
+      enabled: false
+      webhook_url_env: "DISCORD_WEBHOOK_URL"
+      
+  # Notification triggers
+  triggers:
+    deployment_started: ["slack"]
+    deployment_success: ["slack", "email"]
+    deployment_failure: ["slack", "email"]
+    rollback_triggered: ["slack", "email"]
+    performance_degradation: ["slack"]
+    security_vulnerability: ["email"]
+
+# =============================================================================
+# Backup Configuration
+# =============================================================================
+backup:
+  # Database backups
+  database:
+    enabled: true
+    schedule: "0 2 * * *"  # Daily at 2 AM
+    retention_days: 30
+    
+  # Application backups
+  application:
+    enabled: true
+    include_assets: true
+    retention_days: 7
+    
+  # Configuration backups
+  configuration:
+    enabled: true
+    include_secrets: false
+    retention_days: 90
+
+# =============================================================================
+# Performance Budget
+# =============================================================================
+performance_budget:
+  # Lighthouse thresholds
+  lighthouse:
+    performance: 85
+    accessibility: 95
+    best_practices: 90
+    seo: 95
+    
+  # Bundle size limits
+  bundles:
+    main_bundle: 250
+    vendor_bundle: 500
+    total_js: 750
+    
+  # Network timing budgets
+  timing:
+    first_contentful_paint: 1800
+    largest_contentful_paint: 2500
+    cumulative_layout_shift: 0.1
+    first_input_delay: 100
+    
+  # Resource budgets
+  resources:
+    total_requests: 50
+    image_size: 1000
+    font_size: 100
