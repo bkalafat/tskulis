@@ -1,79 +1,110 @@
 /**
- * Next.js Middleware for Security
- * Applies security headers and CSRF protection
+ * Enhanced Next.js Security Middleware
+ * Comprehensive security hardening with CSP, secure headers, and monitoring
  */
 
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { getSecurityConfig } from './src/utils/security-config';
 
-// Security headers configuration
-const SECURITY_HEADERS = {
+let securityConfig: any = null;
+
+// Initialize security config
+const getConfig = () => {
+  if (!securityConfig) {
+    securityConfig = getSecurityConfig();
+  }
+  return securityConfig;
+};
+
+// Build CSP header value from configuration
+const buildCSPHeader = (cspSources: any): string => {
+  const cspParts = [
+    `default-src ${cspSources.defaultSrc.join(' ')}`,
+    `script-src ${cspSources.scriptSrc.join(' ')}`,
+    `style-src ${cspSources.styleSrc.join(' ')}`,
+    `img-src ${cspSources.imgSrc.join(' ')}`,
+    `font-src ${cspSources.fontSrc.join(' ')}`,
+    `connect-src ${cspSources.connectSrc.join(' ')}`,
+    `media-src ${cspSources.mediaSrc.join(' ')}`,
+    `object-src ${cspSources.objectSrc.join(' ')}`,
+    `frame-src ${cspSources.frameSrc.join(' ')}`,
+    `worker-src ${cspSources.workerSrc.join(' ')}`,
+    `manifest-src ${cspSources.manifestSrc.join(' ')}`,
+    `base-uri 'self'`,
+    `form-action 'self'`,
+    `frame-ancestors 'none'`,
+    `upgrade-insecure-requests`
+  ];
+
+  return cspParts.join('; ');
+};
+
+// Build security headers from configuration
+const buildSecurityHeaders = (config: any): Record<string, string> => {
+  const headers: Record<string, string> = {};
+
   // XSS Protection
-  'X-XSS-Protection': '1; mode=block',
-  
+  if (config.headers.xssProtection) {
+    headers['X-XSS-Protection'] = '1; mode=block';
+  }
+
   // Content Type Options
-  'X-Content-Type-Options': 'nosniff',
-  
+  if (config.headers.contentTypeOptions) {
+    headers['X-Content-Type-Options'] = 'nosniff';
+  }
+
   // Frame Options
-  'X-Frame-Options': 'DENY',
-  
-  // Content Security Policy
-  'Content-Security-Policy': `
-    default-src 'self';
-    script-src 'self' 'unsafe-inline' 'unsafe-eval' 
-      https://www.google-analytics.com 
-      https://www.googletagmanager.com
-      https://connect.facebook.net
-      https://platform.twitter.com;
-    style-src 'self' 'unsafe-inline' 
-      https://fonts.googleapis.com
-      https://cdn.jsdelivr.net;
-    font-src 'self' 
-      https://fonts.gstatic.com
-      https://cdn.jsdelivr.net;
-    img-src 'self' data: blob:
-      https://*.firebase.com
-      https://*.googleusercontent.com
-      https://www.google-analytics.com;
-    connect-src 'self'
-      https://api.tskulis.com
-      https://*.firebase.com
-      https://www.google-analytics.com;
-    frame-src 'self'
-      https://www.youtube.com
-      https://platform.twitter.com;
-    media-src 'self' blob:
-      https://*.firebase.com;
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-    frame-ancestors 'none';
-    upgrade-insecure-requests;
-  `.replace(/\s+/g, ' ').trim(),
-  
+  headers['X-Frame-Options'] = config.headers.frameOptions;
+
   // Referrer Policy
-  'Referrer-Policy': 'strict-origin-when-cross-origin',
-  
+  headers['Referrer-Policy'] = config.headers.referrerPolicy;
+
+  // HSTS
+  if (config.headers.hsts && process.env.NODE_ENV === 'production') {
+    let hstsValue = `max-age=${config.headers.hsts.maxAge}`;
+    if (config.headers.hsts.includeSubDomains) hstsValue += '; includeSubDomains';
+    if (config.headers.hsts.preload) hstsValue += '; preload';
+    headers['Strict-Transport-Security'] = hstsValue;
+  }
+
+  // CSP
+  const cspHeader = config.csp.reportOnly ? 'Content-Security-Policy-Report-Only' : 'Content-Security-Policy';
+  headers[cspHeader] = buildCSPHeader(config.csp.sources);
+
   // Permissions Policy
-  'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), payment=()',
-  
-  // HTTP Strict Transport Security (only in production)
-  ...(process.env.NODE_ENV === 'production' && {
-    'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload'
-  }),
-  
+  const permissionsPolicy = [
+    'camera=()',
+    'microphone=()',
+    'geolocation=()',
+    'interest-cohort=()',
+    'payment=()',
+    'usb=()',
+    'vr=()',
+    'magnetometer=()',
+    'accelerometer=()',
+    'gyroscope=()'
+  ].join(', ');
+  headers['Permissions-Policy'] = permissionsPolicy;
+
   // Cross-Origin Policies
-  'Cross-Origin-Embedder-Policy': 'credentialless',
-  'Cross-Origin-Opener-Policy': 'same-origin',
-  'Cross-Origin-Resource-Policy': 'same-origin'
+  headers['Cross-Origin-Embedder-Policy'] = 'credentialless';
+  headers['Cross-Origin-Opener-Policy'] = 'same-origin';
+  headers['Cross-Origin-Resource-Policy'] = 'same-origin';
+
+  return headers;
 };
 
 export function middleware(request: NextRequest) {
   // Clone the response
   const response = NextResponse.next();
+  
+  // Get security configuration
+  const config = getConfig();
+  const securityHeaders = buildSecurityHeaders(config);
 
   // Apply security headers to all responses
-  Object.entries(SECURITY_HEADERS).forEach(([key, value]) => {
+  Object.entries(securityHeaders).forEach(([key, value]) => {
     response.headers.set(key, value);
   });
 
@@ -85,11 +116,7 @@ export function middleware(request: NextRequest) {
   if (request.nextUrl.pathname.startsWith('/api/')) {
     const clientIP = request.ip || request.headers.get('x-forwarded-for') || 'unknown';
     
-    // Simple rate limiting implementation
-    // In production, use Redis or external rate limiting service
-    const rateLimitKey = `rate_limit_${clientIP}`;
-    
-    // For now, log the request for monitoring
+    // Log the request for monitoring
     console.log(`API Request: ${request.method} ${request.nextUrl.pathname} from ${clientIP}`);
   }
 
@@ -99,12 +126,13 @@ export function middleware(request: NextRequest) {
     
     // Skip CSRF check for public API routes or if explicitly disabled
     const isPublicRoute = request.nextUrl.pathname.includes('/api/auth') || 
-                         request.nextUrl.pathname.includes('/api/health');
+                         request.nextUrl.pathname.includes('/api/health') ||
+                         request.nextUrl.pathname.includes('/api/security');
     
-    if (!isPublicRoute && !csrfToken) {
+    if (!isPublicRoute && !csrfToken && process.env.NODE_ENV === 'production') {
       return new NextResponse('CSRF token missing', { 
         status: 403,
-        headers: Object.fromEntries(Object.entries(SECURITY_HEADERS))
+        headers: securityHeaders
       });
     }
   }
